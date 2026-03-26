@@ -12,7 +12,9 @@ So sánh side-by-side chạy live giữa Vue 3 và React cho cùng một concept
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] Monorepo structure: shared, vue-app, react-app, host — Validated in Phase 1: Infrastructure Scaffold
+- [x] React Router quản lý URL, Vue sync qua custom event — Validated in Phase 1: Infrastructure Scaffold
+- [x] Topic registry là single source of truth từ shared package — Validated in Phase 1: Infrastructure Scaffold
 
 ### Active
 
@@ -22,9 +24,6 @@ So sánh side-by-side chạy live giữa Vue 3 và React cho cùng một concept
 - [ ] Deep dive pages có diagram chi tiết (Rendering, Reactivity, Re-render)
 - [ ] Navigation sidebar với topic list theo category
 - [ ] Filter theo category, search theo keyword
-- [ ] Monorepo structure: shared, vue-app, react-app, host
-- [ ] React Router quản lý URL, Vue sync qua custom event
-- [ ] Topic registry là single source of truth từ shared package
 
 ### Out of Scope
 
@@ -54,10 +53,10 @@ So sánh side-by-side chạy live giữa Vue 3 và React cho cùng một concept
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Chỉ dùng React Router | Tránh conflict 2 router trên 1 URL | — Pending |
-| Vue sync qua CustomEvent | Lightweight, không cần shared state library | — Pending |
-| Monorepo 4 packages | Separation of concerns, shared types/registry | — Pending |
-| Host app mount cả 2 | Vite config xử lý cả Vue SFC + React JSX | — Pending |
+| Chỉ dùng React Router | Tránh conflict 2 router trên 1 URL | ✓ Phase 1 |
+| Vue sync qua CustomEvent | Lightweight, không cần shared state library | ✓ Phase 1 |
+| Monorepo 4 packages | Separation of concerns, shared types/registry | ✓ Phase 1 |
+| Host app mount cả 2 | Vite config xử lý cả Vue SFC + React JSX | ✓ Phase 1 |
 
 ## Evolution
 
@@ -77,4 +76,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-26 after initialization*
+*Last updated: 2026-03-26 after Phase 1 completion*
