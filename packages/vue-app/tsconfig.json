@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "composite": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.vue"],
+  "references": [{ "path": "../shared" }]
+}
