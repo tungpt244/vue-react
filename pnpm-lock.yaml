@@ -85,6 +85,9 @@ importers:
       '@types/react-dom':
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.14)
+      vite:
+        specifier: ^8.0.3
+        version: 8.0.3(jiti@2.6.1)
 
   packages/shared: {}
 
@@ -99,6 +102,10 @@ importers:
       vue:
         specifier: ^3.5.31
         version: 3.5.31(typescript@6.0.2)
+    devDependencies:
+      vite:
+        specifier: ^8.0.3
+        version: 8.0.3(jiti@2.6.1)
 
 packages:
 

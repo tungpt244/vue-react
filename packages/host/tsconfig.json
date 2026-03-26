@@ -1,12 +1,11 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "composite": true
+    "jsx": "react-jsx",
+    "paths": {
+      "@vibe/shared": ["../shared/src"],
+      "@vibe/shared/*": ["../shared/src/*"]
+    }
   },
-  "include": ["src"],
-  "references": [
-    { "path": "../shared" },
-    { "path": "../vue-app" },
-    { "path": "../react-app" }
-  ]
+  "include": ["env.d.ts", "src"]
 }

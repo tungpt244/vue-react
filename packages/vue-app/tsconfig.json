@@ -3,8 +3,10 @@
   "compilerOptions": {
     "jsx": "preserve",
     "jsxImportSource": "vue",
-    "composite": true
+    "paths": {
+      "@vibe/shared": ["../shared/src"],
+      "@vibe/shared/*": ["../shared/src/*"]
+    }
   },
-  "include": ["src/**/*.ts", "src/**/*.vue"],
-  "references": [{ "path": "../shared" }]
+  "include": ["env.d.ts", "src/**/*.ts", "src/**/*.vue"]
 }
