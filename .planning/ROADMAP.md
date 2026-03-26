@@ -29,7 +29,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Navigating đến URL `/:category/:topicId` renders đúng trên cả 2 sides, kể cả khi refresh trực tiếp
   4. `pnpm -r typecheck` passes trên tất cả 4 packages với zero errors
   5. Topic registry từ `packages/shared` import được trong cả vue-app và react-app
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [ ] 01-01-PLAN.md -- Monorepo scaffold + shared package + host app (Vite, HTML, CSS)
+- [ ] 01-02-PLAN.md -- React app shell (router, event dispatch) + Vue app shell (event listener, renderer)
+- [ ] 01-03-PLAN.md -- Side-by-side layout + end-to-end verification checkpoint
 **UI hint**: yes
 
 ### Phase 2: First 5 Topics
@@ -77,7 +81,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Infrastructure Scaffold | 0/? | Not started | - |
+| 1. Infrastructure Scaffold | 0/3 | Planned | - |
 | 2. First 5 Topics | 0/? | Not started | - |
 | 3. Core Curriculum | 0/? | Not started | - |
 | 4. Advanced & Deep Dives | 0/? | Not started | - |
