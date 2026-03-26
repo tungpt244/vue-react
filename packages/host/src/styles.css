@@ -6,3 +6,18 @@
 @theme {
   /* Custom theme tokens -- extend as needed in future phases */
 }
+
+#app-shell {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+#vue-root {
+  border-right: 1px solid #e2e8f0;
+  min-height: 100vh;
+}
+
+#react-root {
+  min-height: 100vh;
+}
