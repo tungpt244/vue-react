@@ -33,7 +33,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 Plans:
 - [x] 01-01-PLAN.md -- Monorepo scaffold + shared package + host app (Vite, HTML, CSS)
 - [x] 01-02-PLAN.md -- React app shell (router, event dispatch) + Vue app shell (event listener, renderer)
-- [ ] 01-03-PLAN.md -- Side-by-side layout + end-to-end verification checkpoint
+- [x] 01-03-PLAN.md -- Side-by-side layout + end-to-end verification checkpoint
 **UI hint**: yes
 
 ### Phase 2: First 5 Topics
