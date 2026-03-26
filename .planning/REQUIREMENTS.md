@@ -11,8 +11,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **INFRA-01**: Host app mount cả Vue 3 và React vào 2 root divs trên cùng 1 page
 - [x] **INFRA-02**: Vite config xử lý cả Vue SFC (.vue) và React JSX (.tsx) trong cùng 1 build
-- [ ] **INFRA-03**: React Router quản lý URL với pattern `/:category/:topicId`
-- [ ] **INFRA-04**: Vue app sync route qua CustomEvent trên window (không dùng Vue Router)
+- [x] **INFRA-03**: React Router quản lý URL với pattern `/:category/:topicId`
+- [x] **INFRA-04**: Vue app sync route qua CustomEvent trên window (không dùng Vue Router)
 - [x] **INFRA-05**: Topic registry từ shared package là single source of truth cho cả 2 apps
 - [x] **INFRA-06**: pnpm monorepo workspace với 4 packages (shared, vue-app, react-app, host)
 - [x] **INFRA-07**: TypeScript config cho cả monorepo với correct jsx settings per package
@@ -116,8 +116,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 |-------------|-------|--------|
 | INFRA-01 | Phase 1 | Complete |
 | INFRA-02 | Phase 1 | Complete |
-| INFRA-03 | Phase 1 | Pending |
-| INFRA-04 | Phase 1 | Pending |
+| INFRA-03 | Phase 1 | Complete |
+| INFRA-04 | Phase 1 | Complete |
 | INFRA-05 | Phase 1 | Complete |
 | INFRA-06 | Phase 1 | Complete |
 | INFRA-07 | Phase 1 | Complete |
