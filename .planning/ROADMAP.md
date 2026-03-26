@@ -31,7 +31,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   5. Topic registry từ `packages/shared` import được trong cả vue-app và react-app
 **Plans**: 3 plans
 Plans:
-- [ ] 01-01-PLAN.md -- Monorepo scaffold + shared package + host app (Vite, HTML, CSS)
+- [x] 01-01-PLAN.md -- Monorepo scaffold + shared package + host app (Vite, HTML, CSS)
 - [ ] 01-02-PLAN.md -- React app shell (router, event dispatch) + Vue app shell (event listener, renderer)
 - [ ] 01-03-PLAN.md -- Side-by-side layout + end-to-end verification checkpoint
 **UI hint**: yes
