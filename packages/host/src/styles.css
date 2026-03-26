@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+
+@source '../../vue-app/src/**/*.vue';
+@source '../../react-app/src/**/*.tsx';
+
+@theme {
+  /* Custom theme tokens -- extend as needed in future phases */
+}
