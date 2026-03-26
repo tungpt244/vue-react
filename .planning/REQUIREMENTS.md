@@ -114,13 +114,60 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| *(populated by roadmap)* | | |
+| INFRA-01 | Phase 1 | Pending |
+| INFRA-02 | Phase 1 | Pending |
+| INFRA-03 | Phase 1 | Pending |
+| INFRA-04 | Phase 1 | Pending |
+| INFRA-05 | Phase 1 | Pending |
+| INFRA-06 | Phase 1 | Pending |
+| INFRA-07 | Phase 1 | Pending |
+| NAV-01 | Phase 2 | Pending |
+| NAV-02 | Phase 2 | Pending |
+| NAV-03 | Phase 2 | Pending |
+| DISP-01 | Phase 2 | Pending |
+| DISP-02 | Phase 2 | Pending |
+| ESS-01 | Phase 2 | Pending |
+| ESS-02 | Phase 2 | Pending |
+| ESS-03 | Phase 2 | Pending |
+| ESS-08 | Phase 2 | Pending |
+| ESS-10 | Phase 2 | Pending |
+| ESS-11 | Phase 2 | Pending |
+| ESS-04 | Phase 3 | Pending |
+| ESS-05 | Phase 3 | Pending |
+| ESS-06 | Phase 3 | Pending |
+| ESS-07 | Phase 3 | Pending |
+| ESS-09 | Phase 3 | Pending |
+| COMP-01 | Phase 3 | Pending |
+| COMP-02 | Phase 3 | Pending |
+| COMP-03 | Phase 3 | Pending |
+| COMP-04 | Phase 3 | Pending |
+| COMP-05 | Phase 3 | Pending |
+| COMP-06 | Phase 3 | Pending |
+| COMP-07 | Phase 3 | Pending |
+| REUS-01 | Phase 3 | Pending |
+| REUS-02 | Phase 3 | Pending |
+| REUS-03 | Phase 3 | Pending |
+| BTIN-01 | Phase 3 | Pending |
+| BTIN-02 | Phase 3 | Pending |
+| BTIN-03 | Phase 3 | Pending |
+| BTIN-04 | Phase 3 | Pending |
+| BTIN-05 | Phase 3 | Pending |
+| ENHC-01 | Phase 3 | Pending |
+| ENHC-02 | Phase 3 | Pending |
+| DISP-03 | Phase 4 | Pending |
+| DEEP-01 | Phase 4 | Pending |
+| DEEP-02 | Phase 4 | Pending |
+| DEEP-03 | Phase 4 | Pending |
+| SCAL-01 | Phase 4 | Pending |
+| SCAL-02 | Phase 4 | Pending |
+| SCAL-03 | Phase 4 | Pending |
+| SCAL-04 | Phase 4 | Pending |
 
 **Coverage:**
 - v1 requirements: 42 total
-- Mapped to phases: 0
-- Unmapped: 42 ⚠️
+- Mapped to phases: 42
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-26*
-*Last updated: 2026-03-26 after initial definition*
+*Last updated: 2026-03-26 after roadmap creation — all 42 requirements mapped*
