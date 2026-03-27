@@ -15,14 +15,14 @@ So sánh side-by-side chạy live giữa Vue 3 và React cho cùng một concept
 - [x] Monorepo structure: shared, vue-app, react-app, host — Validated in Phase 1: Infrastructure Scaffold
 - [x] React Router quản lý URL, Vue sync qua custom event — Validated in Phase 1: Infrastructure Scaffold
 - [x] Topic registry là single source of truth từ shared package — Validated in Phase 1: Infrastructure Scaffold
+- [x] Side-by-side live demo Vue vs React cho mỗi topic — Validated in Phase 2: First 5 Topics (6 topics with interactive demos)
+- [x] Giải thích điểm giống/khác cho mỗi topic — Validated in Phase 2: First 5 Topics (Key Differences section per topic)
+- [x] Navigation sidebar với topic list theo category — Validated in Phase 2: First 5 Topics (collapsible sidebar)
 
 ### Active
 
-- [ ] Side-by-side live demo Vue vs React cho mỗi topic
 - [ ] Source code hiển thị bên dưới mỗi bên (collapsible)
-- [ ] Giải thích điểm giống/khác cho mỗi topic
 - [ ] Deep dive pages có diagram chi tiết (Rendering, Reactivity, Re-render)
-- [ ] Navigation sidebar với topic list theo category
 - [ ] Filter theo category, search theo keyword
 
 ### Out of Scope
@@ -57,6 +57,8 @@ So sánh side-by-side chạy live giữa Vue 3 và React cho cùng một concept
 | Vue sync qua CustomEvent | Lightweight, không cần shared state library | ✓ Phase 1 |
 | Monorepo 4 packages | Separation of concerns, shared types/registry | ✓ Phase 1 |
 | Host app mount cả 2 | Vite config xử lý cả Vue SFC + React JSX | ✓ Phase 1 |
+| Sidebar in React Layout | Sidebar controls navigation for both panels via React Router | ✓ Phase 2 |
+| Inline demo + explanation | Each topic = single component with interactive demo + Key Differences text | ✓ Phase 2 |
 
 ## Evolution
 
@@ -76,4 +78,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-26 after Phase 1 completion*
+*Last updated: 2026-03-27 after Phase 2 completion*
