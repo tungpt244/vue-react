@@ -13,7 +13,7 @@ Bắt đầu từ monorepo scaffold chưa có gì, kết thúc với một learn
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Infrastructure Scaffold** - Monorepo + dual-mount + event bridge validated end-to-end
-- [ ] **Phase 2: First 5 Topics** - Pipeline proven with 5 Essentials topics running live side-by-side
+- [x] **Phase 2: First 5 Topics** - Pipeline proven with 5 Essentials topics running live side-by-side (completed 2026-03-27)
 - [ ] **Phase 3: Core Curriculum** - Full Essentials + Components + Reusability + Built-in + enhancements
 - [ ] **Phase 4: Advanced & Deep Dives** - Scaling Up topics + 3 Deep Dive pages with diagrams
 
@@ -51,7 +51,7 @@ Plans:
 - [x] 02-01-PLAN.md -- Sidebar navigation + topic registry expansion
 - [x] 02-02-PLAN.md -- Template/JSX, Reactivity, Computed topics (replace placeholders + new)
 - [x] 02-03-PLAN.md -- Watchers, Lifecycle, Class & Style Bindings topics (new)
-- [ ] 02-04-PLAN.md -- End-to-end verification checkpoint
+- [x] 02-04-PLAN.md -- End-to-end verification checkpoint
 **UI hint**: yes
 
 ### Phase 3: Core Curriculum
@@ -87,6 +87,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Infrastructure Scaffold | 3/3 | Complete | - |
-| 2. First 5 Topics | 3/4 | In Progress|  |
+| 2. First 5 Topics | 4/4 | Complete   | 2026-03-27 |
 | 3. Core Curriculum | 0/? | Not started | - |
 | 4. Advanced & Deep Dives | 0/? | Not started | - |
