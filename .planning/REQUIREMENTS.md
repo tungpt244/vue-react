@@ -38,10 +38,10 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **ESS-05**: List Rendering — v-for + :key vs .map() + key
 - [ ] **ESS-06**: Event Handling — @click/@input + modifiers vs onClick/onChange
 - [ ] **ESS-07**: Form Bindings — v-model vs controlled components
-- [ ] **ESS-08**: Watchers — watch()/watchEffect() vs useEffect
+- [x] **ESS-08**: Watchers — watch()/watchEffect() vs useEffect
 - [ ] **ESS-09**: Template Refs — ref + template ref vs useRef
-- [ ] **ESS-10**: Lifecycle — onMounted/onUnmounted vs useEffect + cleanup
-- [ ] **ESS-11**: Class & Style Bindings — :class/:style vs className + style object
+- [x] **ESS-10**: Lifecycle — onMounted/onUnmounted vs useEffect + cleanup
+- [x] **ESS-11**: Class & Style Bindings — :class/:style vs className + style object
 
 ### Topic Content — Components In-Depth (7 topics)
 
@@ -129,9 +129,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ESS-01 | Phase 2 | Complete |
 | ESS-02 | Phase 2 | Complete |
 | ESS-03 | Phase 2 | Complete |
-| ESS-08 | Phase 2 | Pending |
-| ESS-10 | Phase 2 | Pending |
-| ESS-11 | Phase 2 | Pending |
+| ESS-08 | Phase 2 | Complete |
+| ESS-10 | Phase 2 | Complete |
+| ESS-11 | Phase 2 | Complete |
 | ESS-04 | Phase 3 | Pending |
 | ESS-05 | Phase 3 | Pending |
 | ESS-06 | Phase 3 | Pending |
