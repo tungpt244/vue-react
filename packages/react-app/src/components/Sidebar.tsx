@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router'
 import {
   getAllCategories,
@@ -11,20 +11,11 @@ import {
 export function Sidebar() {
   const [collapsed, setCollapsed] = useState(false)
   const navigate = useNavigate()
-  const location = useLocation()
-  const [, activeCategory, activeTopicId] = location.pathname.split('/')
+  const { pathname } = useLocation()
 
-  const navigateToTopic = useCallback(
-    (category: string, slug: string) => {
-      navigate(`/${category}/${slug}`)
-      window.dispatchEvent(
-        new CustomEvent<RouteChangeDetail>(ROUTE_CHANGE_EVENT, {
-          detail: { category, topicId: slug },
-        }),
-      )
-    },
-    [navigate],
-  )
+  const segments = pathname.split('/').filter(Boolean)
+  const activeCategory = segments[0] ?? ''
+  const activeTopicId = segments[1] ?? ''
 
   useEffect(() => {
     document.documentElement.style.setProperty(
@@ -32,6 +23,15 @@ export function Sidebar() {
       collapsed ? '3rem' : '16rem',
     )
   }, [collapsed])
+
+  function handleClick(category: string, slug: string) {
+    navigate(`/${category}/${slug}`)
+    window.dispatchEvent(
+      new CustomEvent<RouteChangeDetail>(ROUTE_CHANGE_EVENT, {
+        detail: { category, topicId: slug },
+      }),
+    )
+  }
 
   return (
     <div
@@ -62,7 +62,7 @@ export function Sidebar() {
                 return (
                   <button
                     key={topic.id}
-                    onClick={() => navigateToTopic(topic.category, topic.slug)}
+                    onClick={() => handleClick(topic.category, topic.slug)}
                     className={[
                       'w-full text-left px-3 py-1.5 text-sm cursor-pointer rounded mx-1 block',
                       isActive
