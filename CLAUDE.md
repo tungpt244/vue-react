@@ -27,7 +27,18 @@ Cả 2 app mirror cùng folder structure: `src/topics/{category}/{TopicId}.vue|.
 
 ## Status
 
-Đang ở giai đoạn planning. Chưa có code, chỉ có PROJECT_BRIEF.md.
+Phase 1 + 2 complete. 6 Essentials topics live. Phase 3 (Core Curriculum) next.
+
+## Git Workflow
+
+Khi Boss nói "push", chạy full flow tự động:
+1. `git push` lên remote
+2. Tạo PR với summary + test plan
+3. Code review (`/code-review`)
+4. Nếu không có issue nghiêm trọng → merge luôn
+5. Nếu có issue → báo Boss trước khi merge
+
+Không hỏi xác nhận từng bước — chạy liền mạch.
 
 <!-- GSD:project-start source:PROJECT.md -->
 ## Project
