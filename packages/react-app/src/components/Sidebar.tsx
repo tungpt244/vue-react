@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { useNavigate, useParams } from 'react-router'
+import { useNavigate, useLocation } from 'react-router'
 import {
   getAllCategories,
   getTopicsByCategory,
@@ -11,7 +11,8 @@ import {
 export function Sidebar() {
   const [collapsed, setCollapsed] = useState(false)
   const navigate = useNavigate()
-  const params = useParams()
+  const location = useLocation()
+  const [, activeCategory, activeTopicId] = location.pathname.split('/')
 
   const navigateToTopic = useCallback(
     (category: string, slug: string) => {
@@ -56,8 +57,8 @@ export function Sidebar() {
               </h3>
               {getTopicsByCategory(cat).map((topic) => {
                 const isActive =
-                  params.category === topic.category &&
-                  params.topicId === topic.slug
+                  activeCategory === topic.category &&
+                  activeTopicId === topic.slug
                 return (
                   <button
                     key={topic.id}
