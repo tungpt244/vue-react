@@ -1,11 +1,29 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useNavigate, useParams } from 'react-router'
-import { getAllCategories, getTopicsByCategory, CATEGORIES } from '@vibe/shared'
+import {
+  getAllCategories,
+  getTopicsByCategory,
+  CATEGORIES,
+  ROUTE_CHANGE_EVENT,
+  type RouteChangeDetail,
+} from '@vibe/shared'
 
 export function Sidebar() {
   const [collapsed, setCollapsed] = useState(false)
   const navigate = useNavigate()
   const params = useParams()
+
+  const navigateToTopic = useCallback(
+    (category: string, slug: string) => {
+      navigate(`/${category}/${slug}`)
+      window.dispatchEvent(
+        new CustomEvent<RouteChangeDetail>(ROUTE_CHANGE_EVENT, {
+          detail: { category, topicId: slug },
+        }),
+      )
+    },
+    [navigate],
+  )
 
   useEffect(() => {
     document.documentElement.style.setProperty(
@@ -43,7 +61,7 @@ export function Sidebar() {
                 return (
                   <button
                     key={topic.id}
-                    onClick={() => navigate(`/${topic.category}/${topic.slug}`)}
+                    onClick={() => navigateToTopic(topic.category, topic.slug)}
                     className={[
                       'w-full text-left px-3 py-1.5 text-sm cursor-pointer rounded mx-1 block',
                       isActive
