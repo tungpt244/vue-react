@@ -4,13 +4,19 @@
 @source '../../react-app/src/**/*.tsx';
 
 @theme {
-  /* Custom theme tokens -- extend as needed in future phases */
+  /* Custom theme tokens -- extend as needed */
+}
+
+:root {
+  --sidebar-width: 16rem;
 }
 
 #app-shell {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 100vh;
+  margin-left: var(--sidebar-width);
+  transition: margin-left 0.2s ease;
 }
 
 #vue-root {
