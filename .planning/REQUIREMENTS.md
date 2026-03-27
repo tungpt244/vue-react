@@ -25,15 +25,15 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Content Display
 
-- [ ] **DISP-01**: Mỗi topic có live interactive demo chạy thật (không chỉ code snippets)
-- [ ] **DISP-02**: Mỗi topic có explanation text giải thích điểm giống/khác giữa Vue và React
+- [x] **DISP-01**: Mỗi topic có live interactive demo chạy thật (không chỉ code snippets)
+- [x] **DISP-02**: Mỗi topic có explanation text giải thích điểm giống/khác giữa Vue và React
 - [ ] **DISP-03**: Deep dive pages (3 topics) có diagram chi tiết minh họa concepts
 
 ### Topic Content — Essentials (11 topics)
 
-- [ ] **ESS-01**: Template vs JSX — template syntax/directives vs JSX expressions
-- [ ] **ESS-02**: Reactivity — ref()/reactive() vs useState/useReducer
-- [ ] **ESS-03**: Computed — computed() vs useMemo
+- [x] **ESS-01**: Template vs JSX — template syntax/directives vs JSX expressions
+- [x] **ESS-02**: Reactivity — ref()/reactive() vs useState/useReducer
+- [x] **ESS-03**: Computed — computed() vs useMemo
 - [ ] **ESS-04**: Conditional Rendering — v-if/v-else/v-show vs &&/ternary/early return
 - [ ] **ESS-05**: List Rendering — v-for + :key vs .map() + key
 - [ ] **ESS-06**: Event Handling — @click/@input + modifiers vs onClick/onChange
@@ -124,11 +124,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | NAV-01 | Phase 2 | Complete |
 | NAV-02 | Phase 2 | Complete |
 | NAV-03 | Phase 2 | Complete |
-| DISP-01 | Phase 2 | Pending |
-| DISP-02 | Phase 2 | Pending |
-| ESS-01 | Phase 2 | Pending |
-| ESS-02 | Phase 2 | Pending |
-| ESS-03 | Phase 2 | Pending |
+| DISP-01 | Phase 2 | Complete |
+| DISP-02 | Phase 2 | Complete |
+| ESS-01 | Phase 2 | Complete |
+| ESS-02 | Phase 2 | Complete |
+| ESS-03 | Phase 2 | Complete |
 | ESS-08 | Phase 2 | Pending |
 | ESS-10 | Phase 2 | Pending |
 | ESS-11 | Phase 2 | Pending |
