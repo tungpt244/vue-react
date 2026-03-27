@@ -37,7 +37,7 @@ Plans:
 **UI hint**: yes
 
 ### Phase 2: First 5 Topics
-**Goal**: 5 topics Essentials chạy live end-to-end, establishing patterns cho toàn bộ content sau này
+**Goal**: 6 topics Essentials chạy live end-to-end, establishing patterns cho toàn bộ content sau này
 **Depends on**: Phase 1
 **Requirements**: NAV-01, NAV-02, NAV-03, DISP-01, DISP-02, ESS-01, ESS-02, ESS-03, ESS-08, ESS-10, ESS-11
 **Success Criteria** (what must be TRUE):
@@ -46,7 +46,12 @@ Plans:
   3. Mỗi topic có explanation text giải thích điểm giống/khác giữa Vue và React
   4. 5 topics hoạt động: Template/JSX, Reactivity (ref/useState), Computed/useMemo, Watchers/useEffect, Lifecycle hooks
   5. Class & Style Bindings topic hoạt động (ESS-11 — pattern cho binding syntax)
-**Plans**: TBD
+**Plans**: 4 plans
+Plans:
+- [ ] 02-01-PLAN.md -- Sidebar navigation + topic registry expansion
+- [ ] 02-02-PLAN.md -- Template/JSX, Reactivity, Computed topics (replace placeholders + new)
+- [ ] 02-03-PLAN.md -- Watchers, Lifecycle, Class & Style Bindings topics (new)
+- [ ] 02-04-PLAN.md -- End-to-end verification checkpoint
 **UI hint**: yes
 
 ### Phase 3: Core Curriculum
@@ -81,7 +86,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Infrastructure Scaffold | 0/3 | Planned | - |
-| 2. First 5 Topics | 0/? | Not started | - |
+| 1. Infrastructure Scaffold | 3/3 | Complete | - |
+| 2. First 5 Topics | 0/4 | Planned | - |
 | 3. Core Curriculum | 0/? | Not started | - |
 | 4. Advanced & Deep Dives | 0/? | Not started | - |
