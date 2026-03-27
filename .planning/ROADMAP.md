@@ -48,7 +48,7 @@ Plans:
   5. Class & Style Bindings topic hoạt động (ESS-11 — pattern cho binding syntax)
 **Plans**: 4 plans
 Plans:
-- [ ] 02-01-PLAN.md -- Sidebar navigation + topic registry expansion
+- [x] 02-01-PLAN.md -- Sidebar navigation + topic registry expansion
 - [ ] 02-02-PLAN.md -- Template/JSX, Reactivity, Computed topics (replace placeholders + new)
 - [ ] 02-03-PLAN.md -- Watchers, Lifecycle, Class & Style Bindings topics (new)
 - [ ] 02-04-PLAN.md -- End-to-end verification checkpoint
@@ -87,6 +87,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Infrastructure Scaffold | 3/3 | Complete | - |
-| 2. First 5 Topics | 0/4 | Planned | - |
+| 2. First 5 Topics | 1/4 | In Progress|  |
 | 3. Core Curriculum | 0/? | Not started | - |
 | 4. Advanced & Deep Dives | 0/? | Not started | - |

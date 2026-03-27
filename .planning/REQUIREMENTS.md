@@ -19,9 +19,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Navigation & Layout
 
-- [ ] **NAV-01**: Sidebar navigation hiển thị topic list grouped by category
-- [ ] **NAV-02**: Side-by-side layout: Vue app bên trái, React app bên phải
-- [ ] **NAV-03**: Click topic trong sidebar navigate đến topic đó và cả 2 app render đúng component
+- [x] **NAV-01**: Sidebar navigation hiển thị topic list grouped by category
+- [x] **NAV-02**: Side-by-side layout: Vue app bên trái, React app bên phải
+- [x] **NAV-03**: Click topic trong sidebar navigate đến topic đó và cả 2 app render đúng component
 
 ### Content Display
 
@@ -121,9 +121,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | INFRA-05 | Phase 1 | Complete |
 | INFRA-06 | Phase 1 | Complete |
 | INFRA-07 | Phase 1 | Complete |
-| NAV-01 | Phase 2 | Pending |
-| NAV-02 | Phase 2 | Pending |
-| NAV-03 | Phase 2 | Pending |
+| NAV-01 | Phase 2 | Complete |
+| NAV-02 | Phase 2 | Complete |
+| NAV-03 | Phase 2 | Complete |
 | DISP-01 | Phase 2 | Pending |
 | DISP-02 | Phase 2 | Pending |
 | ESS-01 | Phase 2 | Pending |
