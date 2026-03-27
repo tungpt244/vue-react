@@ -1,0 +1,15 @@
+{
+  "name": "vibe",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter @vibe/host dev",
+    "build": "pnpm --filter @vibe/host build",
+    "typecheck": "pnpm -r typecheck",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "prettier": "^3.8.1",
+    "typescript": "^6.0.2",
+    "vue-tsc": "^3.2.6"
+  }
+}

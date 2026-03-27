@@ -13,7 +13,7 @@ Bắt đầu từ monorepo scaffold chưa có gì, kết thúc với một learn
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Infrastructure Scaffold** - Monorepo + dual-mount + event bridge validated end-to-end
-- [ ] **Phase 2: First 5 Topics** - Pipeline proven with 5 Essentials topics running live side-by-side
+- [x] **Phase 2: First 5 Topics** - Pipeline proven with 5 Essentials topics running live side-by-side (completed 2026-03-27)
 - [ ] **Phase 3: Core Curriculum** - Full Essentials + Components + Reusability + Built-in + enhancements
 - [ ] **Phase 4: Advanced & Deep Dives** - Scaling Up topics + 3 Deep Dive pages with diagrams
 
@@ -29,11 +29,15 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Navigating đến URL `/:category/:topicId` renders đúng trên cả 2 sides, kể cả khi refresh trực tiếp
   4. `pnpm -r typecheck` passes trên tất cả 4 packages với zero errors
   5. Topic registry từ `packages/shared` import được trong cả vue-app và react-app
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [x] 01-01-PLAN.md -- Monorepo scaffold + shared package + host app (Vite, HTML, CSS)
+- [x] 01-02-PLAN.md -- React app shell (router, event dispatch) + Vue app shell (event listener, renderer)
+- [x] 01-03-PLAN.md -- Side-by-side layout + end-to-end verification checkpoint
 **UI hint**: yes
 
 ### Phase 2: First 5 Topics
-**Goal**: 5 topics Essentials chạy live end-to-end, establishing patterns cho toàn bộ content sau này
+**Goal**: 6 topics Essentials chạy live end-to-end, establishing patterns cho toàn bộ content sau này
 **Depends on**: Phase 1
 **Requirements**: NAV-01, NAV-02, NAV-03, DISP-01, DISP-02, ESS-01, ESS-02, ESS-03, ESS-08, ESS-10, ESS-11
 **Success Criteria** (what must be TRUE):
@@ -42,7 +46,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Mỗi topic có explanation text giải thích điểm giống/khác giữa Vue và React
   4. 5 topics hoạt động: Template/JSX, Reactivity (ref/useState), Computed/useMemo, Watchers/useEffect, Lifecycle hooks
   5. Class & Style Bindings topic hoạt động (ESS-11 — pattern cho binding syntax)
-**Plans**: TBD
+**Plans**: 4 plans
+Plans:
+- [x] 02-01-PLAN.md -- Sidebar navigation + topic registry expansion
+- [x] 02-02-PLAN.md -- Template/JSX, Reactivity, Computed topics (replace placeholders + new)
+- [x] 02-03-PLAN.md -- Watchers, Lifecycle, Class & Style Bindings topics (new)
+- [x] 02-04-PLAN.md -- End-to-end verification checkpoint
 **UI hint**: yes
 
 ### Phase 3: Core Curriculum
@@ -77,7 +86,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Infrastructure Scaffold | 0/? | Not started | - |
-| 2. First 5 Topics | 0/? | Not started | - |
+| 1. Infrastructure Scaffold | 3/3 | Complete | - |
+| 2. First 5 Topics | 4/4 | Complete   | 2026-03-27 |
 | 3. Core Curriculum | 0/? | Not started | - |
 | 4. Advanced & Deep Dives | 0/? | Not started | - |

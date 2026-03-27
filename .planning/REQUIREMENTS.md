@@ -9,39 +9,39 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Infrastructure
 
-- [ ] **INFRA-01**: Host app mount cả Vue 3 và React vào 2 root divs trên cùng 1 page
-- [ ] **INFRA-02**: Vite config xử lý cả Vue SFC (.vue) và React JSX (.tsx) trong cùng 1 build
-- [ ] **INFRA-03**: React Router quản lý URL với pattern `/:category/:topicId`
-- [ ] **INFRA-04**: Vue app sync route qua CustomEvent trên window (không dùng Vue Router)
-- [ ] **INFRA-05**: Topic registry từ shared package là single source of truth cho cả 2 apps
-- [ ] **INFRA-06**: pnpm monorepo workspace với 4 packages (shared, vue-app, react-app, host)
-- [ ] **INFRA-07**: TypeScript config cho cả monorepo với correct jsx settings per package
+- [x] **INFRA-01**: Host app mount cả Vue 3 và React vào 2 root divs trên cùng 1 page
+- [x] **INFRA-02**: Vite config xử lý cả Vue SFC (.vue) và React JSX (.tsx) trong cùng 1 build
+- [x] **INFRA-03**: React Router quản lý URL với pattern `/:category/:topicId`
+- [x] **INFRA-04**: Vue app sync route qua CustomEvent trên window (không dùng Vue Router)
+- [x] **INFRA-05**: Topic registry từ shared package là single source of truth cho cả 2 apps
+- [x] **INFRA-06**: pnpm monorepo workspace với 4 packages (shared, vue-app, react-app, host)
+- [x] **INFRA-07**: TypeScript config cho cả monorepo với correct jsx settings per package
 
 ### Navigation & Layout
 
-- [ ] **NAV-01**: Sidebar navigation hiển thị topic list grouped by category
-- [ ] **NAV-02**: Side-by-side layout: Vue app bên trái, React app bên phải
-- [ ] **NAV-03**: Click topic trong sidebar navigate đến topic đó và cả 2 app render đúng component
+- [x] **NAV-01**: Sidebar navigation hiển thị topic list grouped by category
+- [x] **NAV-02**: Side-by-side layout: Vue app bên trái, React app bên phải
+- [x] **NAV-03**: Click topic trong sidebar navigate đến topic đó và cả 2 app render đúng component
 
 ### Content Display
 
-- [ ] **DISP-01**: Mỗi topic có live interactive demo chạy thật (không chỉ code snippets)
-- [ ] **DISP-02**: Mỗi topic có explanation text giải thích điểm giống/khác giữa Vue và React
+- [x] **DISP-01**: Mỗi topic có live interactive demo chạy thật (không chỉ code snippets)
+- [x] **DISP-02**: Mỗi topic có explanation text giải thích điểm giống/khác giữa Vue và React
 - [ ] **DISP-03**: Deep dive pages (3 topics) có diagram chi tiết minh họa concepts
 
 ### Topic Content — Essentials (11 topics)
 
-- [ ] **ESS-01**: Template vs JSX — template syntax/directives vs JSX expressions
-- [ ] **ESS-02**: Reactivity — ref()/reactive() vs useState/useReducer
-- [ ] **ESS-03**: Computed — computed() vs useMemo
+- [x] **ESS-01**: Template vs JSX — template syntax/directives vs JSX expressions
+- [x] **ESS-02**: Reactivity — ref()/reactive() vs useState/useReducer
+- [x] **ESS-03**: Computed — computed() vs useMemo
 - [ ] **ESS-04**: Conditional Rendering — v-if/v-else/v-show vs &&/ternary/early return
 - [ ] **ESS-05**: List Rendering — v-for + :key vs .map() + key
 - [ ] **ESS-06**: Event Handling — @click/@input + modifiers vs onClick/onChange
 - [ ] **ESS-07**: Form Bindings — v-model vs controlled components
-- [ ] **ESS-08**: Watchers — watch()/watchEffect() vs useEffect
+- [x] **ESS-08**: Watchers — watch()/watchEffect() vs useEffect
 - [ ] **ESS-09**: Template Refs — ref + template ref vs useRef
-- [ ] **ESS-10**: Lifecycle — onMounted/onUnmounted vs useEffect + cleanup
-- [ ] **ESS-11**: Class & Style Bindings — :class/:style vs className + style object
+- [x] **ESS-10**: Lifecycle — onMounted/onUnmounted vs useEffect + cleanup
+- [x] **ESS-11**: Class & Style Bindings — :class/:style vs className + style object
 
 ### Topic Content — Components In-Depth (7 topics)
 
@@ -114,24 +114,24 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INFRA-01 | Phase 1 | Pending |
-| INFRA-02 | Phase 1 | Pending |
-| INFRA-03 | Phase 1 | Pending |
-| INFRA-04 | Phase 1 | Pending |
-| INFRA-05 | Phase 1 | Pending |
-| INFRA-06 | Phase 1 | Pending |
-| INFRA-07 | Phase 1 | Pending |
-| NAV-01 | Phase 2 | Pending |
-| NAV-02 | Phase 2 | Pending |
-| NAV-03 | Phase 2 | Pending |
-| DISP-01 | Phase 2 | Pending |
-| DISP-02 | Phase 2 | Pending |
-| ESS-01 | Phase 2 | Pending |
-| ESS-02 | Phase 2 | Pending |
-| ESS-03 | Phase 2 | Pending |
-| ESS-08 | Phase 2 | Pending |
-| ESS-10 | Phase 2 | Pending |
-| ESS-11 | Phase 2 | Pending |
+| INFRA-01 | Phase 1 | Complete |
+| INFRA-02 | Phase 1 | Complete |
+| INFRA-03 | Phase 1 | Complete |
+| INFRA-04 | Phase 1 | Complete |
+| INFRA-05 | Phase 1 | Complete |
+| INFRA-06 | Phase 1 | Complete |
+| INFRA-07 | Phase 1 | Complete |
+| NAV-01 | Phase 2 | Complete |
+| NAV-02 | Phase 2 | Complete |
+| NAV-03 | Phase 2 | Complete |
+| DISP-01 | Phase 2 | Complete |
+| DISP-02 | Phase 2 | Complete |
+| ESS-01 | Phase 2 | Complete |
+| ESS-02 | Phase 2 | Complete |
+| ESS-03 | Phase 2 | Complete |
+| ESS-08 | Phase 2 | Complete |
+| ESS-10 | Phase 2 | Complete |
+| ESS-11 | Phase 2 | Complete |
 | ESS-04 | Phase 3 | Pending |
 | ESS-05 | Phase 3 | Pending |
 | ESS-06 | Phase 3 | Pending |
