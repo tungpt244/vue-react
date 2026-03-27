@@ -1,9 +1,14 @@
 import { lazy, Suspense, useMemo } from 'react'
 import { useRouteDispatch } from '../hooks/useRouteDispatch'
 
-const topicModules = import.meta.glob<{ default: React.ComponentType }>('../topics/**/*.tsx')
+const topicModules = import.meta.glob<{ default: React.ComponentType }>(
+  '../topics/**/*.tsx',
+)
 
-const lazyCache = new Map<string, React.LazyExoticComponent<React.ComponentType>>()
+const lazyCache = new Map<
+  string,
+  React.LazyExoticComponent<React.ComponentType>
+>()
 
 function getLazyComponent(modulePath: string) {
   if (!lazyCache.has(modulePath)) {
@@ -31,11 +36,7 @@ export function TopicRenderer() {
   }, [category, topicId])
 
   if (!category || !topicId) {
-    return (
-      <div className="text-slate-400 text-sm">
-        Chưa chọn topic
-      </div>
-    )
+    return <div className="text-slate-400 text-sm">Chưa chọn topic</div>
   }
 
   if (!TopicComponent) {
@@ -47,7 +48,9 @@ export function TopicRenderer() {
   }
 
   return (
-    <Suspense fallback={<div className="text-slate-400 text-sm">Đang tải...</div>}>
+    <Suspense
+      fallback={<div className="text-slate-400 text-sm">Đang tải...</div>}
+    >
       <TopicComponent />
     </Suspense>
   )

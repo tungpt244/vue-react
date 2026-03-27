@@ -104,7 +104,10 @@ const fullName = computed({
       >
         {{ showCode ? '▼ Ẩn code' : '▶ Xem code' }}
       </button>
-      <pre v-if="showCode" class="mt-2 bg-slate-900 text-slate-100 text-xs p-3 rounded overflow-x-auto">
+      <pre
+        v-if="showCode"
+        class="mt-2 bg-slate-900 text-slate-100 text-xs p-3 rounded overflow-x-auto"
+      >
         <code>{{ DEMO_CODE }}</code>
       </pre>
     </div>
@@ -113,20 +116,22 @@ const fullName = computed({
       <h3 class="text-sm font-semibold mb-2">So sánh</h3>
       <div class="text-sm text-slate-600 space-y-2">
         <p>
-          <strong>computed() tự track dependency.</strong> Vue dùng Proxy để biết function đọc
-          những reactive value nào — không cần khai báo dependency array. Kết quả được cache
-          và chỉ recalculate khi dependency thực sự thay đổi.
+          <strong>computed() tự track dependency.</strong> Vue dùng Proxy để
+          biết function đọc những reactive value nào — không cần khai báo
+          dependency array. Kết quả được cache và chỉ recalculate khi dependency
+          thực sự thay đổi.
         </p>
         <p>
-          <strong>computed là bắt buộc cho derived state.</strong> Khác React (useMemo chỉ là
-          optimization), Vue's computed là cách chính thức để tạo derived reactive value.
-          Nếu tính trực tiếp trong template → chạy lại mỗi render, không cache.
+          <strong>computed là bắt buộc cho derived state.</strong> Khác React
+          (useMemo chỉ là optimization), Vue's computed là cách chính thức để
+          tạo derived reactive value. Nếu tính trực tiếp trong template → chạy
+          lại mỗi render, không cache.
         </p>
         <p>
           <strong>Writable computed.</strong> Vue hỗ trợ
-          <code class="bg-slate-200 px-1 rounded">computed({ get, set })</code> — cho phép
-          gán ngược (ví dụ: fullName parsed thành firstName + lastName). React không có
-          tương đương.
+          <code class="bg-slate-200 px-1 rounded">computed({ get, set })</code>
+          — cho phép gán ngược (ví dụ: fullName parsed thành firstName +
+          lastName). React không có tương đương.
         </p>
       </div>
     </div>

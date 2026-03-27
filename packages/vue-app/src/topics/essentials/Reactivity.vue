@@ -71,7 +71,10 @@ user.name = 'Tùng'    // ✓ tự track property
       >
         {{ showCode ? '▼ Ẩn code' : '▶ Xem code' }}
       </button>
-      <pre v-if="showCode" class="mt-2 bg-slate-900 text-slate-100 text-xs p-3 rounded overflow-x-auto">
+      <pre
+        v-if="showCode"
+        class="mt-2 bg-slate-900 text-slate-100 text-xs p-3 rounded overflow-x-auto"
+      >
         <code>{{ DEMO_CODE }}</code>
       </pre>
     </div>
@@ -80,22 +83,28 @@ user.name = 'Tùng'    // ✓ tự track property
       <h3 class="text-sm font-semibold mb-2">So sánh</h3>
       <div class="text-sm text-slate-600 space-y-2">
         <p>
-          <strong>ref() cho primitive, reactive() cho object.</strong> Vue dùng Proxy-based
-          reactivity — tự động track dependency khi truy cập property. Trong script dùng
-          <code class="bg-slate-200 px-1 rounded">.value</code>, trong template thì auto-unwrap.
+          <strong>ref() cho primitive, reactive() cho object.</strong> Vue dùng
+          Proxy-based reactivity — tự động track dependency khi truy cập
+          property. Trong script dùng
+          <code class="bg-slate-200 px-1 rounded">.value</code>, trong template
+          thì auto-unwrap.
         </p>
         <p>
-          <strong>Mutation trực tiếp.</strong> Khác React (immutable state), Vue cho phép mutate
-          trực tiếp: <code class="bg-slate-200 px-1 rounded">count.value++</code>,
-          <code class="bg-slate-200 px-1 rounded">user.name = 'abc'</code>. Vue tự detect thay
-          đổi và chỉ re-render phần template bị ảnh hưởng (không re-render toàn component).
+          <strong>Mutation trực tiếp.</strong> Khác React (immutable state), Vue
+          cho phép mutate trực tiếp:
+          <code class="bg-slate-200 px-1 rounded">count.value++</code>,
+          <code class="bg-slate-200 px-1 rounded">user.name = 'abc'</code>. Vue
+          tự detect thay đổi và chỉ re-render phần template bị ảnh hưởng (không
+          re-render toàn component).
         </p>
         <p>
           <strong>v-model = two-way binding.</strong> Syntactic sugar cho
           <code class="bg-slate-200 px-1 rounded">:value</code> +
-          <code class="bg-slate-200 px-1 rounded">@input</code>. React không có tương đương —
-          phải viết <code class="bg-slate-200 px-1 rounded">value</code> +
-          <code class="bg-slate-200 px-1 rounded">onChange</code> thủ công (controlled component).
+          <code class="bg-slate-200 px-1 rounded">@input</code>. React không có
+          tương đương — phải viết
+          <code class="bg-slate-200 px-1 rounded">value</code> +
+          <code class="bg-slate-200 px-1 rounded">onChange</code> thủ công
+          (controlled component).
         </p>
       </div>
     </div>

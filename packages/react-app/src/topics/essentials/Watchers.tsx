@@ -24,7 +24,7 @@ export default function Watchers() {
 
   useEffect(() => {
     if (question !== '') {
-      setLogs(prev => [...prev, `useEffect [question]: "${question}"`])
+      setLogs((prev) => [...prev, `useEffect [question]: "${question}"`])
     }
     if (question.endsWith('?')) {
       setAnswer('Đang nghĩ...')
@@ -37,7 +37,10 @@ export default function Watchers() {
 
   useEffect(() => {
     if (searchQuery) {
-      setLogs(prev => [...prev, `useEffect [searchQuery]: tìm "${searchQuery}"`])
+      setLogs((prev) => [
+        ...prev,
+        `useEffect [searchQuery]: tìm "${searchQuery}"`,
+      ])
     }
   }, [searchQuery])
 
@@ -47,10 +50,12 @@ export default function Watchers() {
 
       <div className="border border-slate-200 rounded-lg p-4 mb-4 space-y-4">
         <div>
-          <p className="text-sm font-medium text-slate-700 mb-2">Question watcher (useEffect)</p>
+          <p className="text-sm font-medium text-slate-700 mb-2">
+            Question watcher (useEffect)
+          </p>
           <input
             value={question}
-            onChange={e => setQuestion(e.target.value)}
+            onChange={(e) => setQuestion(e.target.value)}
             placeholder="Hỏi gì đó kết thúc bằng ?"
             className="border border-slate-300 rounded px-2 py-1 text-sm w-full mb-2"
           />
@@ -60,10 +65,12 @@ export default function Watchers() {
         </div>
 
         <div>
-          <p className="text-sm font-medium text-slate-700 mb-2">Search (useEffect với [searchQuery])</p>
+          <p className="text-sm font-medium text-slate-700 mb-2">
+            Search (useEffect với [searchQuery])
+          </p>
           <input
             value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
+            onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Gõ để trigger useEffect..."
             className="border border-slate-300 rounded px-2 py-1 text-sm w-full"
           />
@@ -71,7 +78,9 @@ export default function Watchers() {
 
         <div>
           <div className="flex items-center justify-between mb-1">
-            <p className="text-xs font-medium text-slate-500 uppercase tracking-wide">Effect log</p>
+            <p className="text-xs font-medium text-slate-500 uppercase tracking-wide">
+              Effect log
+            </p>
             <button
               onClick={() => setLogs([])}
               className="px-2 py-0.5 bg-slate-200 text-slate-600 rounded text-xs hover:bg-slate-300"
@@ -107,23 +116,25 @@ export default function Watchers() {
         <h3 className="text-sm font-semibold mb-2">So sánh</h3>
         <div className="text-sm text-slate-600 space-y-2">
           <p>
-            <strong>React chỉ có useEffect — "đa zi năng".</strong> Không phân biệt watch vs
-            watchEffect vs onMounted. Dependency array quyết định behavior:{' '}
-            <code className="bg-slate-200 px-1 rounded">[dep]</code> = watch specific,{' '}
+            <strong>React chỉ có useEffect — "đa zi năng".</strong> Không phân
+            biệt watch vs watchEffect vs onMounted. Dependency array quyết định
+            behavior: <code className="bg-slate-200 px-1 rounded">[dep]</code> =
+            watch specific,{' '}
             <code className="bg-slate-200 px-1 rounded">[]</code> = mount once,{' '}
             không có array = chạy mỗi render.
           </p>
           <p>
-            <strong>Cleanup function.</strong> Return một function từ useEffect → chạy khi unmount
-            hoặc trước khi effect chạy lại. Tương đương{' '}
+            <strong>Cleanup function.</strong> Return một function từ useEffect
+            → chạy khi unmount hoặc trước khi effect chạy lại. Tương đương{' '}
             <code className="bg-slate-200 px-1 rounded">onUnmounted</code> hoặc{' '}
-            <code className="bg-slate-200 px-1 rounded">onWatcherCleanup</code> của Vue.
+            <code className="bg-slate-200 px-1 rounded">onWatcherCleanup</code>{' '}
+            của Vue.
           </p>
           <p>
-            <strong>Dependency array là nguồn bug #1.</strong> Quên khai báo dep → stale closure.
-            Khai báo thừa → infinite loop. Vue's{' '}
-            <code className="bg-slate-200 px-1 rounded">watchEffect</code> tự track nên không
-            gặp vấn đề này.
+            <strong>Dependency array là nguồn bug #1.</strong> Quên khai báo dep
+            → stale closure. Khai báo thừa → infinite loop. Vue's{' '}
+            <code className="bg-slate-200 px-1 rounded">watchEffect</code> tự
+            track nên không gặp vấn đề này.
           </p>
         </div>
       </div>

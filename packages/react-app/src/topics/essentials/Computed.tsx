@@ -24,17 +24,22 @@ export default function Computed() {
   const [newPrice, setNewPrice] = useState(0)
   const [showCode, setShowCode] = useState(false)
 
-  const total = useMemo(() => items.reduce((sum, i) => sum + i.price, 0), [items])
+  const total = useMemo(
+    () => items.reduce((sum, i) => sum + i.price, 0),
+    [items],
+  )
   const itemCount = useMemo(() => items.length, [items])
   const mostExpensive = useMemo(
     () =>
-      items.length ? items.reduce((max, i) => (i.price > max.price ? i : max)).name : 'None',
+      items.length
+        ? items.reduce((max, i) => (i.price > max.price ? i : max)).name
+        : 'None',
     [items],
   )
 
   function addItem() {
     if (!newName.trim()) return
-    setItems(prev => [...prev, { name: newName.trim(), price: newPrice }])
+    setItems((prev) => [...prev, { name: newName.trim(), price: newPrice }])
     setNewName('')
     setNewPrice(0)
   }
@@ -47,13 +52,13 @@ export default function Computed() {
         <div className="flex gap-2 mb-3">
           <input
             value={newName}
-            onChange={e => setNewName(e.target.value)}
+            onChange={(e) => setNewName(e.target.value)}
             placeholder="Tên item..."
             className="border border-slate-300 rounded px-2 py-1 text-sm flex-1"
           />
           <input
             value={newPrice}
-            onChange={e => setNewPrice(Number(e.target.value))}
+            onChange={(e) => setNewPrice(Number(e.target.value))}
             type="number"
             placeholder="Giá"
             min={0}
@@ -69,7 +74,7 @@ export default function Computed() {
         </div>
 
         <ul className="mb-3 space-y-1">
-          {items.map(item => (
+          {items.map((item) => (
             <li
               key={item.name}
               className="flex justify-between text-sm text-slate-700 bg-slate-50 px-2 py-1 rounded"
@@ -114,21 +119,28 @@ export default function Computed() {
         <h3 className="text-sm font-semibold mb-2">So sánh</h3>
         <div className="text-sm text-slate-600 space-y-2">
           <p>
-            <strong>useMemo(fn, deps) — phải khai báo dependency thủ công.</strong> Khác với Vue's{' '}
-            <code className="bg-slate-200 px-1 rounded">computed()</code> tự track dependency, React
-            yêu cầu liệt kê rõ trong array. Quên 1 dependency → memoized value không update (bug
-            rất phổ biến với beginners).
+            <strong>
+              useMemo(fn, deps) — phải khai báo dependency thủ công.
+            </strong>{' '}
+            Khác với Vue's{' '}
+            <code className="bg-slate-200 px-1 rounded">computed()</code> tự
+            track dependency, React yêu cầu liệt kê rõ trong array. Quên 1
+            dependency → memoized value không update (bug rất phổ biến với
+            beginners).
           </p>
           <p>
-            <strong>useMemo là optimization, không phải bắt buộc.</strong> React vẫn hoạt động đúng
-            nếu bỏ <code className="bg-slate-200 px-1 rounded">useMemo</code> — chỉ là recalculate
-            mỗi render. Với phép tính đơn giản, có thể tính trực tiếp trong render body mà không
-            cần memo.
+            <strong>useMemo là optimization, không phải bắt buộc.</strong> React
+            vẫn hoạt động đúng nếu bỏ{' '}
+            <code className="bg-slate-200 px-1 rounded">useMemo</code> — chỉ là
+            recalculate mỗi render. Với phép tính đơn giản, có thể tính trực
+            tiếp trong render body mà không cần memo.
           </p>
           <p>
             <strong>Không có writable computed.</strong> Vue cho phép{' '}
-            <code className="bg-slate-200 px-1 rounded">computed({'{ get, set }'})</code> — React
-            không có tương đương, phải viết getter + setter riêng.
+            <code className="bg-slate-200 px-1 rounded">
+              computed({'{ get, set }'})
+            </code>{' '}
+            — React không có tương đương, phải viết getter + setter riêng.
           </p>
         </div>
       </div>

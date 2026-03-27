@@ -48,7 +48,9 @@ watchEffect(() => {
 
     <div class="border border-slate-200 rounded-lg p-4 mb-4 space-y-4">
       <div>
-        <p class="text-sm font-medium text-slate-700 mb-2">Question watcher (watch)</p>
+        <p class="text-sm font-medium text-slate-700 mb-2">
+          Question watcher (watch)
+        </p>
         <input
           v-model="question"
           placeholder="Hỏi gì đó kết thúc bằng ?"
@@ -60,7 +62,9 @@ watchEffect(() => {
       </div>
 
       <div>
-        <p class="text-sm font-medium text-slate-700 mb-2">Search (watchEffect)</p>
+        <p class="text-sm font-medium text-slate-700 mb-2">
+          Search (watchEffect)
+        </p>
         <input
           v-model="searchQuery"
           placeholder="Gõ để trigger watchEffect..."
@@ -70,7 +74,9 @@ watchEffect(() => {
 
       <div>
         <div class="flex items-center justify-between mb-1">
-          <p class="text-xs font-medium text-slate-500 uppercase tracking-wide">Watcher log</p>
+          <p class="text-xs font-medium text-slate-500 uppercase tracking-wide">
+            Watcher log
+          </p>
           <button
             @click="clearLogs"
             class="px-2 py-0.5 bg-slate-200 text-slate-600 rounded text-xs hover:bg-slate-300"
@@ -78,8 +84,12 @@ watchEffect(() => {
             Xóa
           </button>
         </div>
-        <div class="bg-slate-900 text-green-400 font-mono text-xs p-3 rounded max-h-40 overflow-y-auto">
-          <div v-if="logs.length === 0" class="text-slate-500">Chưa có event nào...</div>
+        <div
+          class="bg-slate-900 text-green-400 font-mono text-xs p-3 rounded max-h-40 overflow-y-auto"
+        >
+          <div v-if="logs.length === 0" class="text-slate-500">
+            Chưa có event nào...
+          </div>
           <div v-for="(log, i) in logs" :key="i">{{ log }}</div>
         </div>
       </div>
@@ -92,7 +102,10 @@ watchEffect(() => {
       >
         {{ showCode ? '▼ Ẩn code' : '▶ Xem code' }}
       </button>
-      <pre v-if="showCode" class="mt-2 bg-slate-900 text-slate-100 text-xs p-3 rounded overflow-x-auto">
+      <pre
+        v-if="showCode"
+        class="mt-2 bg-slate-900 text-slate-100 text-xs p-3 rounded overflow-x-auto"
+      >
         <code>{{ DEMO_CODE }}</code>
       </pre>
     </div>
@@ -102,19 +115,22 @@ watchEffect(() => {
       <div class="text-sm text-slate-600 space-y-2">
         <p>
           <strong>watch() = explicit, watchEffect() = auto-track.</strong>
-          <code class="bg-slate-200 px-1 rounded">watch(source, callback)</code> theo dõi 1 hoặc
-          nhiều ref cụ thể, có cả old/new value.
-          <code class="bg-slate-200 px-1 rounded">watchEffect(fn)</code> tự detect mọi reactive
-          value truy cập bên trong — không cần khai báo.
+          <code class="bg-slate-200 px-1 rounded">watch(source, callback)</code>
+          theo dõi 1 hoặc nhiều ref cụ thể, có cả old/new value.
+          <code class="bg-slate-200 px-1 rounded">watchEffect(fn)</code> tự
+          detect mọi reactive value truy cập bên trong — không cần khai báo.
         </p>
         <p>
-          <strong>watchEffect chạy ngay lần đầu.</strong> watch mặc định chỉ chạy khi value thay
-          đổi (trừ khi set <code class="bg-slate-200 px-1 rounded">immediate: true</code>).
-          React's useEffect luôn chạy sau render đầu tiên (giống watchEffect hơn).
+          <strong>watchEffect chạy ngay lần đầu.</strong> watch mặc định chỉ
+          chạy khi value thay đổi (trừ khi set
+          <code class="bg-slate-200 px-1 rounded">immediate: true</code>).
+          React's useEffect luôn chạy sau render đầu tiên (giống watchEffect
+          hơn).
         </p>
         <p>
-          <strong>Auto cleanup khi unmount.</strong> Cả watch và watchEffect tự dọn khi component
-          unmount. React phải return cleanup function thủ công từ useEffect.
+          <strong>Auto cleanup khi unmount.</strong> Cả watch và watchEffect tự
+          dọn khi component unmount. React phải return cleanup function thủ công
+          từ useEffect.
         </p>
       </div>
     </div>

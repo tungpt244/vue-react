@@ -28,7 +28,11 @@ const DEMO_CODE = `<!-- Vue — :class và :style directives -->
 
     <div class="border border-slate-200 rounded-lg p-4 mb-4 space-y-5">
       <div>
-        <p class="text-xs font-medium text-slate-500 uppercase tracking-wide mb-2">1. Object syntax (:class)</p>
+        <p
+          class="text-xs font-medium text-slate-500 uppercase tracking-wide mb-2"
+        >
+          1. Object syntax (:class)
+        </p>
         <div
           :class="{
             'bg-blue-100 border-blue-500': isActive,
@@ -38,20 +42,32 @@ const DEMO_CODE = `<!-- Vue — :class và :style directives -->
         >
           Box với dynamic classes
           <span class="text-xs ml-1 text-slate-500">
-            ({{ [isActive ? 'active' : '', isHighlighted ? 'highlighted' : ''].filter(Boolean).join(', ') || 'không có class' }})
+            ({{
+              [isActive ? 'active' : '', isHighlighted ? 'highlighted' : '']
+                .filter(Boolean)
+                .join(', ') || 'không có class'
+            }})
           </span>
         </div>
         <div class="flex gap-2">
           <button
             @click="isActive = !isActive"
-            :class="isActive ? 'bg-blue-500 text-white' : 'bg-slate-200 text-slate-700'"
+            :class="
+              isActive
+                ? 'bg-blue-500 text-white'
+                : 'bg-slate-200 text-slate-700'
+            "
             class="px-3 py-1 rounded hover:opacity-80 text-sm"
           >
             {{ isActive ? 'Active BẬT' : 'Active TẮT' }}
           </button>
           <button
             @click="isHighlighted = !isHighlighted"
-            :class="isHighlighted ? 'bg-yellow-400 text-white' : 'bg-slate-200 text-slate-700'"
+            :class="
+              isHighlighted
+                ? 'bg-yellow-400 text-white'
+                : 'bg-slate-200 text-slate-700'
+            "
             class="px-3 py-1 rounded hover:opacity-80 text-sm"
           >
             {{ isHighlighted ? 'Highlight BẬT' : 'Highlight TẮT' }}
@@ -60,9 +76,18 @@ const DEMO_CODE = `<!-- Vue — :class và :style directives -->
       </div>
 
       <div>
-        <p class="text-xs font-medium text-slate-500 uppercase tracking-wide mb-2">2. Array syntax (:class với ternary)</p>
+        <p
+          class="text-xs font-medium text-slate-500 uppercase tracking-wide mb-2"
+        >
+          2. Array syntax (:class với ternary)
+        </p>
         <div
-          :class="[theme === 'dark' ? 'bg-slate-800 text-white' : 'bg-white text-slate-800', 'p-3 rounded border']"
+          :class="[
+            theme === 'dark'
+              ? 'bg-slate-800 text-white'
+              : 'bg-white text-slate-800',
+            'p-3 rounded border',
+          ]"
           class="text-sm mb-2 transition-all"
         >
           Theme preview — đang dùng {{ theme }}
@@ -70,14 +95,22 @@ const DEMO_CODE = `<!-- Vue — :class và :style directives -->
         <div class="flex gap-2">
           <button
             @click="theme = 'light'"
-            :class="theme === 'light' ? 'bg-blue-500 text-white' : 'bg-slate-200 text-slate-700'"
+            :class="
+              theme === 'light'
+                ? 'bg-blue-500 text-white'
+                : 'bg-slate-200 text-slate-700'
+            "
             class="px-3 py-1 rounded hover:opacity-80 text-sm"
           >
             Light
           </button>
           <button
             @click="theme = 'dark'"
-            :class="theme === 'dark' ? 'bg-slate-700 text-white' : 'bg-slate-200 text-slate-700'"
+            :class="
+              theme === 'dark'
+                ? 'bg-slate-700 text-white'
+                : 'bg-slate-200 text-slate-700'
+            "
             class="px-3 py-1 rounded hover:opacity-80 text-sm"
           >
             Dark
@@ -86,7 +119,11 @@ const DEMO_CODE = `<!-- Vue — :class và :style directives -->
       </div>
 
       <div>
-        <p class="text-xs font-medium text-slate-500 uppercase tracking-wide mb-2">3. Style binding (:style)</p>
+        <p
+          class="text-xs font-medium text-slate-500 uppercase tracking-wide mb-2"
+        >
+          3. Style binding (:style)
+        </p>
         <p
           :style="{ fontSize: fontSize + 'px', color: textColor }"
           class="mb-3 font-medium"
@@ -111,7 +148,9 @@ const DEMO_CODE = `<!-- Vue — :class và :style directives -->
               type="color"
               class="w-8 h-8 rounded cursor-pointer border border-slate-300"
             />
-            <span class="text-xs text-slate-400 font-mono">{{ textColor }}</span>
+            <span class="text-xs text-slate-400 font-mono">{{
+              textColor
+            }}</span>
           </label>
         </div>
       </div>
@@ -124,7 +163,10 @@ const DEMO_CODE = `<!-- Vue — :class và :style directives -->
       >
         {{ showCode ? '▼ Ẩn code' : '▶ Xem code' }}
       </button>
-      <pre v-if="showCode" class="mt-2 bg-slate-900 text-slate-100 text-xs p-3 rounded overflow-x-auto">
+      <pre
+        v-if="showCode"
+        class="mt-2 bg-slate-900 text-slate-100 text-xs p-3 rounded overflow-x-auto"
+      >
         <code>{{ DEMO_CODE }}</code>
       </pre>
     </div>
@@ -134,21 +176,25 @@ const DEMO_CODE = `<!-- Vue — :class và :style directives -->
       <div class="text-sm text-slate-600 space-y-2">
         <p>
           <strong>:class có object và array syntax built-in.</strong> Object:
-          <code class="bg-slate-200 px-1 rounded">{ 'class-name': condition }</code>. Array:
-          <code class="bg-slate-200 px-1 rounded">[staticClass, { dynamic: cond }]</code>.
-          Tất cả compile away — 0 runtime overhead.
+          <code class="bg-slate-200 px-1 rounded"
+            >{ 'class-name': condition }</code
+          >. Array:
+          <code class="bg-slate-200 px-1 rounded"
+            >[staticClass, { dynamic: cond }]</code
+          >. Tất cả compile away — 0 runtime overhead.
         </p>
         <p>
           <strong>:style auto-prefix vendor prefixes.</strong> Vue tự thêm
           <code class="bg-slate-200 px-1 rounded">-webkit-</code>,
-          <code class="bg-slate-200 px-1 rounded">-moz-</code> khi cần. React style object
-          không làm điều này — phải thêm thủ công.
+          <code class="bg-slate-200 px-1 rounded">-moz-</code> khi cần. React
+          style object không làm điều này — phải thêm thủ công.
         </p>
         <p>
-          <strong>Kết hợp static + dynamic class dễ dàng.</strong> Vue cho phép dùng cả
+          <strong>Kết hợp static + dynamic class dễ dàng.</strong> Vue cho phép
+          dùng cả
           <code class="bg-slate-200 px-1 rounded">class="static"</code> và
-          <code class="bg-slate-200 px-1 rounded">:class="{ dynamic }"</code> trên cùng element
-          — tự merge. React chỉ có 1
+          <code class="bg-slate-200 px-1 rounded">:class="{ dynamic }"</code>
+          trên cùng element — tự merge. React chỉ có 1
           <code class="bg-slate-200 px-1 rounded">className</code> string.
         </p>
       </div>

@@ -48,7 +48,7 @@ export default function TemplateSyntax() {
         <div>
           <p className="text-sm font-medium mb-1">Skills:</p>
           <ul className="list-disc list-inside text-sm text-slate-700">
-            {skills.map(s => (
+            {skills.map((s) => (
               <li key={s}>{s}</li>
             ))}
           </ul>
@@ -74,23 +74,36 @@ export default function TemplateSyntax() {
         <h3 className="text-sm font-semibold mb-2">So sánh</h3>
         <div className="text-sm text-slate-600 space-y-2">
           <p>
-            <strong>JSX = JavaScript + XML.</strong> React không dùng template riêng mà viết markup
-            trực tiếp trong JavaScript. Conditional rendering dùng <code className="bg-slate-200 px-1 rounded">&&</code> hoặc
-            ternary <code className="bg-slate-200 px-1 rounded">? :</code>, list rendering dùng <code className="bg-slate-200 px-1 rounded">.map()</code>.
+            <strong>JSX = JavaScript + XML.</strong> React không dùng template
+            riêng mà viết markup trực tiếp trong JavaScript. Conditional
+            rendering dùng <code className="bg-slate-200 px-1 rounded">&&</code>{' '}
+            hoặc ternary <code className="bg-slate-200 px-1 rounded">? :</code>,
+            list rendering dùng{' '}
+            <code className="bg-slate-200 px-1 rounded">.map()</code>.
           </p>
           <p>
-            <strong>Không có directive.</strong> Vue có <code className="bg-slate-200 px-1 rounded">v-if</code>,{' '}
-            <code className="bg-slate-200 px-1 rounded">v-for</code>, <code className="bg-slate-200 px-1 rounded">v-bind</code> —
-            React thay tất cả bằng JavaScript expressions thuần. Linh hoạt hơn nhưng cú pháp khác
-            HTML thuần: <code className="bg-slate-200 px-1 rounded">className</code> thay vì{' '}
-            <code className="bg-slate-200 px-1 rounded">class</code>, <code className="bg-slate-200 px-1 rounded">htmlFor</code> thay
-            vì <code className="bg-slate-200 px-1 rounded">for</code>.
+            <strong>Không có directive.</strong> Vue có{' '}
+            <code className="bg-slate-200 px-1 rounded">v-if</code>,{' '}
+            <code className="bg-slate-200 px-1 rounded">v-for</code>,{' '}
+            <code className="bg-slate-200 px-1 rounded">v-bind</code> — React
+            thay tất cả bằng JavaScript expressions thuần. Linh hoạt hơn nhưng
+            cú pháp khác HTML thuần:{' '}
+            <code className="bg-slate-200 px-1 rounded">className</code> thay vì{' '}
+            <code className="bg-slate-200 px-1 rounded">class</code>,{' '}
+            <code className="bg-slate-200 px-1 rounded">htmlFor</code> thay vì{' '}
+            <code className="bg-slate-200 px-1 rounded">for</code>.
           </p>
           <p>
-            <strong>Event handling:</strong> React dùng camelCase (<code className="bg-slate-200 px-1 rounded">onClick</code>)
-            thay vì Vue's <code className="bg-slate-200 px-1 rounded">@click</code>. Không có event modifiers
-            (<code className="bg-slate-200 px-1 rounded">.prevent</code>, <code className="bg-slate-200 px-1 rounded">.stop</code>) —
-            phải gọi <code className="bg-slate-200 px-1 rounded">e.preventDefault()</code> thủ công.
+            <strong>Event handling:</strong> React dùng camelCase (
+            <code className="bg-slate-200 px-1 rounded">onClick</code>) thay vì
+            Vue's <code className="bg-slate-200 px-1 rounded">@click</code>.
+            Không có event modifiers (
+            <code className="bg-slate-200 px-1 rounded">.prevent</code>,{' '}
+            <code className="bg-slate-200 px-1 rounded">.stop</code>) — phải gọi{' '}
+            <code className="bg-slate-200 px-1 rounded">
+              e.preventDefault()
+            </code>{' '}
+            thủ công.
           </p>
         </div>
       </div>

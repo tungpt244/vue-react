@@ -61,7 +61,10 @@ const DEMO_CODE = `<!-- Vue — Template -->
       >
         {{ showCode ? '▼ Ẩn code' : '▶ Xem code' }}
       </button>
-      <pre v-if="showCode" class="mt-2 bg-slate-900 text-slate-100 text-xs p-3 rounded overflow-x-auto">
+      <pre
+        v-if="showCode"
+        class="mt-2 bg-slate-900 text-slate-100 text-xs p-3 rounded overflow-x-auto"
+      >
         <code>{{ DEMO_CODE }}</code>
       </pre>
     </div>
@@ -70,24 +73,29 @@ const DEMO_CODE = `<!-- Vue — Template -->
       <h3 class="text-sm font-semibold mb-2">So sánh</h3>
       <div class="text-sm text-slate-600 space-y-2">
         <p>
-          <strong>Template = HTML mở rộng.</strong> Vue dùng template gần giống HTML thuần, thêm
-          directive (<code class="bg-slate-200 px-1 rounded">v-if</code>,
-          <code class="bg-slate-200 px-1 rounded">v-for</code>,
+          <strong>Template = HTML mở rộng.</strong> Vue dùng template gần giống
+          HTML thuần, thêm directive (<code class="bg-slate-200 px-1 rounded"
+            >v-if</code
+          >, <code class="bg-slate-200 px-1 rounded">v-for</code>,
           <code class="bg-slate-200 px-1 rounded">v-bind</code>) để xử lý logic.
-          Directive được compile thành JavaScript tại build time — không có runtime overhead.
+          Directive được compile thành JavaScript tại build time — không có
+          runtime overhead.
         </p>
         <p>
-          <strong>Mustache syntax</strong> <code class="bg-slate-200 px-1 rounded">{{ }}</code>
-          cho text interpolation — tự động escape HTML (an toàn XSS).
-          Event dùng <code class="bg-slate-200 px-1 rounded">@click</code> (shorthand của
-          <code class="bg-slate-200 px-1 rounded">v-on:click</code>) với built-in modifiers
-          (<code class="bg-slate-200 px-1 rounded">.prevent</code>,
-          <code class="bg-slate-200 px-1 rounded">.stop</code>,
+          <strong>Mustache syntax</strong>
+          <code class="bg-slate-200 px-1 rounded">{{}}</code> cho text
+          interpolation — tự động escape HTML (an toàn XSS). Event dùng
+          <code class="bg-slate-200 px-1 rounded">@click</code> (shorthand của
+          <code class="bg-slate-200 px-1 rounded">v-on:click</code>) với
+          built-in modifiers (<code class="bg-slate-200 px-1 rounded"
+            >.prevent</code
+          >, <code class="bg-slate-200 px-1 rounded">.stop</code>,
           <code class="bg-slate-200 px-1 rounded">.once</code>).
         </p>
         <p>
-          <strong>Dễ đọc hơn cho người quen HTML</strong>, nhưng kém linh hoạt hơn JSX khi cần
-          logic phức tạp (multiple conditions, nested maps). Trường hợp đó nên dùng render function.
+          <strong>Dễ đọc hơn cho người quen HTML</strong>, nhưng kém linh hoạt
+          hơn JSX khi cần logic phức tạp (multiple conditions, nested maps).
+          Trường hợp đó nên dùng render function.
         </p>
       </div>
     </div>

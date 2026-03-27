@@ -8,7 +8,9 @@ const { category, topicId } = useRouteSync()
 <template>
   <div class="p-4">
     <div class="flex items-center gap-2 mb-4">
-      <span class="text-xs font-semibold text-white bg-emerald-500 rounded px-2 py-1">
+      <span
+        class="text-xs font-semibold text-white bg-emerald-500 rounded px-2 py-1"
+      >
         Vue 3
       </span>
       <span v-if="category && topicId" class="text-sm text-slate-500">

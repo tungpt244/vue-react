@@ -5,11 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'path'
 
 export default defineConfig({
-  plugins: [
-    vue(),
-    react({ include: /\.(tsx|jsx)$/ }),
-    tailwindcss(),
-  ],
+  plugins: [vue(), react({ include: /\.(tsx|jsx)$/ }), tailwindcss()],
   resolve: {
     alias: {
       '@vibe/shared': resolve(__dirname, '../shared/src'),
