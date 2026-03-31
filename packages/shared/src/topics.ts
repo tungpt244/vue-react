@@ -210,6 +210,65 @@ export const topics: TopicMeta[] = [
     order: 5,
     description: '<Suspense> vs <Suspense>',
   },
+  // --- Scaling Up ---
+  {
+    id: 'routing',
+    slug: 'routing',
+    title: 'Routing',
+    category: 'scaling-up',
+    order: 1,
+    description: 'Vue Router vs React Router',
+  },
+  {
+    id: 'state-management',
+    slug: 'state-management',
+    title: 'State Management',
+    category: 'scaling-up',
+    order: 2,
+    description: 'Pinia vs Zustand',
+  },
+  {
+    id: 'testing',
+    slug: 'testing',
+    title: 'Testing',
+    category: 'scaling-up',
+    order: 3,
+    description: 'Vitest + Vue Test Utils vs React Testing Library',
+  },
+  {
+    id: 'typescript',
+    slug: 'typescript',
+    title: 'TypeScript',
+    category: 'scaling-up',
+    order: 4,
+    description: 'defineProps<T>/defineEmits<T> vs React props typing',
+  },
+  // --- Deep Dive ---
+  {
+    id: 'rendering-mechanism',
+    slug: 'rendering-mechanism',
+    title: 'Rendering Mechanism',
+    category: 'deep-dive',
+    order: 1,
+    description: 'Vue compiler optimized diff vs React full subtree diff',
+  },
+  {
+    id: 'reactivity-in-depth',
+    slug: 'reactivity-in-depth',
+    title: 'Reactivity In-Depth',
+    category: 'deep-dive',
+    order: 2,
+    description: 'Proxy-based tracking vs immutable state comparison',
+  },
+  {
+    id: 'rerender-optimization',
+    slug: 'rerender-optimization',
+    title: 'Re-render & Optimization',
+    category: 'deep-dive',
+    order: 3,
+    description:
+      'Vue auto optimization vs React manual (memo, useMemo, useCallback)',
+  },
 ]
 
 export function getTopicsByCategory(category: string): TopicMeta[] {
