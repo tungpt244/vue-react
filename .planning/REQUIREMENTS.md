@@ -55,17 +55,17 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Topic Content — Reusability (3 topics)
 
-- [ ] **REUS-01**: Composables / Hooks — composables vs custom hooks
-- [ ] **REUS-02**: Custom Directives — directive() vs hooks/HOC (Vue-only concept)
-- [ ] **REUS-03**: Plugins — app.use() vs Context/Provider pattern
+- [x] **REUS-01**: Composables / Hooks — composables vs custom hooks
+- [x] **REUS-02**: Custom Directives — directive() vs hooks/HOC (Vue-only concept)
+- [x] **REUS-03**: Plugins — app.use() vs Context/Provider pattern
 
 ### Topic Content — Built-in Components (5 topics)
 
-- [ ] **BTIN-01**: Transition — `<Transition>` vs framer-motion
-- [ ] **BTIN-02**: TransitionGroup — `<TransitionGroup>` vs manual
-- [ ] **BTIN-03**: KeepAlive — `<KeepAlive>` vs manual state management
-- [ ] **BTIN-04**: Teleport — `<Teleport>` vs createPortal
-- [ ] **BTIN-05**: Suspense — `<Suspense>` vs `<Suspense>`
+- [x] **BTIN-01**: Transition — `<Transition>` vs framer-motion
+- [x] **BTIN-02**: TransitionGroup — `<TransitionGroup>` vs manual
+- [x] **BTIN-03**: KeepAlive — `<KeepAlive>` vs manual state management
+- [x] **BTIN-04**: Teleport — `<Teleport>` vs createPortal
+- [x] **BTIN-05**: Suspense — `<Suspense>` vs `<Suspense>`
 
 ### Topic Content — Deep Dive (3 topics)
 
@@ -144,14 +144,14 @@ Which phases cover which requirements. Updated during roadmap creation.
 | COMP-05 | Phase 3 | Complete |
 | COMP-06 | Phase 3 | Complete |
 | COMP-07 | Phase 3 | Complete |
-| REUS-01 | Phase 3 | Pending |
-| REUS-02 | Phase 3 | Pending |
-| REUS-03 | Phase 3 | Pending |
-| BTIN-01 | Phase 3 | Pending |
-| BTIN-02 | Phase 3 | Pending |
-| BTIN-03 | Phase 3 | Pending |
-| BTIN-04 | Phase 3 | Pending |
-| BTIN-05 | Phase 3 | Pending |
+| REUS-01 | Phase 3 | Complete |
+| REUS-02 | Phase 3 | Complete |
+| REUS-03 | Phase 3 | Complete |
+| BTIN-01 | Phase 3 | Complete |
+| BTIN-02 | Phase 3 | Complete |
+| BTIN-03 | Phase 3 | Complete |
+| BTIN-04 | Phase 3 | Complete |
+| BTIN-05 | Phase 3 | Complete |
 | ENHC-01 | Phase 3 | Pending |
 | ENHC-02 | Phase 3 | Pending |
 | DISP-03 | Phase 4 | Pending |
