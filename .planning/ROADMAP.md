@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Infrastructure Scaffold** - Monorepo + dual-mount + event bridge validated end-to-end
 - [x] **Phase 2: First 5 Topics** - Pipeline proven with 5 Essentials topics running live side-by-side (completed 2026-03-27)
-- [ ] **Phase 3: Core Curriculum** - Full Essentials + Components + Reusability + Built-in + enhancements
+- [x] **Phase 3: Core Curriculum** - Full Essentials + Components + Reusability + Built-in + enhancements (completed 2026-03-31)
 - [ ] **Phase 4: Advanced & Deep Dives** - Scaling Up topics + 3 Deep Dive pages with diagrams
 
 ## Phase Details
@@ -69,7 +69,7 @@ Plans:
 - [x] 03-02-PLAN.md -- Essentials topics (5 Vue + 5 React): Conditional Rendering, List Rendering, Event Handling, Form Bindings, Template Refs
 - [x] 03-03-PLAN.md -- Components In-Depth topics (7 Vue + 7 React): Props, Events, v-model, Fallthrough, Slots, Provide/Inject, Async
 - [x] 03-04-PLAN.md -- Reusability (3) + Built-in (5) topics (8 Vue + 8 React): Composables, Directives, Plugins, Transition, TransitionGroup, KeepAlive, Teleport, Suspense
-- [ ] 03-05-PLAN.md -- Sidebar enhancements (search filter + progress tracking) + human verification
+- [x] 03-05-PLAN.md -- Sidebar enhancements (search filter + progress tracking) + human verification
 **UI hint**: yes
 
 ### Phase 4: Advanced & Deep Dives
@@ -94,5 +94,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Infrastructure Scaffold | 3/3 | Complete | - |
 | 2. First 5 Topics | 4/4 | Complete   | 2026-03-27 |
-| 3. Core Curriculum | 4/5 | In Progress|  |
+| 3. Core Curriculum | 5/5 | Complete   | 2026-03-31 |
 | 4. Advanced & Deep Dives | 0/? | Not started | - |

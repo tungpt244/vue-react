@@ -82,8 +82,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Enhancements
 
-- [ ] **ENHC-01**: Search/filter topics theo keyword
-- [ ] **ENHC-02**: Progress tracking với localStorage (checkmarks trong sidebar)
+- [x] **ENHC-01**: Search/filter topics theo keyword
+- [x] **ENHC-02**: Progress tracking với localStorage (checkmarks trong sidebar)
 
 ## v2 Requirements
 
@@ -152,8 +152,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BTIN-03 | Phase 3 | Complete |
 | BTIN-04 | Phase 3 | Complete |
 | BTIN-05 | Phase 3 | Complete |
-| ENHC-01 | Phase 3 | Pending |
-| ENHC-02 | Phase 3 | Pending |
+| ENHC-01 | Phase 3 | Complete |
+| ENHC-02 | Phase 3 | Complete |
 | DISP-03 | Phase 4 | Pending |
 | DEEP-01 | Phase 4 | Pending |
 | DEEP-02 | Phase 4 | Pending |
