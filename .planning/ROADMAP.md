@@ -65,7 +65,7 @@ Plans:
   4. Mỗi topic trong 4 categories (Essentials, Components, Reusability, Built-in) có live demo + explanation theo đúng pattern từ Phase 2
 **Plans**: 5 plans
 Plans:
-- [ ] 03-01-PLAN.md -- Registry expansion (22 new topics) + spacing backfill for Phase 2 files
+- [x] 03-01-PLAN.md -- Registry expansion (22 new topics) + spacing backfill for Phase 2 files
 - [ ] 03-02-PLAN.md -- Essentials topics (5 Vue + 5 React): Conditional Rendering, List Rendering, Event Handling, Form Bindings, Template Refs
 - [ ] 03-03-PLAN.md -- Components In-Depth topics (7 Vue + 7 React): Props, Events, v-model, Fallthrough, Slots, Provide/Inject, Async
 - [ ] 03-04-PLAN.md -- Reusability (3) + Built-in (5) topics (8 Vue + 8 React): Composables, Directives, Plugins, Transition, TransitionGroup, KeepAlive, Teleport, Suspense
@@ -94,5 +94,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Infrastructure Scaffold | 3/3 | Complete | - |
 | 2. First 5 Topics | 4/4 | Complete   | 2026-03-27 |
-| 3. Core Curriculum | 0/5 | Planning complete | - |
+| 3. Core Curriculum | 1/5 | In Progress|  |
 | 4. Advanced & Deep Dives | 0/? | Not started | - |

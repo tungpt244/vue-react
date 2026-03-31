@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Ready to plan
-stopped_at: Completed 02-04-PLAN.md
-last_updated: "2026-03-27T06:01:07.130Z"
+status: Ready to execute
+stopped_at: Completed 03-01-PLAN.md
+last_updated: "2026-03-31T07:36:28.473Z"
 progress:
   total_phases: 4
   completed_phases: 2
-  total_plans: 7
-  completed_plans: 7
+  total_plans: 12
+  completed_plans: 8
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-26)
 
 **Core value:** So sánh side-by-side chạy live giữa Vue 3 và React cho cùng một concept — giúp hiểu React thông qua mapping trực tiếp với Vue đã biết.
-**Current focus:** Phase 02 — first-5-topics
+**Current focus:** Phase 03 — core-curriculum
 
 ## Current Position
 
-Phase: 3
-Plan: Not started
+Phase: 03 (core-curriculum) — EXECUTING
+Plan: 2 of 5
 
 ## Performance Metrics
 
@@ -53,6 +53,7 @@ Plan: Not started
 | Phase 02 P02 | 5 | 2 tasks | 6 files |
 | Phase 02 P03 | 2 | 2 tasks | 6 files |
 | Phase 02 P04 | 3 | 2 tasks | 0 files |
+| Phase 03 P01 | 8min | 2 tasks | 14 files |
 
 ## Accumulated Context
 
@@ -74,6 +75,8 @@ Recent decisions affecting current work:
 - [Phase 02]: Topic pattern established: demo box (border/padding) + explanation box (bg-slate-50) — all future topics follow
 - [Phase 02]: defineComponent() inside <script setup> for inline TimerDisplay child in Vue
 - [Phase 02]: Phase 2 verification passed with 0 TypeScript errors — all 12 topic files present and interactive
+- [Phase 03]: Plan 03-01: Registry has 26 entries (not 28) — plan listed 20 explicit entries, discrepancy is plan authoring error
+- [Phase 03]: Plan 03-01: p-3→p-4 scoped to code block pre pattern only, not all p-3 in topic files
 
 ### Pending Todos
 
@@ -86,6 +89,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-27T05:56:51.164Z
-Stopped at: Completed 02-04-PLAN.md
+Last session: 2026-03-31T07:36:28.470Z
+Stopped at: Completed 03-01-PLAN.md
 Resume file: None
