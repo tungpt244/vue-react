@@ -82,7 +82,11 @@ Plans:
   3. Deep Dive page Reactivity In-Depth có diagram minh họa Proxy-based tracking vs immutable state comparison
   4. Deep Dive page Re-render & Optimization có diagram minh họa Vue auto optimization vs React manual (memo, useMemo, useCallback)
   5. Deep Dive layout duy trì side-by-side demo area phía trên, diagram section phía dưới
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [ ] 04-01-PLAN.md -- Registry expansion (7 topics) + 4 Scaling Up topic files (Vue + React)
+- [ ] 04-02-PLAN.md -- 3 Deep Dive topic files with inline SVG diagrams (Vue + React)
+- [ ] 04-03-PLAN.md -- End-to-end verification + human visual check
 **UI hint**: yes
 
 ## Progress
@@ -95,4 +99,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Infrastructure Scaffold | 3/3 | Complete | - |
 | 2. First 5 Topics | 4/4 | Complete   | 2026-03-27 |
 | 3. Core Curriculum | 5/5 | Complete   | 2026-03-31 |
-| 4. Advanced & Deep Dives | 0/? | Not started | - |
+| 4. Advanced & Deep Dives | 0/3 | Not started | - |
