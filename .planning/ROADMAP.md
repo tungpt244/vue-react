@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 1: Infrastructure Scaffold** - Monorepo + dual-mount + event bridge validated end-to-end
 - [x] **Phase 2: First 5 Topics** - Pipeline proven with 5 Essentials topics running live side-by-side (completed 2026-03-27)
 - [x] **Phase 3: Core Curriculum** - Full Essentials + Components + Reusability + Built-in + enhancements (completed 2026-03-31)
-- [ ] **Phase 4: Advanced & Deep Dives** - Scaling Up topics + 3 Deep Dive pages with diagrams
+- [x] **Phase 4: Advanced & Deep Dives** - Scaling Up topics + 3 Deep Dive pages with diagrams (completed 2026-03-31)
 
 ## Phase Details
 
@@ -86,7 +86,7 @@ Plans:
 Plans:
 - [x] 04-01-PLAN.md -- Registry expansion (7 topics) + 4 Scaling Up topic files (Vue + React)
 - [x] 04-02-PLAN.md -- 3 Deep Dive topic files with inline SVG diagrams (Vue + React)
-- [ ] 04-03-PLAN.md -- End-to-end verification + human visual check
+- [x] 04-03-PLAN.md -- End-to-end verification + human visual check
 **UI hint**: yes
 
 ## Progress
@@ -99,4 +99,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Infrastructure Scaffold | 3/3 | Complete | - |
 | 2. First 5 Topics | 4/4 | Complete   | 2026-03-27 |
 | 3. Core Curriculum | 5/5 | Complete   | 2026-03-31 |
-| 4. Advanced & Deep Dives | 2/3 | In Progress|  |
+| 4. Advanced & Deep Dives | 3/3 | Complete   | 2026-03-31 |
