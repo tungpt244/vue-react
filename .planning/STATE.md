@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: Ready to execute
-stopped_at: Completed 03-02-PLAN.md
-last_updated: "2026-03-31T07:42:33.502Z"
+stopped_at: Completed 03-03-PLAN.md
+last_updated: "2026-03-31T07:50:10.393Z"
 progress:
   total_phases: 4
   completed_phases: 2
   total_plans: 12
-  completed_plans: 9
+  completed_plans: 10
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-03-26)
 ## Current Position
 
 Phase: 03 (core-curriculum) — EXECUTING
-Plan: 3 of 5
+Plan: 4 of 5
 
 ## Performance Metrics
 
@@ -55,6 +55,7 @@ Plan: 3 of 5
 | Phase 02 P04 | 3 | 2 tasks | 0 files |
 | Phase 03 P01 | 8min | 2 tasks | 14 files |
 | Phase 03 P02 | 8min | 2 tasks | 10 files |
+| Phase 03 P03 | 6min | 2 tasks | 14 files |
 
 ## Accumulated Context
 
@@ -79,6 +80,8 @@ Recent decisions affecting current work:
 - [Phase 03]: Plan 03-01: Registry has 26 entries (not 28) — plan listed 20 explicit entries, discrepancy is plan authoring error
 - [Phase 03]: Plan 03-01: p-3→p-4 scoped to code block pre pattern only, not all p-3 in topic files
 - [Phase 03]: Vue EventHandling uses @keydown.enter modifier inline with arrow function for Enter logging demo
+- [Phase 03]: ComponentVModel.vue uses modelValue/emit pattern — defineModel compiler macro not usable inside defineComponent render fn
+- [Phase 03]: AsyncComponents use simulated Promise delay — real import() not possible in single-file inline component demos
 
 ### Pending Todos
 
@@ -91,6 +94,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-31T07:42:33.499Z
-Stopped at: Completed 03-02-PLAN.md
+Last session: 2026-03-31T07:50:10.390Z
+Stopped at: Completed 03-03-PLAN.md
 Resume file: None

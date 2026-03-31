@@ -34,24 +34,24 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **ESS-01**: Template vs JSX — template syntax/directives vs JSX expressions
 - [x] **ESS-02**: Reactivity — ref()/reactive() vs useState/useReducer
 - [x] **ESS-03**: Computed — computed() vs useMemo
-- [ ] **ESS-04**: Conditional Rendering — v-if/v-else/v-show vs &&/ternary/early return
-- [ ] **ESS-05**: List Rendering — v-for + :key vs .map() + key
-- [ ] **ESS-06**: Event Handling — @click/@input + modifiers vs onClick/onChange
-- [ ] **ESS-07**: Form Bindings — v-model vs controlled components
+- [x] **ESS-04**: Conditional Rendering — v-if/v-else/v-show vs &&/ternary/early return
+- [x] **ESS-05**: List Rendering — v-for + :key vs .map() + key
+- [x] **ESS-06**: Event Handling — @click/@input + modifiers vs onClick/onChange
+- [x] **ESS-07**: Form Bindings — v-model vs controlled components
 - [x] **ESS-08**: Watchers — watch()/watchEffect() vs useEffect
-- [ ] **ESS-09**: Template Refs — ref + template ref vs useRef
+- [x] **ESS-09**: Template Refs — ref + template ref vs useRef
 - [x] **ESS-10**: Lifecycle — onMounted/onUnmounted vs useEffect + cleanup
 - [x] **ESS-11**: Class & Style Bindings — :class/:style vs className + style object
 
 ### Topic Content — Components In-Depth (7 topics)
 
-- [ ] **COMP-01**: Props — defineProps<T>() vs props type annotation
-- [ ] **COMP-02**: Events / Callbacks — emit() vs callback props
-- [ ] **COMP-03**: Component v-model — defineModel() vs controlled + callback
-- [ ] **COMP-04**: Fallthrough Attributes — auto forward vs spread ...rest props
-- [ ] **COMP-05**: Slots — default/named slots vs children + render props
-- [ ] **COMP-06**: Provide / Inject — provide()/inject() vs createContext/useContext
-- [ ] **COMP-07**: Async Components — defineAsyncComponent vs React.lazy + Suspense
+- [x] **COMP-01**: Props — defineProps<T>() vs props type annotation
+- [x] **COMP-02**: Events / Callbacks — emit() vs callback props
+- [x] **COMP-03**: Component v-model — defineModel() vs controlled + callback
+- [x] **COMP-04**: Fallthrough Attributes — auto forward vs spread ...rest props
+- [x] **COMP-05**: Slots — default/named slots vs children + render props
+- [x] **COMP-06**: Provide / Inject — provide()/inject() vs createContext/useContext
+- [x] **COMP-07**: Async Components — defineAsyncComponent vs React.lazy + Suspense
 
 ### Topic Content — Reusability (3 topics)
 
@@ -132,18 +132,18 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ESS-08 | Phase 2 | Complete |
 | ESS-10 | Phase 2 | Complete |
 | ESS-11 | Phase 2 | Complete |
-| ESS-04 | Phase 3 | Pending |
-| ESS-05 | Phase 3 | Pending |
-| ESS-06 | Phase 3 | Pending |
-| ESS-07 | Phase 3 | Pending |
-| ESS-09 | Phase 3 | Pending |
-| COMP-01 | Phase 3 | Pending |
-| COMP-02 | Phase 3 | Pending |
-| COMP-03 | Phase 3 | Pending |
-| COMP-04 | Phase 3 | Pending |
-| COMP-05 | Phase 3 | Pending |
-| COMP-06 | Phase 3 | Pending |
-| COMP-07 | Phase 3 | Pending |
+| ESS-04 | Phase 3 | Complete |
+| ESS-05 | Phase 3 | Complete |
+| ESS-06 | Phase 3 | Complete |
+| ESS-07 | Phase 3 | Complete |
+| ESS-09 | Phase 3 | Complete |
+| COMP-01 | Phase 3 | Complete |
+| COMP-02 | Phase 3 | Complete |
+| COMP-03 | Phase 3 | Complete |
+| COMP-04 | Phase 3 | Complete |
+| COMP-05 | Phase 3 | Complete |
+| COMP-06 | Phase 3 | Complete |
+| COMP-07 | Phase 3 | Complete |
 | REUS-01 | Phase 3 | Pending |
 | REUS-02 | Phase 3 | Pending |
 | REUS-03 | Phase 3 | Pending |
