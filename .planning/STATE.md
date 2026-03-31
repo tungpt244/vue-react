@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Ready to plan
-stopped_at: Completed 03-05-PLAN.md
-last_updated: "2026-03-31T09:28:25.928Z"
+status: Ready to execute
+stopped_at: Completed 04-01-PLAN.md
+last_updated: "2026-03-31T10:19:52.345Z"
 progress:
   total_phases: 4
   completed_phases: 3
-  total_plans: 12
-  completed_plans: 12
+  total_plans: 15
+  completed_plans: 13
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-26)
 
 **Core value:** So sánh side-by-side chạy live giữa Vue 3 và React cho cùng một concept — giúp hiểu React thông qua mapping trực tiếp với Vue đã biết.
-**Current focus:** Phase 03 — core-curriculum
+**Current focus:** Phase 04 — advanced-deep-dives
 
 ## Current Position
 
-Phase: 4
-Plan: Not started
+Phase: 04 (advanced-deep-dives) — EXECUTING
+Plan: 2 of 3
 
 ## Performance Metrics
 
@@ -58,6 +58,7 @@ Plan: Not started
 | Phase 03 P03 | 6min | 2 tasks | 14 files |
 | Phase 03 P04 | 7min | 2 tasks | 16 files |
 | Phase 03 P05 | 10min | 2 tasks | 1 files |
+| Phase 04 P01 | 8min | 2 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -87,6 +88,7 @@ Recent decisions affecting current work:
 - [Phase 03]: Suspense.tsx: replaced JSX.Element with ReactElement import to fix TS namespace error
 - [Phase 03]: KeepAlive.vue: defineComponent+h() for inline TabA/TabB child components in SFC
 - [Phase 03]: Phase 3 complete — 28 topics live across 4 categories, search + progress tracking working
+- [Phase 04]: No new npm packages for Scaling Up topics — demos use existing primitives with code snippets showing real library APIs
 
 ### Pending Todos
 
@@ -99,6 +101,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-31T09:12:25.804Z
-Stopped at: Completed 03-05-PLAN.md
+Last session: 2026-03-31T10:19:52.342Z
+Stopped at: Completed 04-01-PLAN.md
 Resume file: None
