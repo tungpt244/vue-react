@@ -38,28 +38,30 @@ Declared values (multiples of 4 only). All tokens map to Tailwind utility classe
 | Token | Value | Tailwind Class | Usage |
 |-------|-------|---------------|-------|
 | xs | 4px | p-1, gap-1 | Icon gaps, tight inline padding |
-| sm | 8px | p-2, gap-2 | Button padding, compact spacing |
-| md | 16px | p-4, gap-4 | Demo box padding, section spacing |
+| sm | 8px | p-2, gap-2 | Button padding, compact spacing, sidebar topic item vertical padding |
+| md | 16px | p-4, gap-4 | Demo box padding, code block padding, section spacing |
 | lg | 24px | p-6, gap-6 | Major section padding |
 | xl | 32px | p-8, gap-8 | Layout-level gaps |
 | 2xl | 48px | — | Not used in this phase |
 | 3xl | 64px | — | Not used in this phase |
 
 Exceptions:
-- Sidebar topic item vertical padding: `py-1.5` (6px) — existing pattern from Phase 2, do not change
 - Touch targets for sidebar toggle button: `p-1` (4px padding around icon) — existing, do not change
-- Code block padding: `p-3` (12px) — existing pattern, do not change
+- No other exceptions. `py-1.5` (6px, non-standard) and `p-3` (12px, non-standard) are removed.
+
+**Implementation note:** Existing Phase 2 topic files using `py-1.5` or `p-3` MUST be updated to `py-2` and `p-4` respectively during Phase 3 implementation for consistency.
 
 ---
 
 ## Typography
 
 All sizes use Tailwind class equivalents. No custom @theme font tokens declared.
+Maximum 2 font weights: font-normal (400) and font-semibold (600).
 
 | Role | Size | Tailwind | Weight | Weight Class | Line Height |
 |------|------|----------|--------|-------------|-------------|
 | Body | 14px | text-sm | 400 regular | font-normal | 1.5 (leading-normal) |
-| Label / UI | 12px | text-xs | 500 medium | font-medium | 1.4 (leading-snug) |
+| Label / UI | 12px | text-xs | 400 regular | font-normal | 1.4 (leading-snug) |
 | Heading (topic title) | 18px | text-lg | 600 semibold | font-semibold | 1.2 (leading-tight) |
 | Section heading | 14px | text-sm | 600 semibold | font-semibold | 1.2 (leading-tight) |
 
@@ -69,6 +71,7 @@ Rules:
 - Section headings (h3 "So sánh"): `text-sm font-semibold` — established in Phase 2, all Phase 3 topics follow
 - Category headers in sidebar: `text-xs font-semibold uppercase tracking-wider text-slate-400` — established in Phase 2, do not change
 - Inline code snippets: `bg-slate-200 px-1 rounded` with parent text size
+- font-medium (500) is NOT used anywhere in this phase
 
 ---
 
@@ -85,7 +88,7 @@ TailwindCSS v4. No custom hex tokens in @theme — using Tailwind's built-in sla
 
 Accent (`blue-*`) reserved for ONLY these specific elements:
 1. Primary action buttons in demo boxes (increment/decrement, submit, toggle) — `bg-blue-500 hover:bg-blue-600 text-white`
-2. Active sidebar topic item — `bg-blue-50 text-blue-700 font-medium`
+2. Active sidebar topic item — `bg-blue-50 text-blue-700 font-semibold`
 3. Code toggle links ("Xem code" / "Ẩn code") — `text-blue-600 hover:text-blue-800`
 4. Search input focus ring — `focus:ring-blue-500` (new in Phase 3, ENHC-01)
 5. Progress checkmark icons — `text-blue-500` (new in Phase 3, ENHC-02)
@@ -132,11 +135,11 @@ Every new topic file in Phase 3 MUST use this exact layout structure. This was l
   </div>
 
   <div class="mb-4">                               ← code toggle section
-    <button class="text-xs text-blue-600 hover:text-blue-800 font-medium">
+    <button class="text-xs text-blue-600 hover:text-blue-800">
       {showCode ? '▼ Ẩn code' : '▶ Xem code'}
     </button>
     {showCode && (
-      <pre class="mt-2 bg-slate-900 text-slate-100 text-xs p-3 rounded overflow-x-auto">
+      <pre class="mt-2 bg-slate-900 text-slate-100 text-xs p-4 rounded overflow-x-auto">
         <code>{DEMO_CODE}</code>
       </pre>
     )}
@@ -153,6 +156,8 @@ Every new topic file in Phase 3 MUST use this exact layout structure. This was l
 
 Vue SFC uses same structure with template syntax. The demo content inside the demo box varies per topic — the surrounding structure does not.
 
+Note: Code block padding changed from `p-3` (12px, non-standard) to `p-4` (16px) to conform to the spacing scale.
+
 ---
 
 ## Interaction Contracts
@@ -160,7 +165,7 @@ Vue SFC uses same structure with template syntax. The demo content inside the de
 ### Search / Filter (ENHC-01)
 
 - Input placement: top of sidebar, below collapse button, above category list
-- Input style: `w-full px-2 py-1 text-sm border border-slate-200 rounded bg-white placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-500`
+- Input style: `w-full px-2 py-2 text-sm border border-slate-200 rounded bg-white placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-500`
 - Placeholder text: "Tìm topic..."
 - Behavior: filter topics realtime as user types (no debounce needed — local array filter)
 - Match logic: case-insensitive substring match on topic title
@@ -183,6 +188,7 @@ Vue SFC uses same structure with template syntax. The demo content inside the de
 - Expanded width: 16rem (256px) — existing via CSS variable `--sidebar-width`
 - When collapsed: hide search input AND topic list AND category headers
 - Transition: existing `transition: margin-left 0.2s ease` on #app-shell
+- Collapse toggle button MUST have `aria-label="Collapse sidebar"` when expanded and `aria-label="Expand sidebar"` when collapsed (button is icon-only — aria-label is required for accessibility)
 
 ---
 
@@ -197,6 +203,7 @@ Vue SFC uses same structure with template syntax. The demo content inside the de
 | Code toggle — show | "▶ Xem code" | Existing pattern — do not change |
 | Code toggle — hide | "▼ Ẩn code" | Existing pattern — do not change |
 | Comparison section heading | "So sánh" | Existing pattern — do not change |
+| Sidebar collapse aria-label | "Collapse sidebar" / "Expand sidebar" | Toggle based on current state |
 | Category: Essentials | As defined in shared topics registry | Source of truth: packages/shared |
 | Category: Components | As defined in shared topics registry | Source of truth: packages/shared |
 | Category: Reusability | As defined in shared topics registry | Source of truth: packages/shared |
