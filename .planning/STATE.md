@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Ready to plan
-stopped_at: Completed 02-04-PLAN.md
-last_updated: "2026-03-27T06:01:07.130Z"
+status: Milestone complete
+stopped_at: Completed 04-03-PLAN.md
+last_updated: "2026-03-31T10:57:51.162Z"
 progress:
   total_phases: 4
-  completed_phases: 2
-  total_plans: 7
-  completed_plans: 7
+  completed_phases: 4
+  total_plans: 15
+  completed_plans: 15
 ---
 
 # Project State
@@ -19,11 +19,11 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-26)
 
 **Core value:** So sánh side-by-side chạy live giữa Vue 3 và React cho cùng một concept — giúp hiểu React thông qua mapping trực tiếp với Vue đã biết.
-**Current focus:** Phase 02 — first-5-topics
+**Current focus:** Phase 04 — advanced-deep-dives
 
 ## Current Position
 
-Phase: 3
+Phase: 04
 Plan: Not started
 
 ## Performance Metrics
@@ -53,6 +53,14 @@ Plan: Not started
 | Phase 02 P02 | 5 | 2 tasks | 6 files |
 | Phase 02 P03 | 2 | 2 tasks | 6 files |
 | Phase 02 P04 | 3 | 2 tasks | 0 files |
+| Phase 03 P01 | 8min | 2 tasks | 14 files |
+| Phase 03 P02 | 8min | 2 tasks | 10 files |
+| Phase 03 P03 | 6min | 2 tasks | 14 files |
+| Phase 03 P04 | 7min | 2 tasks | 16 files |
+| Phase 03 P05 | 10min | 2 tasks | 1 files |
+| Phase 04 P01 | 8min | 2 tasks | 9 files |
+| Phase 04 P02 | 7min | 2 tasks | 6 files |
+| Phase 04 P03 | 5min | 2 tasks | 0 files |
 
 ## Accumulated Context
 
@@ -74,6 +82,18 @@ Recent decisions affecting current work:
 - [Phase 02]: Topic pattern established: demo box (border/padding) + explanation box (bg-slate-50) — all future topics follow
 - [Phase 02]: defineComponent() inside <script setup> for inline TimerDisplay child in Vue
 - [Phase 02]: Phase 2 verification passed with 0 TypeScript errors — all 12 topic files present and interactive
+- [Phase 03]: Plan 03-01: Registry has 26 entries (not 28) — plan listed 20 explicit entries, discrepancy is plan authoring error
+- [Phase 03]: Plan 03-01: p-3→p-4 scoped to code block pre pattern only, not all p-3 in topic files
+- [Phase 03]: Vue EventHandling uses @keydown.enter modifier inline with arrow function for Enter logging demo
+- [Phase 03]: ComponentVModel.vue uses modelValue/emit pattern — defineModel compiler macro not usable inside defineComponent render fn
+- [Phase 03]: AsyncComponents use simulated Promise delay — real import() not possible in single-file inline component demos
+- [Phase 03]: Suspense.tsx: replaced JSX.Element with ReactElement import to fix TS namespace error
+- [Phase 03]: KeepAlive.vue: defineComponent+h() for inline TabA/TabB child components in SFC
+- [Phase 03]: Phase 3 complete — 28 topics live across 4 categories, search + progress tracking working
+- [Phase 04]: No new npm packages for Scaling Up topics — demos use existing primitives with code snippets showing real library APIs
+- [Phase 04]: Inline SVG with viewBox (no width/height attrs) for all Deep Dive diagrams — responsive by default
+- [Phase 04]: Unique marker IDs per diagram: arrow-{topic}-{framework} pattern prevents DOM collisions across topics
+- [Phase 04]: Phase 4 verification: all automated checks passed, user approved visual quality
 
 ### Pending Todos
 
@@ -86,6 +106,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-27T05:56:51.164Z
-Stopped at: Completed 02-04-PLAN.md
+Last session: 2026-03-31T10:39:43.137Z
+Stopped at: Completed 04-03-PLAN.md
 Resume file: None
