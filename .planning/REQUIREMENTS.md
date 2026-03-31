@@ -69,16 +69,16 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Topic Content — Deep Dive (3 topics)
 
-- [ ] **DEEP-01**: Rendering Mechanism — Vue compiler optimized diff vs React full subtree diff + diagram
-- [ ] **DEEP-02**: Reactivity In-Depth — Proxy-based tracking vs immutable state comparison + diagram
-- [ ] **DEEP-03**: Re-render & Optimization — Vue auto vs React manual (memo, useMemo, useCallback) + diagram
+- [x] **DEEP-01**: Rendering Mechanism — Vue compiler optimized diff vs React full subtree diff + diagram
+- [x] **DEEP-02**: Reactivity In-Depth — Proxy-based tracking vs immutable state comparison + diagram
+- [x] **DEEP-03**: Re-render & Optimization — Vue auto vs React manual (memo, useMemo, useCallback) + diagram
 
 ### Topic Content — Scaling Up (4 topics)
 
-- [ ] **SCAL-01**: Routing — Vue Router vs React Router
-- [ ] **SCAL-02**: State Management — Pinia vs Zustand/Redux Toolkit
-- [ ] **SCAL-03**: Testing — Vitest + Vue Test Utils vs Vitest + React Testing Library
-- [ ] **SCAL-04**: TypeScript — defineProps<T>/defineEmits<T> vs props type trực tiếp
+- [x] **SCAL-01**: Routing — Vue Router vs React Router
+- [x] **SCAL-02**: State Management — Pinia vs Zustand/Redux Toolkit
+- [x] **SCAL-03**: Testing — Vitest + Vue Test Utils vs Vitest + React Testing Library
+- [x] **SCAL-04**: TypeScript — defineProps<T>/defineEmits<T> vs props type trực tiếp
 
 ### Enhancements
 
@@ -155,13 +155,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ENHC-01 | Phase 3 | Complete |
 | ENHC-02 | Phase 3 | Complete |
 | DISP-03 | Phase 4 | Pending |
-| DEEP-01 | Phase 4 | Pending |
-| DEEP-02 | Phase 4 | Pending |
-| DEEP-03 | Phase 4 | Pending |
-| SCAL-01 | Phase 4 | Pending |
-| SCAL-02 | Phase 4 | Pending |
-| SCAL-03 | Phase 4 | Pending |
-| SCAL-04 | Phase 4 | Pending |
+| DEEP-01 | Phase 4 | Complete |
+| DEEP-02 | Phase 4 | Complete |
+| DEEP-03 | Phase 4 | Complete |
+| SCAL-01 | Phase 4 | Complete |
+| SCAL-02 | Phase 4 | Complete |
+| SCAL-03 | Phase 4 | Complete |
+| SCAL-04 | Phase 4 | Complete |
 
 **Coverage:**
 - v1 requirements: 42 total
