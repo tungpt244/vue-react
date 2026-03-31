@@ -138,3 +138,14 @@ None — all 14 topics render live interactive demos with real state. No placeho
 ---
 *Phase: 03-core-curriculum*
 *Completed: 2026-03-31*
+
+## Self-Check: PASSED
+
+- FOUND: packages/react-app/src/topics/components/Props.tsx
+- FOUND: packages/react-app/src/topics/components/Slots.tsx
+- FOUND: packages/vue-app/src/topics/components/ComponentVModel.vue
+- FOUND: packages/vue-app/src/topics/components/AsyncComponents.vue
+- FOUND: .planning/phases/03-core-curriculum/03-03-SUMMARY.md
+- FOUND commit df8232d (React files)
+- FOUND commit 652bc7b (Vue files)
+- TypeScript typecheck: PASS (0 errors, all 4 packages)
