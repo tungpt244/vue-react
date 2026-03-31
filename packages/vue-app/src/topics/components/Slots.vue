@@ -14,7 +14,7 @@ const Card = defineComponent({
               slots.header(),
             )
           : null,
-        h('div', {}, slots.default ? slots.default() : null),
+        h('div', {}, slots.default ? slots.default() : undefined),
         slots.footer
           ? h(
               'div',
