@@ -133,7 +133,7 @@ export default function ClassStyleBindings() {
           {showCode ? '▼ Ẩn code' : '▶ Xem code'}
         </button>
         {showCode && (
-          <pre className="mt-2 bg-slate-900 text-slate-100 text-xs p-3 rounded overflow-x-auto">
+          <pre className="mt-2 bg-slate-900 text-slate-100 text-xs p-4 rounded overflow-x-auto">
             <code>{DEMO_CODE}</code>
           </pre>
         )}

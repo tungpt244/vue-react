@@ -43,6 +43,7 @@ export function Sidebar() {
           onClick={() => setCollapsed(!collapsed)}
           className="p-1 rounded hover:bg-slate-100 text-slate-500 cursor-pointer"
           title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         >
           {collapsed ? '\u25B6' : '\u2630'}
         </button>
@@ -64,9 +65,9 @@ export function Sidebar() {
                     key={topic.id}
                     onClick={() => handleClick(topic.category, topic.slug)}
                     className={[
-                      'w-full text-left px-3 py-1.5 text-sm cursor-pointer rounded mx-1 block',
+                      'w-full text-left px-3 py-2 text-sm cursor-pointer rounded mx-1 block',
                       isActive
-                        ? 'bg-blue-50 text-blue-700 font-medium'
+                        ? 'bg-blue-50 text-blue-700 font-semibold'
                         : 'hover:bg-slate-50 text-slate-700',
                     ].join(' ')}
                   >

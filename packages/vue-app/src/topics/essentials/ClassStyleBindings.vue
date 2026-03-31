@@ -165,7 +165,7 @@ const DEMO_CODE = `<!-- Vue — :class và :style directives -->
       </button>
       <pre
         v-if="showCode"
-        class="mt-2 bg-slate-900 text-slate-100 text-xs p-3 rounded overflow-x-auto"
+        class="mt-2 bg-slate-900 text-slate-100 text-xs p-4 rounded overflow-x-auto"
       >
         <code>{{ DEMO_CODE }}</code>
       </pre>
