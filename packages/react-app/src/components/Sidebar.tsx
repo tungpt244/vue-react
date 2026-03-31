@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router'
+import { CheckCircle2, Circle } from 'lucide-react'
 import {
   getAllCategories,
   getTopicsByCategory,
@@ -10,6 +11,14 @@ import {
 
 export function Sidebar() {
   const [collapsed, setCollapsed] = useState(false)
+  const [search, setSearch] = useState('')
+  const [visited, setVisited] = useState<string[]>(() => {
+    try {
+      return JSON.parse(localStorage.getItem('vibe-progress') ?? '[]')
+    } catch {
+      return []
+    }
+  })
   const navigate = useNavigate()
   const { pathname } = useLocation()
 
@@ -24,6 +33,15 @@ export function Sidebar() {
     )
   }, [collapsed])
 
+  const filteredCategories = getAllCategories()
+    .map((cat) => ({
+      cat,
+      topics: getTopicsByCategory(cat).filter((t) =>
+        t.title.toLowerCase().includes(search.toLowerCase()),
+      ),
+    }))
+    .filter(({ topics }) => topics.length > 0)
+
   function handleClick(category: string, slug: string) {
     navigate(`/${category}/${slug}`)
     window.dispatchEvent(
@@ -31,6 +49,15 @@ export function Sidebar() {
         detail: { category, topicId: slug },
       }),
     )
+    if (!visited.includes(slug)) {
+      const updated = [...visited, slug]
+      setVisited(updated)
+      try {
+        localStorage.setItem('vibe-progress', JSON.stringify(updated))
+      } catch {
+        // localStorage unavailable — silent degradation
+      }
+    }
   }
 
   return (
@@ -50,34 +77,64 @@ export function Sidebar() {
       </div>
 
       {!collapsed && (
-        <nav>
-          {getAllCategories().map((cat) => (
-            <div key={cat}>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 px-3 pt-4 pb-1">
-                {CATEGORIES[cat]}
-              </h3>
-              {getTopicsByCategory(cat).map((topic) => {
-                const isActive =
-                  activeCategory === topic.category &&
-                  activeTopicId === topic.slug
-                return (
-                  <button
-                    key={topic.id}
-                    onClick={() => handleClick(topic.category, topic.slug)}
-                    className={[
-                      'w-full text-left px-3 py-2 text-sm cursor-pointer rounded mx-1 block',
-                      isActive
-                        ? 'bg-blue-50 text-blue-700 font-semibold'
-                        : 'hover:bg-slate-50 text-slate-700',
-                    ].join(' ')}
-                  >
-                    {topic.title}
-                  </button>
-                )
-              })}
-            </div>
-          ))}
-        </nav>
+        <>
+          <div className="px-3 pt-3 pb-1">
+            <input
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Tìm topic..."
+              className="w-full px-2 py-2 text-sm border border-slate-200 rounded bg-white placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            />
+          </div>
+
+          <nav>
+            {filteredCategories.map(({ cat, topics: filteredTopics }) => (
+              <div key={cat}>
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 px-3 pt-4 pb-1">
+                  {CATEGORIES[cat]}
+                </h3>
+                {filteredTopics.map((topic) => {
+                  const isActive =
+                    activeCategory === topic.category &&
+                    activeTopicId === topic.slug
+                  return (
+                    <button
+                      key={topic.id}
+                      onClick={() => handleClick(topic.category, topic.slug)}
+                      className={[
+                        'w-full text-left px-3 py-2 text-sm cursor-pointer rounded mx-1 block',
+                        isActive
+                          ? 'bg-blue-50 text-blue-700 font-semibold'
+                          : 'hover:bg-slate-50 text-slate-700',
+                      ].join(' ')}
+                    >
+                      <div className="flex items-center justify-between w-full">
+                        <span className="truncate">{topic.title}</span>
+                        {visited.includes(topic.id) ? (
+                          <CheckCircle2
+                            size={14}
+                            className="text-blue-500 shrink-0 ml-2"
+                          />
+                        ) : (
+                          <Circle
+                            size={14}
+                            className="text-slate-300 shrink-0 ml-2"
+                          />
+                        )}
+                      </div>
+                    </button>
+                  )
+                })}
+              </div>
+            ))}
+          </nav>
+
+          {search && filteredCategories.length === 0 && (
+            <p className="text-sm text-slate-400 px-3 py-2">
+              Không tìm thấy topic nào.
+            </p>
+          )}
+        </>
       )}
     </div>
   )
