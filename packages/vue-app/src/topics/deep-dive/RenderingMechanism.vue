@@ -91,9 +91,9 @@ function render() {
         </div>
         <div>
           <span class="text-slate-400">Dynamic:</span>
-          <code class="ml-1 bg-slate-200 px-1 rounded"
-            >{{ '{{ count }}' }}</code
-          >
+          <code class="ml-1 bg-slate-200 px-1 rounded">{{
+            `&#123&#123${count}&#125&#125`
+          }}</code>
           — patch flag TEXT, targeted update
         </div>
       </div>
