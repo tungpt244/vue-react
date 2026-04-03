@@ -27,12 +27,13 @@ key-files:
     - packages/host/src/styles.css
 
 key-decisions:
-  - "Side-by-side layout uses plain CSS grid on #app-shell (not Tailwind classes) for structural reliability"
+  - 'Side-by-side layout uses plain CSS grid on #app-shell (not Tailwind classes) for structural reliability'
 
 patterns-established:
-  - "Layout contract: #app-shell grid 1fr 1fr, #vue-root border-right 1px solid #e2e8f0, both panels min-height 100vh"
+  - 'Layout contract: #app-shell grid 1fr 1fr, #vue-root border-right 1px solid #e2e8f0, both panels min-height 100vh'
 
-requirements-completed: [INFRA-01, INFRA-02, INFRA-03, INFRA-04, INFRA-05, INFRA-06, INFRA-07]
+requirements-completed:
+  [INFRA-01, INFRA-02, INFRA-03, INFRA-04, INFRA-05, INFRA-06, INFRA-07]
 
 # Metrics
 duration: 4min
@@ -52,6 +53,7 @@ completed: 2026-03-26
 - **Files modified:** 1
 
 ## Accomplishments
+
 - Added CSS grid side-by-side layout to host styles (2 equal columns, 1px border between panels, 100vh min-height)
 - Passed automated verification: TypeScript typecheck across all 4 packages, dev server starts on port 5173
 - Human verified all 4 browser tests: dual mount visible, routing + event bridge works, URL refresh preserves state, HMR updates independently per framework
@@ -67,9 +69,11 @@ Each task was committed atomically:
 **Plan metadata:** [pending] (docs: complete plan)
 
 ## Files Created/Modified
+
 - `packages/host/src/styles.css` - Added #app-shell grid layout, #vue-root border-right, #react-root min-height
 
 ## Decisions Made
+
 - Side-by-side layout uses plain CSS grid on #app-shell rather than Tailwind utility classes, ensuring structural layout is explicit and not subject to Tailwind purging
 
 ## Deviations from Plan
@@ -77,12 +81,15 @@ Each task was committed atomically:
 None - plan executed exactly as written.
 
 ## Issues Encountered
+
 None
 
 ## User Setup Required
+
 None - no external service configuration required.
 
 ## Next Phase Readiness
+
 - Phase 1 infrastructure complete -- all 7 INFRA requirements verified end-to-end
 - Ready for Phase 2: First 5 Topics (sidebar navigation, topic content pipeline, Shiki code display)
 - Known concern for Phase 2: Shiki v4 API may differ from training data, verify when implementing CodeBlock component
@@ -94,5 +101,6 @@ None - no external service configuration required.
 - FOUND: packages/host/src/styles.css
 
 ---
-*Phase: 01-infrastructure-scaffold*
-*Completed: 2026-03-26*
+
+_Phase: 01-infrastructure-scaffold_
+_Completed: 2026-03-26_

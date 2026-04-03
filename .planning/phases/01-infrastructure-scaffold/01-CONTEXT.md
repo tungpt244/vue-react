@@ -14,12 +14,15 @@ Scaffold pnpm monorepo với 4 packages (@vibe/shared, @vibe/vue-app, @vibe/reac
 ## Implementation Decisions
 
 ### Package Naming
+
 - **D-01:** Scoped packages: `@vibe/shared`, `@vibe/vue-app`, `@vibe/react-app`, `@vibe/host`
 
 ### Code Formatting
+
 - **D-02:** Prettier — single quotes, no semicolons
 
 ### Claude's Discretion
+
 - Topic registry data structure (fields, nested vs flat)
 - Placeholder content cho topics chưa implement
 - Dev workflow (single command vs multiple terminals)
@@ -30,11 +33,13 @@ Scaffold pnpm monorepo với 4 packages (@vibe/shared, @vibe/vue-app, @vibe/reac
 </decisions>
 
 <canonical_refs>
+
 ## Canonical References
 
 **Downstream agents MUST read these before planning or implementing.**
 
 ### Project Architecture
+
 - `PROJECT_BRIEF.md` — Full project brief với structure, routing flow, layout, topics list
 - `.planning/PROJECT.md` — Project context, core value, constraints
 - `.planning/REQUIREMENTS.md` — 42 v1 requirements, Phase 1 covers INFRA-01→07
@@ -45,15 +50,19 @@ Scaffold pnpm monorepo với 4 packages (@vibe/shared, @vibe/vue-app, @vibe/reac
 </canonical_refs>
 
 <code_context>
+
 ## Existing Code Insights
 
 ### Reusable Assets
+
 - None — greenfield project, no existing code
 
 ### Established Patterns
+
 - None yet — Phase 1 establishes all foundational patterns
 
 ### Integration Points
+
 - Topic registry from `@vibe/shared` consumed by both vue-app and react-app
 - Host app imports and boots both framework apps
 - CustomEvent bridge connects React Router to Vue app
@@ -64,6 +73,7 @@ Scaffold pnpm monorepo với 4 packages (@vibe/shared, @vibe/vue-app, @vibe/reac
 ## Specific Ideas
 
 No specific requirements — open to standard approaches. Research docs recommend:
+
 - Vite multi-plugin with explicit `include` patterns to avoid transform conflicts
 - Vue app reads `window.location` on mount as fallback (race condition prevention)
 - Single Tailwind pipeline (not separate configs per app)
@@ -79,5 +89,5 @@ None — discussion stayed within phase scope
 
 ---
 
-*Phase: 01-infrastructure-scaffold*
-*Context gathered: 2026-03-26*
+_Phase: 01-infrastructure-scaffold_
+_Context gathered: 2026-03-26_

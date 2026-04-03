@@ -98,76 +98,78 @@ Deferred to future release. Tracked but not in current roadmap.
 
 ## Out of Scope
 
-| Feature | Reason |
-|---------|--------|
+| Feature                                     | Reason                                                     |
+| ------------------------------------------- | ---------------------------------------------------------- |
 | Editable code playground (StackBlitz-style) | Massive complexity, bundler-in-browser cho cả 2 frameworks |
-| SSR (Nuxt/Next) | Personal tool, không cần SEO |
-| Vue Router | Tránh conflict 2 router trên 1 URL |
-| Backend/API/database | Pure frontend, localStorage đủ |
-| Multi-framework (Svelte, Solid, Angular) | Scope explosion, focus Vue vs React |
-| AI-generated explanations | Content cần opinionated, experience-based |
-| Mobile app | Web-only |
+| SSR (Nuxt/Next)                             | Personal tool, không cần SEO                               |
+| Vue Router                                  | Tránh conflict 2 router trên 1 URL                         |
+| Backend/API/database                        | Pure frontend, localStorage đủ                             |
+| Multi-framework (Svelte, Solid, Angular)    | Scope explosion, focus Vue vs React                        |
+| AI-generated explanations                   | Content cần opinionated, experience-based                  |
+| Mobile app                                  | Web-only                                                   |
 
 ## Traceability
 
 Which phases cover which requirements. Updated during roadmap creation.
 
-| Requirement | Phase | Status |
-|-------------|-------|--------|
-| INFRA-01 | Phase 1 | Complete |
-| INFRA-02 | Phase 1 | Complete |
-| INFRA-03 | Phase 1 | Complete |
-| INFRA-04 | Phase 1 | Complete |
-| INFRA-05 | Phase 1 | Complete |
-| INFRA-06 | Phase 1 | Complete |
-| INFRA-07 | Phase 1 | Complete |
-| NAV-01 | Phase 2 | Complete |
-| NAV-02 | Phase 2 | Complete |
-| NAV-03 | Phase 2 | Complete |
-| DISP-01 | Phase 2 | Complete |
-| DISP-02 | Phase 2 | Complete |
-| ESS-01 | Phase 2 | Complete |
-| ESS-02 | Phase 2 | Complete |
-| ESS-03 | Phase 2 | Complete |
-| ESS-08 | Phase 2 | Complete |
-| ESS-10 | Phase 2 | Complete |
-| ESS-11 | Phase 2 | Complete |
-| ESS-04 | Phase 3 | Complete |
-| ESS-05 | Phase 3 | Complete |
-| ESS-06 | Phase 3 | Complete |
-| ESS-07 | Phase 3 | Complete |
-| ESS-09 | Phase 3 | Complete |
-| COMP-01 | Phase 3 | Complete |
-| COMP-02 | Phase 3 | Complete |
-| COMP-03 | Phase 3 | Complete |
-| COMP-04 | Phase 3 | Complete |
-| COMP-05 | Phase 3 | Complete |
-| COMP-06 | Phase 3 | Complete |
-| COMP-07 | Phase 3 | Complete |
-| REUS-01 | Phase 3 | Complete |
-| REUS-02 | Phase 3 | Complete |
-| REUS-03 | Phase 3 | Complete |
-| BTIN-01 | Phase 3 | Complete |
-| BTIN-02 | Phase 3 | Complete |
-| BTIN-03 | Phase 3 | Complete |
-| BTIN-04 | Phase 3 | Complete |
-| BTIN-05 | Phase 3 | Complete |
-| ENHC-01 | Phase 3 | Complete |
-| ENHC-02 | Phase 3 | Complete |
-| DISP-03 | Phase 4 | Pending |
-| DEEP-01 | Phase 4 | Complete |
-| DEEP-02 | Phase 4 | Complete |
-| DEEP-03 | Phase 4 | Complete |
-| SCAL-01 | Phase 4 | Complete |
-| SCAL-02 | Phase 4 | Complete |
-| SCAL-03 | Phase 4 | Complete |
-| SCAL-04 | Phase 4 | Complete |
+| Requirement | Phase   | Status   |
+| ----------- | ------- | -------- |
+| INFRA-01    | Phase 1 | Complete |
+| INFRA-02    | Phase 1 | Complete |
+| INFRA-03    | Phase 1 | Complete |
+| INFRA-04    | Phase 1 | Complete |
+| INFRA-05    | Phase 1 | Complete |
+| INFRA-06    | Phase 1 | Complete |
+| INFRA-07    | Phase 1 | Complete |
+| NAV-01      | Phase 2 | Complete |
+| NAV-02      | Phase 2 | Complete |
+| NAV-03      | Phase 2 | Complete |
+| DISP-01     | Phase 2 | Complete |
+| DISP-02     | Phase 2 | Complete |
+| ESS-01      | Phase 2 | Complete |
+| ESS-02      | Phase 2 | Complete |
+| ESS-03      | Phase 2 | Complete |
+| ESS-08      | Phase 2 | Complete |
+| ESS-10      | Phase 2 | Complete |
+| ESS-11      | Phase 2 | Complete |
+| ESS-04      | Phase 3 | Complete |
+| ESS-05      | Phase 3 | Complete |
+| ESS-06      | Phase 3 | Complete |
+| ESS-07      | Phase 3 | Complete |
+| ESS-09      | Phase 3 | Complete |
+| COMP-01     | Phase 3 | Complete |
+| COMP-02     | Phase 3 | Complete |
+| COMP-03     | Phase 3 | Complete |
+| COMP-04     | Phase 3 | Complete |
+| COMP-05     | Phase 3 | Complete |
+| COMP-06     | Phase 3 | Complete |
+| COMP-07     | Phase 3 | Complete |
+| REUS-01     | Phase 3 | Complete |
+| REUS-02     | Phase 3 | Complete |
+| REUS-03     | Phase 3 | Complete |
+| BTIN-01     | Phase 3 | Complete |
+| BTIN-02     | Phase 3 | Complete |
+| BTIN-03     | Phase 3 | Complete |
+| BTIN-04     | Phase 3 | Complete |
+| BTIN-05     | Phase 3 | Complete |
+| ENHC-01     | Phase 3 | Complete |
+| ENHC-02     | Phase 3 | Complete |
+| DISP-03     | Phase 4 | Pending  |
+| DEEP-01     | Phase 4 | Complete |
+| DEEP-02     | Phase 4 | Complete |
+| DEEP-03     | Phase 4 | Complete |
+| SCAL-01     | Phase 4 | Complete |
+| SCAL-02     | Phase 4 | Complete |
+| SCAL-03     | Phase 4 | Complete |
+| SCAL-04     | Phase 4 | Complete |
 
 **Coverage:**
+
 - v1 requirements: 42 total
 - Mapped to phases: 42
 - Unmapped: 0
 
 ---
-*Requirements defined: 2026-03-26*
-*Last updated: 2026-03-26 after roadmap creation — all 42 requirements mapped*
+
+_Requirements defined: 2026-03-26_
+_Last updated: 2026-03-26 after roadmap creation — all 42 requirements mapped_

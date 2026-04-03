@@ -15,32 +15,34 @@ The sidebar enhancements are contained to a single file (`packages/react-app/src
 **Primary recommendation:** Split Phase 3 into 5-6 plans — one for shared registry expansion + new category folders, one per content batch (Essentials, Components, Reusability, Built-in), and one final plan for sidebar enhancements + spacing cleanup. This avoids monolithic plans while keeping related topic pairs (Vue + React) together.
 
 <phase_requirements>
+
 ## Phase Requirements
 
-| ID | Description | Research Support |
-|----|-------------|------------------|
-| ESS-04 | Conditional Rendering — v-if/v-else/v-show vs &&/ternary/early return | Standard Vue + React pattern, well-understood |
-| ESS-05 | List Rendering — v-for + :key vs .map() + key | Standard Vue + React pattern |
-| ESS-06 | Event Handling — @click/@input + modifiers vs onClick/onChange | Standard Vue + React pattern |
-| ESS-07 | Form Bindings — v-model vs controlled components | Standard Vue + React pattern |
-| ESS-09 | Template Refs — ref + template ref vs useRef | Standard Vue + React pattern |
-| COMP-01 | Props — defineProps<T>() vs props type annotation | Standard Vue + React component pattern |
-| COMP-02 | Events/Callbacks — emit() vs callback props | Standard Vue + React component pattern |
-| COMP-03 | Component v-model — defineModel() vs controlled + callback | Vue 3.4+ defineModel() API |
-| COMP-04 | Fallthrough Attributes — auto forward vs spread ...rest props | Vue inheritAttrs, React ...rest |
-| COMP-05 | Slots — default/named slots vs children + render props | Vue slots vs React children |
-| COMP-06 | Provide/Inject — provide()/inject() vs createContext/useContext | Dependency injection pattern |
-| COMP-07 | Async Components — defineAsyncComponent vs React.lazy + Suspense | Vue + React lazy loading |
-| REUS-01 | Composables/Hooks — composables vs custom hooks | Custom hook pattern |
-| REUS-02 | Custom Directives — directive() vs hooks/HOC | Vue-only concept, React has no equivalent |
-| REUS-03 | Plugins — app.use() vs Context/Provider pattern | Vue plugin system vs React context |
-| BTIN-01 | Transition — `<Transition>` vs framer-motion | Vue built-in + framer-motion (already in stack) |
-| BTIN-02 | TransitionGroup — `<TransitionGroup>` vs manual | Vue built-in vs CSS transition manually |
-| BTIN-03 | KeepAlive — `<KeepAlive>` vs manual state management | Vue-only concept |
-| BTIN-04 | Teleport — `<Teleport>` vs createPortal | Vue + React DOM portals |
-| BTIN-05 | Suspense — `<Suspense>` vs `<Suspense>` | Both frameworks have Suspense |
-| ENHC-01 | Search/filter topics by keyword | localStorage + realtime array filter |
-| ENHC-02 | Progress tracking with localStorage checkmarks | localStorage persistence |
+| ID      | Description                                                           | Research Support                                |
+| ------- | --------------------------------------------------------------------- | ----------------------------------------------- |
+| ESS-04  | Conditional Rendering — v-if/v-else/v-show vs &&/ternary/early return | Standard Vue + React pattern, well-understood   |
+| ESS-05  | List Rendering — v-for + :key vs .map() + key                         | Standard Vue + React pattern                    |
+| ESS-06  | Event Handling — @click/@input + modifiers vs onClick/onChange        | Standard Vue + React pattern                    |
+| ESS-07  | Form Bindings — v-model vs controlled components                      | Standard Vue + React pattern                    |
+| ESS-09  | Template Refs — ref + template ref vs useRef                          | Standard Vue + React pattern                    |
+| COMP-01 | Props — defineProps<T>() vs props type annotation                     | Standard Vue + React component pattern          |
+| COMP-02 | Events/Callbacks — emit() vs callback props                           | Standard Vue + React component pattern          |
+| COMP-03 | Component v-model — defineModel() vs controlled + callback            | Vue 3.4+ defineModel() API                      |
+| COMP-04 | Fallthrough Attributes — auto forward vs spread ...rest props         | Vue inheritAttrs, React ...rest                 |
+| COMP-05 | Slots — default/named slots vs children + render props                | Vue slots vs React children                     |
+| COMP-06 | Provide/Inject — provide()/inject() vs createContext/useContext       | Dependency injection pattern                    |
+| COMP-07 | Async Components — defineAsyncComponent vs React.lazy + Suspense      | Vue + React lazy loading                        |
+| REUS-01 | Composables/Hooks — composables vs custom hooks                       | Custom hook pattern                             |
+| REUS-02 | Custom Directives — directive() vs hooks/HOC                          | Vue-only concept, React has no equivalent       |
+| REUS-03 | Plugins — app.use() vs Context/Provider pattern                       | Vue plugin system vs React context              |
+| BTIN-01 | Transition — `<Transition>` vs framer-motion                          | Vue built-in + framer-motion (already in stack) |
+| BTIN-02 | TransitionGroup — `<TransitionGroup>` vs manual                       | Vue built-in vs CSS transition manually         |
+| BTIN-03 | KeepAlive — `<KeepAlive>` vs manual state management                  | Vue-only concept                                |
+| BTIN-04 | Teleport — `<Teleport>` vs createPortal                               | Vue + React DOM portals                         |
+| BTIN-05 | Suspense — `<Suspense>` vs `<Suspense>`                               | Both frameworks have Suspense                   |
+| ENHC-01 | Search/filter topics by keyword                                       | localStorage + realtime array filter            |
+| ENHC-02 | Progress tracking with localStorage checkmarks                        | localStorage persistence                        |
+
 </phase_requirements>
 
 ---
@@ -49,12 +51,12 @@ The sidebar enhancements are contained to a single file (`packages/react-app/src
 
 ### Core (all already installed — no new dependencies needed)
 
-| Library | Version | Purpose | Why Standard |
-|---------|---------|---------|--------------|
-| Vue 3 | ^3.5.31 | Vue side topic authoring | Already in stack |
-| React | ^19.2.4 | React side topic authoring | Already in stack |
-| lucide-react | ^1.7.0 | `CheckCircle2` + `Circle` icons for progress tracking | Already in stack, required by UI-SPEC |
-| lucide-vue-next | ^1.0.0 | Same icons on Vue side (sidebar is React-only but kept for parity) | Already in stack |
+| Library         | Version | Purpose                                                            | Why Standard                          |
+| --------------- | ------- | ------------------------------------------------------------------ | ------------------------------------- |
+| Vue 3           | ^3.5.31 | Vue side topic authoring                                           | Already in stack                      |
+| React           | ^19.2.4 | React side topic authoring                                         | Already in stack                      |
+| lucide-react    | ^1.7.0  | `CheckCircle2` + `Circle` icons for progress tracking              | Already in stack, required by UI-SPEC |
+| lucide-vue-next | ^1.0.0  | Same icons on Vue side (sidebar is React-only but kept for parity) | Already in stack                      |
 
 ### New Dependencies
 
@@ -99,6 +101,7 @@ packages/
 Every topic file follows this exact structure. Deviation breaks visual consistency.
 
 **React (.tsx):**
+
 ```tsx
 // Source: packages/react-app/src/topics/essentials/Reactivity.tsx (Phase 2 reference)
 import { useState } from 'react'
@@ -133,7 +136,10 @@ export default function TopicName() {
       <div className="p-4 bg-slate-50 rounded">
         <h3 className="text-sm font-semibold mb-2">So sánh</h3>
         <div className="text-sm text-slate-600 space-y-2">
-          <p><strong>Key point.</strong> Explanation with <code className="bg-slate-200 px-1 rounded">inline code</code>.</p>
+          <p>
+            <strong>Key point.</strong> Explanation with{' '}
+            <code className="bg-slate-200 px-1 rounded">inline code</code>.
+          </p>
         </div>
       </div>
     </div>
@@ -144,6 +150,7 @@ export default function TopicName() {
 Note: Code block padding is `p-4` (16px), not `p-3` (12px). UI-SPEC mandates updating existing Phase 2 files from `p-3` to `p-4`.
 
 **Vue (.vue):**
+
 ```vue
 <!-- Source: packages/vue-app/src/topics/essentials/Reactivity.vue (Phase 2 reference) -->
 <script setup lang="ts">
@@ -198,6 +205,7 @@ Each new topic requires an entry in `topics.ts`. The `toPascalCase` converter in
 The search filter is a pure local state operation — no debounce needed (local array filter is synchronous). The implementation adds one `useState` for the search query and filters the topic list before rendering.
 
 Key behavioral rules from UI-SPEC:
+
 - Category headers still show if at least 1 matching topic exists in that category
 - Category headers hide entirely if 0 matches in that category
 - Empty state: `"Không tìm thấy topic nào."` in `text-sm text-slate-400 px-3 py-2`
@@ -223,7 +231,7 @@ const [visited, setVisited] = useState<string[]>(() => {
 function handleClick(category: string, slug: string) {
   navigate(`/${category}/${slug}`)
   window.dispatchEvent(/* existing CustomEvent */)
-  
+
   if (!visited.includes(slug)) {
     const updated = [...visited, slug]
     setVisited(updated)
@@ -237,6 +245,7 @@ function handleClick(category: string, slug: string) {
 ```
 
 Icon usage per UI-SPEC:
+
 - Visited: `<CheckCircle2 size={14} className="text-blue-500" />`
 - Not visited: `<Circle size={14} className="text-slate-300" />`
 
@@ -253,12 +262,12 @@ Icon usage per UI-SPEC:
 
 ## Don't Hand-Roll
 
-| Problem | Don't Build | Use Instead | Why |
-|---------|-------------|-------------|-----|
-| Conditional class names | Custom className builder | Template literals or existing `clsx` (already installed) | clsx handles edge cases with null/undefined |
-| localStorage access | Custom storage abstraction | Inline try/catch per UI-SPEC | Phase 3 scope is minimal — no abstraction needed |
-| Icon components | SVG inline or custom icon | lucide-react / lucide-vue-next (already installed) | Consistent, tree-shakeable |
-| Topic lazy loading | Custom async loader | Existing TopicRenderer handles this already | TopicRenderer uses `import.meta.glob` + `React.lazy` + `defineAsyncComponent` — new topic files are auto-discovered |
+| Problem                 | Don't Build                | Use Instead                                              | Why                                                                                                                 |
+| ----------------------- | -------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Conditional class names | Custom className builder   | Template literals or existing `clsx` (already installed) | clsx handles edge cases with null/undefined                                                                         |
+| localStorage access     | Custom storage abstraction | Inline try/catch per UI-SPEC                             | Phase 3 scope is minimal — no abstraction needed                                                                    |
+| Icon components         | SVG inline or custom icon  | lucide-react / lucide-vue-next (already installed)       | Consistent, tree-shakeable                                                                                          |
+| Topic lazy loading      | Custom async loader        | Existing TopicRenderer handles this already              | TopicRenderer uses `import.meta.glob` + `React.lazy` + `defineAsyncComponent` — new topic files are auto-discovered |
 
 **Key insight:** Topic files are auto-discovered via `import.meta.glob('../topics/**/*.tsx')` in TopicRenderer. Adding a new .tsx file in the right folder path is sufficient for the renderer to find it — no manual import or registration needed beyond the shared `topics.ts` registry entry.
 
@@ -267,33 +276,39 @@ Icon usage per UI-SPEC:
 ## Common Pitfalls
 
 ### Pitfall 1: Category Folder Name Mismatch
+
 **What goes wrong:** Creating `topics/builtIn/` instead of `topics/built-in/` causes 404s.
 **Why it happens:** Category type value is `'built-in'` (hyphenated) in `types.ts`, but developer uses camelCase for folder.
 **How to avoid:** Always derive folder path directly from the `category` field value in `topics.ts`. Verify folder path matches `../topics/${category}/${toPascalCase(topicId)}.tsx` template in TopicRenderer.
 **Warning signs:** Topic shows "Không tìm thấy component" in the renderer despite file existing.
 
 ### Pitfall 2: Missing topics.ts Entry for New Folders
+
 **What goes wrong:** Topic file exists, component loads, but sidebar doesn't show it and `getAllCategories()` returns empty for new categories.
 **Why it happens:** `getAllCategories()` reads from `topics` array, not filesystem. New category folders only appear in sidebar when topics.ts has entries for that category.
 **How to avoid:** Always add registry entries BEFORE or WITH the topic files, never after.
 
 ### Pitfall 3: Spacing Backfill Forgotten
+
 **What goes wrong:** Inconsistent spacing between old and new topics — `p-3` in Phase 2 files, `p-4` in Phase 3 files.
 **Why it happens:** Phase 2 used `p-3` for code blocks; UI-SPEC mandates `p-4` for all files.
 **How to avoid:** Plan a dedicated task to backfill Phase 2 files (6 React + 6 Vue files), and write all Phase 3 files with `p-4` from the start.
 **Warning signs:** Visible padding inconsistency between topics in the same session.
 
 ### Pitfall 4: localStorage Access Without Try/Catch
+
 **What goes wrong:** App crashes in private browsing mode or when storage quota exceeded.
 **Why it happens:** `localStorage.getItem/setItem` throw in some environments.
 **How to avoid:** Wrap ALL localStorage calls in try/catch. UI-SPEC mandates silent degradation.
 
 ### Pitfall 5: defineModel() Vue Version Requirement
+
 **What goes wrong:** `defineModel()` macro not recognized.
 **Why it happens:** `defineModel()` was stabilized in Vue 3.4. The project uses Vue ^3.5.31 so this is fine, but it must be imported correctly.
 **How to avoid:** In Vue 3.4+, `defineModel()` is a built-in compiler macro — no import needed (same as `defineProps`). Do NOT write `import { defineModel } from 'vue'`.
 
 ### Pitfall 6: h2 Placement Outside Demo Box
+
 **What goes wrong:** `ClassStyleBindings.tsx` places `<h2>` before the demo box, not inside it. This deviates from the locked pattern.
 **Why it happens:** Historical deviation in Phase 2.
 **How to avoid:** All Phase 3 topics MUST place h2 inside the demo box (first child), per the Topic Template Contract in UI-SPEC. Do not copy ClassStyleBindings structure.
@@ -303,6 +318,7 @@ Icon usage per UI-SPEC:
 ## Code Examples
 
 ### Sidebar Search Filter (ENHC-01)
+
 ```tsx
 // Source: UI-SPEC interaction contract + React useState pattern
 const [search, setSearch] = useState('')
@@ -324,21 +340,24 @@ const filteredCategories = getAllCategories().map((cat) => ({
 ```
 
 ### Progress Checkmark Icons (ENHC-02)
+
 ```tsx
 // Source: UI-SPEC + lucide-react
 import { CheckCircle2, Circle } from 'lucide-react'
 
 // Inside each topic button:
-<div className="flex items-center justify-between w-full">
+;<div className="flex items-center justify-between w-full">
   <span>{topic.title}</span>
-  {visited.includes(topic.id)
-    ? <CheckCircle2 size={14} className="text-blue-500 shrink-0" />
-    : <Circle size={14} className="text-slate-300 shrink-0" />
-  }
+  {visited.includes(topic.id) ? (
+    <CheckCircle2 size={14} className="text-blue-500 shrink-0" />
+  ) : (
+    <Circle size={14} className="text-slate-300 shrink-0" />
+  )}
 </div>
 ```
 
 ### Vue Topic with Child Component (COMP-01 pattern)
+
 ```vue
 <!-- defineProps — no import needed, compiler macro -->
 <script setup lang="ts">
@@ -350,6 +369,7 @@ const props = defineProps<{
 ```
 
 ### Vue defineModel (COMP-03 pattern)
+
 ```vue
 <!-- defineModel — no import needed, Vue 3.4+ compiler macro -->
 <script setup lang="ts">
@@ -366,13 +386,14 @@ const model = defineModel<string>()
 
 ## State of the Art
 
-| Old Approach | Current Approach | When Changed | Impact |
-|--------------|------------------|--------------|--------|
-| `defineModel` (experimental) | `defineModel()` stable | Vue 3.4 | Can use without `@experimental` flag |
-| React.lazy requires default export | Still requires default export | React 19 | All topic files must use `export default function` (already the pattern) |
-| `import { CheckCircle2 } from 'lucide-react'` | Same | Current | No change — lucide API stable |
+| Old Approach                                  | Current Approach              | When Changed | Impact                                                                   |
+| --------------------------------------------- | ----------------------------- | ------------ | ------------------------------------------------------------------------ |
+| `defineModel` (experimental)                  | `defineModel()` stable        | Vue 3.4      | Can use without `@experimental` flag                                     |
+| React.lazy requires default export            | Still requires default export | React 19     | All topic files must use `export default function` (already the pattern) |
+| `import { CheckCircle2 } from 'lucide-react'` | Same                          | Current      | No change — lucide API stable                                            |
 
 **Deprecated/outdated:**
+
 - `p-3` for code blocks: UI-SPEC replaces with `p-4` — backfill needed for Phase 2 files
 - `py-1.5` for topic items: UI-SPEC replaces with `py-2` — backfill needed for Phase 2 files
 
@@ -401,6 +422,7 @@ Step 2.6: SKIPPED (no external dependencies — all tools already verified in Ph
 ## Sources
 
 ### Primary (HIGH confidence)
+
 - Codebase inspection — `packages/shared/src/topics.ts`, `types.ts`, `constants.ts` — exact registry shape and category values verified
 - Codebase inspection — `packages/react-app/src/components/Sidebar.tsx` — existing component structure for ENHC-01/02 integration
 - Codebase inspection — `packages/react-app/src/components/TopicRenderer.tsx` — auto-discovery via `import.meta.glob` verified, no manual registration needed
@@ -408,10 +430,12 @@ Step 2.6: SKIPPED (no external dependencies — all tools already verified in Ph
 - `packages/react-app/src/topics/essentials/Reactivity.tsx` + `ClassStyleBindings.tsx` — locked topic template pattern
 
 ### Secondary (MEDIUM confidence)
+
 - Vue 3.5 documentation (training data, Aug 2025) — `defineModel()` stable in 3.4+, `defineProps`/`defineEmits` compiler macros require no import
 - React 19 documentation (training data, Aug 2025) — `React.lazy` still requires default export, `useRef` API unchanged
 
 ### Tertiary (LOW confidence)
+
 - framer-motion availability in project — not verified against actual package.json, noted as open question
 
 ---
@@ -419,6 +443,7 @@ Step 2.6: SKIPPED (no external dependencies — all tools already verified in Ph
 ## Metadata
 
 **Confidence breakdown:**
+
 - Standard stack: HIGH — all verified against actual installed packages in monorepo
 - Architecture: HIGH — patterns directly read from existing working topic files
 - Pitfalls: HIGH for structural pitfalls (verified by reading TopicRenderer source), MEDIUM for Vue API nuances (training data)

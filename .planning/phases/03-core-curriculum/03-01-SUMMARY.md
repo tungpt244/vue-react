@@ -12,7 +12,13 @@ provides:
   - 26-entry topic registry spanning 4 categories (essentials, components, reusability, built-in)
   - Consistent p-4 code block spacing across all 12 Phase 2 topic files
   - Sidebar with py-2 topic items, font-semibold active state, aria-label on collapse button
-affects: [03-02, 03-03, 03-04, 03-05 — all depend on registry entries existing for routing and sidebar rendering]
+affects:
+  [
+    03-02,
+    03-03,
+    03-04,
+    03-05 — all depend on registry entries existing for routing and sidebar rendering,
+  ]
 
 # Tech tracking
 tech-stack:
@@ -41,8 +47,8 @@ key-files:
     - packages/vue-app/src/topics/essentials/TemplateSyntax.vue
 
 key-decisions:
-  - "Plan listed 22 new entries but only specified 20 — implemented the 20 explicitly listed (5 Essentials + 7 Components + 3 Reusability + 5 Built-in), total 26"
-  - "p-3 → p-4 only on code block pre elements (bg-slate-900 pattern), not on demo UI boxes"
+  - 'Plan listed 22 new entries but only specified 20 — implemented the 20 explicitly listed (5 Essentials + 7 Components + 3 Reusability + 5 Built-in), total 26'
+  - 'p-3 → p-4 only on code block pre elements (bg-slate-900 pattern), not on demo UI boxes'
 
 patterns-established:
   - 'Code block: p-4 (not p-3)'
@@ -107,5 +113,6 @@ None.
 - No blockers
 
 ---
-*Phase: 03-core-curriculum*
-*Completed: 2026-03-31*
+
+_Phase: 03-core-curriculum_
+_Completed: 2026-03-31_

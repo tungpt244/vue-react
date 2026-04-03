@@ -20,59 +20,60 @@ The goal statement says "28 topics" but the ROADMAP Success Criteria specifies E
 
 ### Observable Truths (from ROADMAP Success Criteria)
 
-| # | Truth | Status | Evidence |
-|---|-------|--------|----------|
-| 1 | Sidebar shows 4 categories with correct topic counts (Essentials 11, Components 7, Reusability 3, Built-in 5) | VERIFIED | Registry has 26 entries across 4 categories; Sidebar.tsx uses getAllCategories() + getTopicsByCategory() |
-| 2 | Search box filters topics realtime, results update on keystroke | VERIFIED | Sidebar.tsx has filteredCategories computed from search state; input has onChange handler |
-| 3 | Each topic in sidebar has checkmark, state persists after reload (localStorage) | VERIFIED | Sidebar.tsx has visited state initialized from localStorage.getItem('vibe-progress'), setVisited updates localStorage.setItem on click |
-| 4 | Each topic in 4 categories has live demo + explanation following Phase 2 pattern | VERIFIED | All 40 topic files (20 React .tsx + 20 Vue .vue) verified to exist and contain interactive demos with So sanh sections |
+| #   | Truth                                                                                                         | Status   | Evidence                                                                                                                               |
+| --- | ------------------------------------------------------------------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Sidebar shows 4 categories with correct topic counts (Essentials 11, Components 7, Reusability 3, Built-in 5) | VERIFIED | Registry has 26 entries across 4 categories; Sidebar.tsx uses getAllCategories() + getTopicsByCategory()                               |
+| 2   | Search box filters topics realtime, results update on keystroke                                               | VERIFIED | Sidebar.tsx has filteredCategories computed from search state; input has onChange handler                                              |
+| 3   | Each topic in sidebar has checkmark, state persists after reload (localStorage)                               | VERIFIED | Sidebar.tsx has visited state initialized from localStorage.getItem('vibe-progress'), setVisited updates localStorage.setItem on click |
+| 4   | Each topic in 4 categories has live demo + explanation following Phase 2 pattern                              | VERIFIED | All 40 topic files (20 React .tsx + 20 Vue .vue) verified to exist and contain interactive demos with So sanh sections                 |
 
 **Score:** 4/4 ROADMAP truths verified
 
 ### Plan-Level Must-Have Truths (all 5 plans)
 
-| # | Truth | Source Plan | Status | Evidence |
-|---|-------|-------------|--------|----------|
-| 1 | Topic registry contains all new topic entries with correct category, slug, and order | 03-01 | VERIFIED | 26 entries in topics.ts across 4 categories confirmed by file read |
-| 2 | User can toggle visibility with v-if/v-show (Vue) and &&/ternary (React) | 03-02 | VERIFIED | ConditionalRendering.tsx/vue — full interactive demo with 3 patterns each |
-| 3 | User can see a dynamic list with add/remove items on both sides | 03-02 | VERIFIED | ListRendering.tsx/vue contain stateful add/remove |
-| 4 | User can trigger child-to-parent communication via emit (Vue) and callbacks (React) | 03-03 | VERIFIED | EventsCallbacks.tsx/vue with parent counter + child button |
-| 5 | User can see provide/inject (Vue) and context (React) for deep prop passing | 03-03 | VERIFIED | ProvideInject.tsx has createContext/useContext; ProvideInject.vue has provide/inject |
-| 6 | User can see a custom hook/composable (useCounter) working on both sides | 03-04 | VERIFIED | ComposablesHooks.tsx has useCounter hook; ComposablesHooks.vue has useCounter composable |
-| 7 | User can see content rendered outside parent DOM (Teleport vs createPortal) | 03-04 | VERIFIED | Teleport.tsx imports createPortal from react-dom; Teleport.vue uses <Teleport to="body"> |
-| 8 | User can type in search box and topic list filters; visited topics show checkmarks that persist | 03-05 | VERIFIED | Sidebar.tsx has all search and progress tracking features wired |
+| #   | Truth                                                                                           | Source Plan | Status   | Evidence                                                                                 |
+| --- | ----------------------------------------------------------------------------------------------- | ----------- | -------- | ---------------------------------------------------------------------------------------- |
+| 1   | Topic registry contains all new topic entries with correct category, slug, and order            | 03-01       | VERIFIED | 26 entries in topics.ts across 4 categories confirmed by file read                       |
+| 2   | User can toggle visibility with v-if/v-show (Vue) and &&/ternary (React)                        | 03-02       | VERIFIED | ConditionalRendering.tsx/vue — full interactive demo with 3 patterns each                |
+| 3   | User can see a dynamic list with add/remove items on both sides                                 | 03-02       | VERIFIED | ListRendering.tsx/vue contain stateful add/remove                                        |
+| 4   | User can trigger child-to-parent communication via emit (Vue) and callbacks (React)             | 03-03       | VERIFIED | EventsCallbacks.tsx/vue with parent counter + child button                               |
+| 5   | User can see provide/inject (Vue) and context (React) for deep prop passing                     | 03-03       | VERIFIED | ProvideInject.tsx has createContext/useContext; ProvideInject.vue has provide/inject     |
+| 6   | User can see a custom hook/composable (useCounter) working on both sides                        | 03-04       | VERIFIED | ComposablesHooks.tsx has useCounter hook; ComposablesHooks.vue has useCounter composable |
+| 7   | User can see content rendered outside parent DOM (Teleport vs createPortal)                     | 03-04       | VERIFIED | Teleport.tsx imports createPortal from react-dom; Teleport.vue uses <Teleport to="body"> |
+| 8   | User can type in search box and topic list filters; visited topics show checkmarks that persist | 03-05       | VERIFIED | Sidebar.tsx has all search and progress tracking features wired                          |
 
 **Score:** 8/8 truths verified
 
 ### Required Artifacts
 
-| Artifact | Expected | Status | Details |
-|----------|----------|--------|---------|
-| `packages/shared/src/topics.ts` | 26 topic entries across 4 categories | VERIFIED | 26 id: entries, 4 categories confirmed |
-| `packages/react-app/src/topics/essentials/ConditionalRendering.tsx` | ESS-04 React demo | VERIFIED | Has export default function ConditionalRendering, interactive demo, DEMO_CODE, So sanh |
-| `packages/vue-app/src/topics/essentials/ConditionalRendering.vue` | ESS-04 Vue demo | VERIFIED | Has script setup lang="ts", v-if/v-show/v-else-if demos |
-| `packages/react-app/src/topics/essentials/ListRendering.tsx` | ESS-05 React demo | VERIFIED | Exists, 11 .tsx files in essentials/ |
-| `packages/vue-app/src/topics/essentials/ListRendering.vue` | ESS-05 Vue demo | VERIFIED | Exists, 11 .vue files in essentials/ |
-| `packages/react-app/src/topics/essentials/EventHandling.tsx` | ESS-06 React demo | VERIFIED | Exists in essentials/ |
-| `packages/vue-app/src/topics/essentials/EventHandling.vue` | ESS-06 Vue demo | VERIFIED | Exists in essentials/ |
-| `packages/react-app/src/topics/essentials/FormBindings.tsx` | ESS-07 React demo | VERIFIED | Exists in essentials/ |
-| `packages/vue-app/src/topics/essentials/FormBindings.vue` | ESS-07 Vue demo | VERIFIED | Exists in essentials/ |
-| `packages/react-app/src/topics/essentials/TemplateRefs.tsx` | ESS-09 React demo | VERIFIED | Exists in essentials/ |
-| `packages/vue-app/src/topics/essentials/TemplateRefs.vue` | ESS-09 Vue demo | VERIFIED | Exists in essentials/ |
-| `packages/react-app/src/topics/components/Props.tsx` | COMP-01 React demo | VERIFIED | Has export default function Props + Greeting inline child with typed props |
-| `packages/vue-app/src/topics/components/Props.vue` | COMP-01 Vue demo | VERIFIED | Exists with defineProps |
-| `packages/react-app/src/topics/components/Slots.tsx` | COMP-05 React demo | VERIFIED | Exists with children: React.ReactNode |
-| `packages/vue-app/src/topics/components/Slots.vue` | COMP-05 Vue demo | VERIFIED | Exists with slot |
-| `packages/vue-app/src/topics/components/ComponentVModel.vue` | COMP-03 Vue demo | VERIFIED | Exists with defineModel (modelValue/update pattern) |
-| `packages/react-app/src/topics/reusability/ComposablesHooks.tsx` | REUS-01 React demo | VERIFIED | Has useCounter function + export default function ComposablesHooks |
-| `packages/vue-app/src/topics/reusability/ComposablesHooks.vue` | REUS-01 Vue demo | VERIFIED | Has useCounter composable |
-| `packages/react-app/src/topics/built-in/Transition.tsx` | BTIN-01 React demo | VERIFIED | CSS transition + className toggle, no framer-motion |
-| `packages/vue-app/src/topics/built-in/Transition.vue` | BTIN-01 Vue demo | VERIFIED | Has <Transition name="fade"> + scoped CSS |
-| `packages/react-app/src/topics/built-in/Teleport.tsx` | BTIN-04 React demo | VERIFIED | Has createPortal imported from react-dom |
-| `packages/vue-app/src/topics/built-in/Teleport.vue` | BTIN-04 Vue demo | VERIFIED | Has <Teleport to="body"> |
-| `packages/react-app/src/components/Sidebar.tsx` | Search + progress tracking | VERIFIED | Has search state, filteredCategories, visited state, localStorage read/write, CheckCircle2/Circle icons |
+| Artifact                                                            | Expected                             | Status   | Details                                                                                                 |
+| ------------------------------------------------------------------- | ------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------- |
+| `packages/shared/src/topics.ts`                                     | 26 topic entries across 4 categories | VERIFIED | 26 id: entries, 4 categories confirmed                                                                  |
+| `packages/react-app/src/topics/essentials/ConditionalRendering.tsx` | ESS-04 React demo                    | VERIFIED | Has export default function ConditionalRendering, interactive demo, DEMO_CODE, So sanh                  |
+| `packages/vue-app/src/topics/essentials/ConditionalRendering.vue`   | ESS-04 Vue demo                      | VERIFIED | Has script setup lang="ts", v-if/v-show/v-else-if demos                                                 |
+| `packages/react-app/src/topics/essentials/ListRendering.tsx`        | ESS-05 React demo                    | VERIFIED | Exists, 11 .tsx files in essentials/                                                                    |
+| `packages/vue-app/src/topics/essentials/ListRendering.vue`          | ESS-05 Vue demo                      | VERIFIED | Exists, 11 .vue files in essentials/                                                                    |
+| `packages/react-app/src/topics/essentials/EventHandling.tsx`        | ESS-06 React demo                    | VERIFIED | Exists in essentials/                                                                                   |
+| `packages/vue-app/src/topics/essentials/EventHandling.vue`          | ESS-06 Vue demo                      | VERIFIED | Exists in essentials/                                                                                   |
+| `packages/react-app/src/topics/essentials/FormBindings.tsx`         | ESS-07 React demo                    | VERIFIED | Exists in essentials/                                                                                   |
+| `packages/vue-app/src/topics/essentials/FormBindings.vue`           | ESS-07 Vue demo                      | VERIFIED | Exists in essentials/                                                                                   |
+| `packages/react-app/src/topics/essentials/TemplateRefs.tsx`         | ESS-09 React demo                    | VERIFIED | Exists in essentials/                                                                                   |
+| `packages/vue-app/src/topics/essentials/TemplateRefs.vue`           | ESS-09 Vue demo                      | VERIFIED | Exists in essentials/                                                                                   |
+| `packages/react-app/src/topics/components/Props.tsx`                | COMP-01 React demo                   | VERIFIED | Has export default function Props + Greeting inline child with typed props                              |
+| `packages/vue-app/src/topics/components/Props.vue`                  | COMP-01 Vue demo                     | VERIFIED | Exists with defineProps                                                                                 |
+| `packages/react-app/src/topics/components/Slots.tsx`                | COMP-05 React demo                   | VERIFIED | Exists with children: React.ReactNode                                                                   |
+| `packages/vue-app/src/topics/components/Slots.vue`                  | COMP-05 Vue demo                     | VERIFIED | Exists with slot                                                                                        |
+| `packages/vue-app/src/topics/components/ComponentVModel.vue`        | COMP-03 Vue demo                     | VERIFIED | Exists with defineModel (modelValue/update pattern)                                                     |
+| `packages/react-app/src/topics/reusability/ComposablesHooks.tsx`    | REUS-01 React demo                   | VERIFIED | Has useCounter function + export default function ComposablesHooks                                      |
+| `packages/vue-app/src/topics/reusability/ComposablesHooks.vue`      | REUS-01 Vue demo                     | VERIFIED | Has useCounter composable                                                                               |
+| `packages/react-app/src/topics/built-in/Transition.tsx`             | BTIN-01 React demo                   | VERIFIED | CSS transition + className toggle, no framer-motion                                                     |
+| `packages/vue-app/src/topics/built-in/Transition.vue`               | BTIN-01 Vue demo                     | VERIFIED | Has <Transition name="fade"> + scoped CSS                                                               |
+| `packages/react-app/src/topics/built-in/Teleport.tsx`               | BTIN-04 React demo                   | VERIFIED | Has createPortal imported from react-dom                                                                |
+| `packages/vue-app/src/topics/built-in/Teleport.vue`                 | BTIN-04 Vue demo                     | VERIFIED | Has <Teleport to="body">                                                                                |
+| `packages/react-app/src/components/Sidebar.tsx`                     | Search + progress tracking           | VERIFIED | Has search state, filteredCategories, visited state, localStorage read/write, CheckCircle2/Circle icons |
 
 All 7 component folders verified:
+
 - `packages/react-app/src/topics/components/` — 7 .tsx files
 - `packages/vue-app/src/topics/components/` — 7 .vue files
 - `packages/react-app/src/topics/reusability/` — 3 .tsx files
@@ -82,59 +83,60 @@ All 7 component folders verified:
 
 ### Key Link Verification
 
-| From | To | Via | Status | Details |
-|------|----|-----|--------|---------|
-| `packages/shared/src/topics.ts` | `packages/react-app/src/components/Sidebar.tsx` | getAllCategories() and getTopicsByCategory() | WIRED | Sidebar.tsx imports and calls both functions; filteredCategories uses getTopicsByCategory(cat).filter(...) |
-| `packages/react-app/src/components/Sidebar.tsx` | localStorage | getItem/setItem with try/catch | WIRED | Lines 17 and 56 of Sidebar.tsx confirmed — vibe-progress key with try/catch on both read and write |
-| `packages/react-app/src/components/Sidebar.tsx` | lucide-react | CheckCircle2 and Circle icons | WIRED | Import on line 3; used in JSX at lines 114 and 119 |
-| `packages/shared/src/topics.ts` | `packages/react-app/src/topics/components/` | import.meta.glob in TopicRenderer.tsx | WIRED | TopicRenderer.tsx uses import.meta.glob('../topics/**/*.tsx') + toPascalCase(topicId) |
-| `packages/shared/src/topics.ts` | `packages/react-app/src/topics/reusability/` | import.meta.glob — category 'reusability' maps to folder reusability/ | WIRED | TopicRenderer glob covers all topic folders recursively |
-| `packages/shared/src/topics.ts` | `packages/react-app/src/topics/built-in/` | import.meta.glob — category 'built-in' maps to folder built-in/ | WIRED | TopicRenderer glob covers all topic folders recursively |
+| From                                            | To                                              | Via                                                                   | Status | Details                                                                                                    |
+| ----------------------------------------------- | ----------------------------------------------- | --------------------------------------------------------------------- | ------ | ---------------------------------------------------------------------------------------------------------- |
+| `packages/shared/src/topics.ts`                 | `packages/react-app/src/components/Sidebar.tsx` | getAllCategories() and getTopicsByCategory()                          | WIRED  | Sidebar.tsx imports and calls both functions; filteredCategories uses getTopicsByCategory(cat).filter(...) |
+| `packages/react-app/src/components/Sidebar.tsx` | localStorage                                    | getItem/setItem with try/catch                                        | WIRED  | Lines 17 and 56 of Sidebar.tsx confirmed — vibe-progress key with try/catch on both read and write         |
+| `packages/react-app/src/components/Sidebar.tsx` | lucide-react                                    | CheckCircle2 and Circle icons                                         | WIRED  | Import on line 3; used in JSX at lines 114 and 119                                                         |
+| `packages/shared/src/topics.ts`                 | `packages/react-app/src/topics/components/`     | import.meta.glob in TopicRenderer.tsx                                 | WIRED  | TopicRenderer.tsx uses import.meta.glob('../topics/\*_/_.tsx') + toPascalCase(topicId)                     |
+| `packages/shared/src/topics.ts`                 | `packages/react-app/src/topics/reusability/`    | import.meta.glob — category 'reusability' maps to folder reusability/ | WIRED  | TopicRenderer glob covers all topic folders recursively                                                    |
+| `packages/shared/src/topics.ts`                 | `packages/react-app/src/topics/built-in/`       | import.meta.glob — category 'built-in' maps to folder built-in/       | WIRED  | TopicRenderer glob covers all topic folders recursively                                                    |
 
 ### Data-Flow Trace (Level 4)
 
-| Artifact | Data Variable | Source | Produces Real Data | Status |
-|----------|--------------|--------|---------------------|--------|
-| `Sidebar.tsx` | filteredCategories | getAllCategories() + getTopicsByCategory() from topics.ts | Yes — 26 real topic entries | FLOWING |
-| `Sidebar.tsx` | visited | localStorage.getItem('vibe-progress') on mount | Yes — persisted JSON array | FLOWING |
-| `TopicRenderer.tsx` | TopicComponent | import.meta.glob('../topics/**/*.tsx') + URL params | Yes — real file loader per category/slug | FLOWING |
-| `ConditionalRendering.tsx` | show, status | useState(true), useState('success') | Yes — interactive state | FLOWING |
-| `ComposablesHooks.tsx` | counterA, counterB | useCounter(0), useCounter(10) | Yes — real hook with useState | FLOWING |
-| `Teleport.tsx` | showModal | useState(false) | Yes — toggle opens real createPortal modal | FLOWING |
+| Artifact                   | Data Variable      | Source                                                    | Produces Real Data                         | Status  |
+| -------------------------- | ------------------ | --------------------------------------------------------- | ------------------------------------------ | ------- |
+| `Sidebar.tsx`              | filteredCategories | getAllCategories() + getTopicsByCategory() from topics.ts | Yes — 26 real topic entries                | FLOWING |
+| `Sidebar.tsx`              | visited            | localStorage.getItem('vibe-progress') on mount            | Yes — persisted JSON array                 | FLOWING |
+| `TopicRenderer.tsx`        | TopicComponent     | import.meta.glob('../topics/\*_/_.tsx') + URL params      | Yes — real file loader per category/slug   | FLOWING |
+| `ConditionalRendering.tsx` | show, status       | useState(true), useState('success')                       | Yes — interactive state                    | FLOWING |
+| `ComposablesHooks.tsx`     | counterA, counterB | useCounter(0), useCounter(10)                             | Yes — real hook with useState              | FLOWING |
+| `Teleport.tsx`             | showModal          | useState(false)                                           | Yes — toggle opens real createPortal modal | FLOWING |
 
 ### Behavioral Spot-Checks
 
 Step 7b: SKIPPED — requires running dev server. Codebase-only checks confirm all handlers are wired (not console.log-only stubs). Key verifications done via code inspection:
+
 - Sidebar search: onChange calls setSearch, filteredCategories re-derives from search state
 - Sidebar progress: handleClick calls setVisited + localStorage.setItem on every new topic visit
 - TopicRenderer: getLazyComponent returns null only if module path not found in glob map, otherwise returns real lazy component
 
 ### Requirements Coverage
 
-| Requirement | Source Plan | Description | Status | Evidence |
-|-------------|-------------|-------------|--------|----------|
-| ESS-04 | 03-01, 03-02 | Conditional Rendering — v-if/v-else/v-show vs &&/ternary/early return | SATISFIED | ConditionalRendering.tsx + ConditionalRendering.vue both verified substantive |
-| ESS-05 | 03-01, 03-02 | List Rendering — v-for + :key vs .map() + key | SATISFIED | ListRendering.tsx/vue exist with interactive demos |
-| ESS-06 | 03-01, 03-02 | Event Handling — @click/@input + modifiers vs onClick/onChange | SATISFIED | EventHandling.tsx/vue exist |
-| ESS-07 | 03-01, 03-02 | Form Bindings — v-model vs controlled components | SATISFIED | FormBindings.tsx/vue exist |
-| ESS-09 | 03-01, 03-02 | Template Refs — ref + template ref vs useRef | SATISFIED | TemplateRefs.tsx/vue exist |
-| COMP-01 | 03-01, 03-03 | Props — defineProps<T>() vs props type annotation | SATISFIED | Props.tsx has inline Greeting child + typed props; Props.vue has defineProps |
-| COMP-02 | 03-01, 03-03 | Events / Callbacks — emit() vs callback props | SATISFIED | EventsCallbacks.tsx/vue exist |
-| COMP-03 | 03-01, 03-03 | Component v-model — defineModel() vs controlled + callback | SATISFIED | ComponentVModel.tsx has value+onChange pattern; ComponentVModel.vue has modelValue/update:modelValue |
-| COMP-04 | 03-01, 03-03 | Fallthrough Attributes — auto forward vs spread ...rest props | SATISFIED | FallthroughAttributes.tsx/vue exist |
-| COMP-05 | 03-01, 03-03 | Slots — default/named slots vs children + render props | SATISFIED | Slots.tsx has children: React.ReactNode; Slots.vue has slot system |
-| COMP-06 | 03-01, 03-03 | Provide / Inject — provide()/inject() vs createContext/useContext | SATISFIED | ProvideInject.tsx has createContext + useContext; ProvideInject.vue has provide/inject |
-| COMP-07 | 03-01, 03-03 | Async Components — defineAsyncComponent vs React.lazy + Suspense | SATISFIED | AsyncComponents.tsx/vue exist with simulated async loading |
-| REUS-01 | 03-01, 03-04 | Composables / Hooks | SATISFIED | ComposablesHooks.tsx has useCounter hook + dual counter demo |
-| REUS-02 | 03-01, 03-04 | Custom Directives | SATISFIED | CustomDirectives.tsx/vue exist |
-| REUS-03 | 03-01, 03-04 | Plugins | SATISFIED | Plugins.tsx/vue exist |
-| BTIN-01 | 03-01, 03-04 | Transition | SATISFIED | Transition.tsx uses CSS className toggle (no framer-motion); Transition.vue uses <Transition> + scoped CSS |
-| BTIN-02 | 03-01, 03-04 | TransitionGroup | SATISFIED | TransitionGroup.tsx/vue exist |
-| BTIN-03 | 03-01, 03-04 | KeepAlive | SATISFIED | KeepAlive.tsx/vue exist |
-| BTIN-04 | 03-01, 03-04 | Teleport | SATISFIED | Teleport.tsx has createPortal; Teleport.vue has <Teleport to="body"> |
-| BTIN-05 | 03-01, 03-04 | Suspense | SATISFIED | Suspense.tsx/vue exist |
-| ENHC-01 | 03-05 | Search/filter topics by keyword | SATISFIED | Sidebar.tsx has search state + filteredCategories + empty state message |
-| ENHC-02 | 03-05 | Progress tracking with localStorage | SATISFIED | Sidebar.tsx has visited state + localStorage.getItem/setItem('vibe-progress') |
+| Requirement | Source Plan  | Description                                                           | Status    | Evidence                                                                                                   |
+| ----------- | ------------ | --------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------- |
+| ESS-04      | 03-01, 03-02 | Conditional Rendering — v-if/v-else/v-show vs &&/ternary/early return | SATISFIED | ConditionalRendering.tsx + ConditionalRendering.vue both verified substantive                              |
+| ESS-05      | 03-01, 03-02 | List Rendering — v-for + :key vs .map() + key                         | SATISFIED | ListRendering.tsx/vue exist with interactive demos                                                         |
+| ESS-06      | 03-01, 03-02 | Event Handling — @click/@input + modifiers vs onClick/onChange        | SATISFIED | EventHandling.tsx/vue exist                                                                                |
+| ESS-07      | 03-01, 03-02 | Form Bindings — v-model vs controlled components                      | SATISFIED | FormBindings.tsx/vue exist                                                                                 |
+| ESS-09      | 03-01, 03-02 | Template Refs — ref + template ref vs useRef                          | SATISFIED | TemplateRefs.tsx/vue exist                                                                                 |
+| COMP-01     | 03-01, 03-03 | Props — defineProps<T>() vs props type annotation                     | SATISFIED | Props.tsx has inline Greeting child + typed props; Props.vue has defineProps                               |
+| COMP-02     | 03-01, 03-03 | Events / Callbacks — emit() vs callback props                         | SATISFIED | EventsCallbacks.tsx/vue exist                                                                              |
+| COMP-03     | 03-01, 03-03 | Component v-model — defineModel() vs controlled + callback            | SATISFIED | ComponentVModel.tsx has value+onChange pattern; ComponentVModel.vue has modelValue/update:modelValue       |
+| COMP-04     | 03-01, 03-03 | Fallthrough Attributes — auto forward vs spread ...rest props         | SATISFIED | FallthroughAttributes.tsx/vue exist                                                                        |
+| COMP-05     | 03-01, 03-03 | Slots — default/named slots vs children + render props                | SATISFIED | Slots.tsx has children: React.ReactNode; Slots.vue has slot system                                         |
+| COMP-06     | 03-01, 03-03 | Provide / Inject — provide()/inject() vs createContext/useContext     | SATISFIED | ProvideInject.tsx has createContext + useContext; ProvideInject.vue has provide/inject                     |
+| COMP-07     | 03-01, 03-03 | Async Components — defineAsyncComponent vs React.lazy + Suspense      | SATISFIED | AsyncComponents.tsx/vue exist with simulated async loading                                                 |
+| REUS-01     | 03-01, 03-04 | Composables / Hooks                                                   | SATISFIED | ComposablesHooks.tsx has useCounter hook + dual counter demo                                               |
+| REUS-02     | 03-01, 03-04 | Custom Directives                                                     | SATISFIED | CustomDirectives.tsx/vue exist                                                                             |
+| REUS-03     | 03-01, 03-04 | Plugins                                                               | SATISFIED | Plugins.tsx/vue exist                                                                                      |
+| BTIN-01     | 03-01, 03-04 | Transition                                                            | SATISFIED | Transition.tsx uses CSS className toggle (no framer-motion); Transition.vue uses <Transition> + scoped CSS |
+| BTIN-02     | 03-01, 03-04 | TransitionGroup                                                       | SATISFIED | TransitionGroup.tsx/vue exist                                                                              |
+| BTIN-03     | 03-01, 03-04 | KeepAlive                                                             | SATISFIED | KeepAlive.tsx/vue exist                                                                                    |
+| BTIN-04     | 03-01, 03-04 | Teleport                                                              | SATISFIED | Teleport.tsx has createPortal; Teleport.vue has <Teleport to="body">                                       |
+| BTIN-05     | 03-01, 03-04 | Suspense                                                              | SATISFIED | Suspense.tsx/vue exist                                                                                     |
+| ENHC-01     | 03-05        | Search/filter topics by keyword                                       | SATISFIED | Sidebar.tsx has search state + filteredCategories + empty state message                                    |
+| ENHC-02     | 03-05        | Progress tracking with localStorage                                   | SATISFIED | Sidebar.tsx has visited state + localStorage.getItem/setItem('vibe-progress')                              |
 
 **All 22 Phase 3 requirements: SATISFIED**
 
@@ -142,11 +144,11 @@ No orphaned requirements — all Phase 3 IDs from REQUIREMENTS.md traceability t
 
 ### Anti-Patterns Found
 
-| File | Line | Pattern | Severity | Impact |
-|------|------|---------|----------|--------|
-| Multiple topic files | Various | `p-3` in demo UI boxes (not code block pre elements) | Info | Intentional — plan scoped fix only to code block `<pre className="mt-2 bg-slate-900...">` elements. Demo UI boxes (bg-blue-50, bg-slate-50, etc.) were explicitly excluded from the backfill |
-| `packages/react-app/src/topics/essentials/Lifecycle.tsx` | 83 | `bg-slate-900 ... p-3` on a `<div>` (event log display) | Info | Not a code block pre — this is a terminal-style event log display, acceptable |
-| `packages/react-app/src/topics/essentials/EventHandling.tsx` | 92 | `bg-slate-900 rounded p-3` on a `<div>` | Info | Same — event log display, not a code block |
+| File                                                         | Line    | Pattern                                                 | Severity | Impact                                                                                                                                                                                       |
+| ------------------------------------------------------------ | ------- | ------------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Multiple topic files                                         | Various | `p-3` in demo UI boxes (not code block pre elements)    | Info     | Intentional — plan scoped fix only to code block `<pre className="mt-2 bg-slate-900...">` elements. Demo UI boxes (bg-blue-50, bg-slate-50, etc.) were explicitly excluded from the backfill |
+| `packages/react-app/src/topics/essentials/Lifecycle.tsx`     | 83      | `bg-slate-900 ... p-3` on a `<div>` (event log display) | Info     | Not a code block pre — this is a terminal-style event log display, acceptable                                                                                                                |
+| `packages/react-app/src/topics/essentials/EventHandling.tsx` | 92      | `bg-slate-900 rounded p-3` on a `<div>`                 | Info     | Same — event log display, not a code block                                                                                                                                                   |
 
 No blockers found. No placeholder/TODO text in any demo. No hardcoded empty state in rendered output. No stub handlers (all onClick/onChange are wired to real state).
 

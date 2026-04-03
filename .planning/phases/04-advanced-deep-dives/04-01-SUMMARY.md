@@ -6,7 +6,8 @@ tags: [scaling-up, routing, state-management, testing, typescript, registry]
 dependency_graph:
   requires: []
   provides: [scaling-up-topics, deep-dive-registry-entries]
-  affects: [topic-registry, vue-app-topics, react-app-topics, sidebar-navigation]
+  affects:
+    [topic-registry, vue-app-topics, react-app-topics, sidebar-navigation]
 tech_stack:
   added: []
   patterns: [demo-box-pattern, code-toggle-pattern, explanation-box-pattern]
@@ -23,8 +24,8 @@ key_files:
   modified:
     - packages/shared/src/topics.ts
 decisions:
-  - "No new npm packages installed — all demos use existing primitives (ref/useState) with code snippets showing real library APIs"
-  - "Pre-existing Slots.vue typecheck error confirmed out of scope — existed before plan execution"
+  - 'No new npm packages installed — all demos use existing primitives (ref/useState) with code snippets showing real library APIs'
+  - 'Pre-existing Slots.vue typecheck error confirmed out of scope — existed before plan execution'
 metrics:
   duration: 8min
   completed: 2026-03-31T10:19:00Z
@@ -38,15 +39,17 @@ metrics:
 
 ## Tasks Completed
 
-| Task | Name | Commit | Files |
-|------|------|--------|-------|
-| 1 | Registry expansion + 4 Vue Scaling Up topics | bc808bc | topics.ts + 4 .vue files |
-| 2 | 4 React Scaling Up topics | 5d0987c | 4 .tsx files |
+| Task | Name                                         | Commit  | Files                    |
+| ---- | -------------------------------------------- | ------- | ------------------------ |
+| 1    | Registry expansion + 4 Vue Scaling Up topics | bc808bc | topics.ts + 4 .vue files |
+| 2    | 4 React Scaling Up topics                    | 5d0987c | 4 .tsx files             |
 
 ## What Was Built
 
 ### Registry Expansion (topics.ts)
+
 Added 7 new entries to the shared registry:
+
 - 4 `scaling-up` entries: routing, state-management, testing, typescript
 - 3 `deep-dive` entries: rendering-mechanism, reactivity-in-depth, rerender-optimization
 
@@ -77,6 +80,7 @@ Total registry entries: 33 (26 existing + 7 new)
 ### Pre-existing Issue Logged
 
 **[Out of Scope] Slots.vue typecheck error**
+
 - **Found during:** Task 2 verification (`pnpm -r typecheck`)
 - **Issue:** `src/topics/components/Slots.vue(17,22): error TS2769` — VNode null type mismatch
 - **Status:** Confirmed pre-existing (existed before any Phase 04 changes via git stash test)
@@ -91,6 +95,7 @@ None — all 8 topic files have functional live demos (not placeholder data). Th
 ## Self-Check: PASSED
 
 Files exist:
+
 - FOUND: packages/vue-app/src/topics/scaling-up/Routing.vue
 - FOUND: packages/vue-app/src/topics/scaling-up/StateManagement.vue
 - FOUND: packages/vue-app/src/topics/scaling-up/Testing.vue
@@ -101,5 +106,6 @@ Files exist:
 - FOUND: packages/react-app/src/topics/scaling-up/Typescript.tsx
 
 Commits exist:
+
 - FOUND: bc808bc (Task 1)
 - FOUND: 5d0987c (Task 2)

@@ -20,7 +20,12 @@ affects: [01-infrastructure-scaffold/03, 02-content-topics]
 # Tech tracking
 tech-stack:
   added: []
-  patterns: [CustomEvent bridge for cross-framework routing, import.meta.glob for dynamic component loading, URL fallback on mount for race condition handling]
+  patterns:
+    [
+      CustomEvent bridge for cross-framework routing,
+      import.meta.glob for dynamic component loading,
+      URL fallback on mount for race condition handling,
+    ]
 
 key-files:
   created:
@@ -52,14 +57,14 @@ key-files:
     - pnpm-lock.yaml
 
 key-decisions:
-  - "Replaced TS project references with paths-based resolution -- composite/references conflicted with noEmit typecheck workflow"
-  - "Added vite as devDep to react-app and vue-app for import.meta.glob type support"
+  - 'Replaced TS project references with paths-based resolution -- composite/references conflicted with noEmit typecheck workflow'
+  - 'Added vite as devDep to react-app and vue-app for import.meta.glob type support'
 
 patterns-established:
-  - "CustomEvent bridge: React dispatches ROUTE_CHANGE_EVENT, Vue listens with useEventListener"
-  - "URL fallback: Vue reads window.location.pathname on mount for initial state"
+  - 'CustomEvent bridge: React dispatches ROUTE_CHANGE_EVENT, Vue listens with useEventListener'
+  - 'URL fallback: Vue reads window.location.pathname on mount for initial state'
   - "Dynamic topic loading: import.meta.glob('../topics/**/*.tsx|vue') with PascalCase slug mapping"
-  - "Framework badges: React uses bg-cyan-400, Vue uses bg-emerald-500"
+  - 'Framework badges: React uses bg-cyan-400, Vue uses bg-emerald-500'
 
 requirements-completed: [INFRA-03, INFRA-04, INFRA-01]
 
@@ -81,6 +86,7 @@ completed: 2026-03-26
 - **Files modified:** 25
 
 ## Accomplishments
+
 - React app shell with Router v7 handling /:category/:topicId, dispatching CustomEvent on navigation
 - Vue app shell with useRouteSync composable listening for CustomEvent + URL fallback on mount
 - Both apps dynamically resolve topic components via import.meta.glob with PascalCase slug mapping
@@ -95,6 +101,7 @@ Each task was committed atomically:
 2. **Task 2: Vue app shell -- event listener, topic renderer, placeholder topics** - `c1d3a13` (feat)
 
 ## Files Created/Modified
+
 - `packages/react-app/src/hooks/useRouteDispatch.ts` - Hook that dispatches CustomEvent on route param change
 - `packages/react-app/src/components/TopicRenderer.tsx` - Dynamically loads topic component via import.meta.glob + lazy/Suspense
 - `packages/react-app/src/components/Layout.tsx` - Shell layout with React 19 badge and Outlet
@@ -114,6 +121,7 @@ Each task was committed atomically:
 - `packages/host/env.d.ts` - Vite client + Vue SFC type declarations
 
 ## Decisions Made
+
 - Replaced TS project references (composite + references) with paths-based @vibe/shared resolution -- composite requires emit which conflicts with noEmit typecheck; since Vite resolves workspace packages via source imports, project references are unnecessary
 - Added vite as devDependency to react-app and vue-app so import.meta.glob types are available for tsc
 - Removed declaration/declarationMap from tsconfig.base.json -- not needed since packages are consumed as source, not as built artifacts
@@ -123,6 +131,7 @@ Each task was committed atomically:
 ### Auto-fixed Issues
 
 **1. [Rule 3 - Blocking] Fixed TS project references conflicting with noEmit typecheck**
+
 - **Found during:** Task 2 (typecheck verification)
 - **Issue:** TS6310 error: Referenced project 'shared' may not disable emit. composite: true + noEmit: true from base config are incompatible with project references.
 - **Fix:** Removed composite/references from all tsconfigs, added paths-based @vibe/shared resolution instead. Removed declaration/declarationMap from base config.
@@ -131,6 +140,7 @@ Each task was committed atomically:
 - **Committed in:** c1d3a13 (Task 2 commit)
 
 **2. [Rule 3 - Blocking] Added vite devDependency for import.meta.glob types**
+
 - **Found during:** Task 2 (typecheck verification)
 - **Issue:** TS2339: Property 'glob' does not exist on type 'ImportMeta'. vite/client types not available in react-app/vue-app.
 - **Fix:** Added vite as devDep to both packages, created env.d.ts with vite/client reference
@@ -139,6 +149,7 @@ Each task was committed atomically:
 - **Committed in:** c1d3a13 (Task 2 commit)
 
 **3. [Rule 3 - Blocking] Fixed host typecheck errors (jsx, CSS import, Vue SFC types)**
+
 - **Found during:** Task 2 (typecheck verification)
 - **Issue:** Host tsconfig missing jsx setting (needed for .tsx imports), missing vite/client types for CSS imports, missing Vue SFC declarations
 - **Fix:** Added jsx: "react-jsx" to host tsconfig, created host/env.d.ts with vite/client + Vue SFC declarations
@@ -154,6 +165,7 @@ Each task was committed atomically:
 ## Known Stubs
 
 Placeholder topics are intentional stubs -- they will be replaced with real content in Phase 02 (content-topics):
+
 - `packages/react-app/src/topics/essentials/TemplateSyntax.tsx` - placeholder text only
 - `packages/react-app/src/topics/essentials/Reactivity.tsx` - placeholder text only
 - `packages/vue-app/src/topics/essentials/TemplateSyntax.vue` - placeholder text only
@@ -162,12 +174,15 @@ Placeholder topics are intentional stubs -- they will be replaced with real cont
 These are explicitly part of the plan's scope (scaffold placeholder topics for route testing). Real content comes in Phase 02.
 
 ## Issues Encountered
+
 None beyond the auto-fixed deviations above.
 
 ## User Setup Required
+
 None - no external service configuration required.
 
 ## Next Phase Readiness
+
 - Both apps mount and boot successfully
 - React Router handles URL navigation with dynamic topic loading
 - Vue syncs route state via CustomEvent bridge with URL fallback
@@ -178,5 +193,6 @@ None - no external service configuration required.
 All 17 created files verified present. Both task commits (e18de8a, c1d3a13) verified in git log.
 
 ---
-*Phase: 01-infrastructure-scaffold*
-*Completed: 2026-03-26*
+
+_Phase: 01-infrastructure-scaffold_
+_Completed: 2026-03-26_

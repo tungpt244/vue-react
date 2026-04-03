@@ -19,13 +19,13 @@ created: 2026-03-31
 
 ## Design System
 
-| Property | Value | Source |
-|----------|-------|--------|
-| Tool | none | No components.json found |
-| Preset | not applicable | Manual TailwindCSS only |
-| Component library | none | Pure Tailwind utility classes |
-| Icon library | lucide-react (React), lucide-vue-next (Vue) | CLAUDE.md stack |
-| Font | System UI stack (browser default) | No custom font declared in @theme |
+| Property          | Value                                       | Source                            |
+| ----------------- | ------------------------------------------- | --------------------------------- |
+| Tool              | none                                        | No components.json found          |
+| Preset            | not applicable                              | Manual TailwindCSS only           |
+| Component library | none                                        | Pure Tailwind utility classes     |
+| Icon library      | lucide-react (React), lucide-vue-next (Vue) | CLAUDE.md stack                   |
+| Font              | System UI stack (browser default)           | No custom font declared in @theme |
 
 shadcn gate: Not applicable. No components.json present and project uses manual Tailwind without a component library. Registry safety gate: not applicable.
 
@@ -35,17 +35,18 @@ shadcn gate: Not applicable. No components.json present and project uses manual 
 
 Declared values (multiples of 4 only). All tokens map to Tailwind utility classes.
 
-| Token | Value | Tailwind Class | Usage |
-|-------|-------|---------------|-------|
-| xs | 4px | p-1, gap-1 | Icon gaps, tight inline padding |
-| sm | 8px | p-2, gap-2 | Button padding, compact spacing, sidebar topic item vertical padding |
-| md | 16px | p-4, gap-4 | Demo box padding, code block padding, section spacing |
-| lg | 24px | p-6, gap-6 | Major section padding |
-| xl | 32px | p-8, gap-8 | Layout-level gaps |
-| 2xl | 48px | — | Not used in this phase |
-| 3xl | 64px | — | Not used in this phase |
+| Token | Value | Tailwind Class | Usage                                                                |
+| ----- | ----- | -------------- | -------------------------------------------------------------------- |
+| xs    | 4px   | p-1, gap-1     | Icon gaps, tight inline padding                                      |
+| sm    | 8px   | p-2, gap-2     | Button padding, compact spacing, sidebar topic item vertical padding |
+| md    | 16px  | p-4, gap-4     | Demo box padding, code block padding, section spacing                |
+| lg    | 24px  | p-6, gap-6     | Major section padding                                                |
+| xl    | 32px  | p-8, gap-8     | Layout-level gaps                                                    |
+| 2xl   | 48px  | —              | Not used in this phase                                               |
+| 3xl   | 64px  | —              | Not used in this phase                                               |
 
 Exceptions:
+
 - Touch targets for sidebar toggle button: `p-1` (4px padding around icon) — existing, do not change
 - No other exceptions. `py-1.5` (6px, non-standard) and `p-3` (12px, non-standard) are removed.
 
@@ -58,14 +59,15 @@ Exceptions:
 All sizes use Tailwind class equivalents. No custom @theme font tokens declared.
 Maximum 2 font weights: font-normal (400) and font-semibold (600).
 
-| Role | Size | Tailwind | Weight | Weight Class | Line Height |
-|------|------|----------|--------|-------------|-------------|
-| Body | 14px | text-sm | 400 regular | font-normal | 1.5 (leading-normal) |
-| Label / UI | 12px | text-xs | 400 regular | font-normal | 1.4 (leading-snug) |
-| Heading (topic title) | 18px | text-lg | 600 semibold | font-semibold | 1.2 (leading-tight) |
-| Section heading | 14px | text-sm | 600 semibold | font-semibold | 1.2 (leading-tight) |
+| Role                  | Size | Tailwind | Weight       | Weight Class  | Line Height          |
+| --------------------- | ---- | -------- | ------------ | ------------- | -------------------- |
+| Body                  | 14px | text-sm  | 400 regular  | font-normal   | 1.5 (leading-normal) |
+| Label / UI            | 12px | text-xs  | 400 regular  | font-normal   | 1.4 (leading-snug)   |
+| Heading (topic title) | 18px | text-lg  | 600 semibold | font-semibold | 1.2 (leading-tight)  |
+| Section heading       | 14px | text-sm  | 600 semibold | font-semibold | 1.2 (leading-tight)  |
 
 Rules:
+
 - Body explanation text: `text-sm text-slate-600` — established in Phase 2, all Phase 3 topics follow
 - Topic titles (h2): `text-lg font-semibold` — established in Phase 2, all Phase 3 topics follow
 - Section headings (h3 "So sánh"): `text-sm font-semibold` — established in Phase 2, all Phase 3 topics follow
@@ -79,14 +81,15 @@ Rules:
 
 TailwindCSS v4. No custom hex tokens in @theme — using Tailwind's built-in slate/blue palette.
 
-| Role | Tailwind Value | Approx Hex | Usage |
-|------|---------------|-----------|-------|
-| Dominant (60%) | bg-white / bg-transparent | #ffffff | Page background, sidebar background, demo boxes |
+| Role            | Tailwind Value                 | Approx Hex        | Usage                                                   |
+| --------------- | ------------------------------ | ----------------- | ------------------------------------------------------- |
+| Dominant (60%)  | bg-white / bg-transparent      | #ffffff           | Page background, sidebar background, demo boxes         |
 | Secondary (30%) | bg-slate-50 / border-slate-200 | #f8fafc / #e2e8f0 | Explanation boxes, borders, dividers, code input fields |
-| Accent (10%) | bg-blue-500 / text-blue-600 | #3b82f6 / #2563eb | Reserved list below |
-| Destructive | — | — | No destructive actions in Phase 3 |
+| Accent (10%)    | bg-blue-500 / text-blue-600    | #3b82f6 / #2563eb | Reserved list below                                     |
+| Destructive     | —                              | —                 | No destructive actions in Phase 3                       |
 
 Accent (`blue-*`) reserved for ONLY these specific elements:
+
 1. Primary action buttons in demo boxes (increment/decrement, submit, toggle) — `bg-blue-500 hover:bg-blue-600 text-white`
 2. Active sidebar topic item — `bg-blue-50 text-blue-700 font-semibold`
 3. Code toggle links ("Xem code" / "Ẩn code") — `text-blue-600 hover:text-blue-800`
@@ -95,6 +98,7 @@ Accent (`blue-*`) reserved for ONLY these specific elements:
 6. React side framework badge — `bg-cyan-400 text-white` (existing Layout.tsx pattern — cyan, not blue)
 
 Semantic colors (non-accent):
+
 - `text-slate-700` — default sidebar topic text
 - `text-slate-500` — secondary/muted UI text (route display, placeholder)
 - `text-slate-400` — disabled/inactive text (sidebar category headers, empty state)
@@ -108,15 +112,16 @@ Semantic colors (non-accent):
 
 Components that already exist and MUST NOT be redesigned in Phase 3:
 
-| Component | File | Phase 3 Action |
-|-----------|------|---------------|
-| Sidebar | packages/react-app/src/components/Sidebar.tsx | Extend: add search input + checkmarks |
-| Layout | packages/react-app/src/components/Layout.tsx | No change |
-| TopicRenderer | packages/react-app/src/components/TopicRenderer.tsx | No change |
-| App.vue | packages/vue-app/src/App.vue | No change |
-| TopicRenderer.vue | packages/vue-app/src/components/TopicRenderer.vue | No change |
+| Component         | File                                                | Phase 3 Action                        |
+| ----------------- | --------------------------------------------------- | ------------------------------------- |
+| Sidebar           | packages/react-app/src/components/Sidebar.tsx       | Extend: add search input + checkmarks |
+| Layout            | packages/react-app/src/components/Layout.tsx        | No change                             |
+| TopicRenderer     | packages/react-app/src/components/TopicRenderer.tsx | No change                             |
+| App.vue           | packages/vue-app/src/App.vue                        | No change                             |
+| TopicRenderer.vue | packages/vue-app/src/components/TopicRenderer.vue   | No change                             |
 
 New components needed in Phase 3:
+
 - Search input inside Sidebar (inline, no new file needed)
 - Progress checkmark in sidebar topic items (inline, no new file needed)
 - 22 new topic files: 5 Essentials + 7 Components + 3 Reusability + 5 Built-in + 2 placeholder-free entries
@@ -194,24 +199,25 @@ Note: Code block padding changed from `p-3` (12px, non-standard) to `p-4` (16px)
 
 ## Copywriting Contract
 
-| Element | Copy | Notes |
-|---------|------|-------|
-| Search placeholder | "Tìm topic..." | Vietnamese, matches app language |
-| Search empty state | "Không tìm thấy topic nào." | Shown below search when 0 results |
-| React waiting state | "React 19 -- Waiting for topic selection" | Existing Layout.tsx copy — do not change |
-| Vue waiting state | (Vue app handles separately) | Match React pattern if not set |
-| Code toggle — show | "▶ Xem code" | Existing pattern — do not change |
-| Code toggle — hide | "▼ Ẩn code" | Existing pattern — do not change |
-| Comparison section heading | "So sánh" | Existing pattern — do not change |
-| Sidebar collapse aria-label | "Collapse sidebar" / "Expand sidebar" | Toggle based on current state |
-| Category: Essentials | As defined in shared topics registry | Source of truth: packages/shared |
-| Category: Components | As defined in shared topics registry | Source of truth: packages/shared |
-| Category: Reusability | As defined in shared topics registry | Source of truth: packages/shared |
-| Category: Built-in | As defined in shared topics registry | Source of truth: packages/shared |
+| Element                     | Copy                                      | Notes                                    |
+| --------------------------- | ----------------------------------------- | ---------------------------------------- |
+| Search placeholder          | "Tìm topic..."                            | Vietnamese, matches app language         |
+| Search empty state          | "Không tìm thấy topic nào."               | Shown below search when 0 results        |
+| React waiting state         | "React 19 -- Waiting for topic selection" | Existing Layout.tsx copy — do not change |
+| Vue waiting state           | (Vue app handles separately)              | Match React pattern if not set           |
+| Code toggle — show          | "▶ Xem code"                              | Existing pattern — do not change         |
+| Code toggle — hide          | "▼ Ẩn code"                               | Existing pattern — do not change         |
+| Comparison section heading  | "So sánh"                                 | Existing pattern — do not change         |
+| Sidebar collapse aria-label | "Collapse sidebar" / "Expand sidebar"     | Toggle based on current state            |
+| Category: Essentials        | As defined in shared topics registry      | Source of truth: packages/shared         |
+| Category: Components        | As defined in shared topics registry      | Source of truth: packages/shared         |
+| Category: Reusability       | As defined in shared topics registry      | Source of truth: packages/shared         |
+| Category: Built-in          | As defined in shared topics registry      | Source of truth: packages/shared         |
 
 No destructive actions exist in Phase 3. No confirmation dialogs needed.
 
 Error states:
+
 - No network errors (app is fully offline/local)
 - Topic not found: existing TopicRenderer handles this — no new error UI needed
 - localStorage unavailable: progress tracking silently degrades (no checkmarks shown, no error displayed)
@@ -220,10 +226,10 @@ Error states:
 
 ## Registry Safety
 
-| Registry | Blocks Used | Safety Gate |
-|----------|-------------|-------------|
-| shadcn official | none | not applicable — shadcn not initialized |
-| third-party | none | not applicable |
+| Registry        | Blocks Used | Safety Gate                             |
+| --------------- | ----------- | --------------------------------------- |
+| shadcn official | none        | not applicable — shadcn not initialized |
+| third-party     | none        | not applicable                          |
 
 No third-party registries declared. No vetting required.
 

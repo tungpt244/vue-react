@@ -28,11 +28,11 @@ key-files:
     - packages/react-app/src/components/Sidebar.tsx
 
 key-decisions:
-  - "Phase 3 complete — 28 topics live across 4 categories, search + progress tracking working"
+  - 'Phase 3 complete — 28 topics live across 4 categories, search + progress tracking working'
 
 patterns-established:
-  - "Progress key: vibe-progress in localStorage, JSON array of topic IDs"
-  - "Search filters category headers too — empty categories hidden when 0 matches"
+  - 'Progress key: vibe-progress in localStorage, JSON array of topic IDs'
+  - 'Search filters category headers too — empty categories hidden when 0 matches'
 
 requirements-completed: [ENHC-01, ENHC-02]
 
@@ -100,5 +100,6 @@ None - no external service configuration required.
 - Task 1 commit 4f648d4: FOUND
 
 ---
-*Phase: 03-core-curriculum*
-*Completed: 2026-03-31*
+
+_Phase: 03-core-curriculum_
+_Completed: 2026-03-31_

@@ -20,6 +20,7 @@ The biggest risks are all in Phase 1: Vite plugin collision between `@vitejs/plu
 A single Vite 8 instance in `packages/host` runs both `@vitejs/plugin-vue` and `@vitejs/plugin-react` — they coexist cleanly because each plugin only handles its own file extension (`.vue` vs `.tsx`/`.jsx`). TailwindCSS v4 uses a CSS-first config with a single entry point in host, covering both apps' template files. Shiki v4 (VS Code's syntax engine) handles code display with no client-side runtime cost — far superior to Prism or highlight.js for this use case. All packages use TypeScript 6 with per-package `tsconfig.json` files extending a shared base.
 
 **Core technologies:**
+
 - Vite 8 + pnpm workspaces: Build tool and monorepo management — single dev server, native HMR for both frameworks
 - Vue 3.5 (`<script setup>`): Left-side demos — Boss's primary framework, Composition API is the standard
 - React 19 + React Router 7: Right-side demos + host navigation — React owns the URL, more React exposure for learning
@@ -34,6 +35,7 @@ A single Vite 8 instance in `packages/host` runs both `@vitejs/plugin-vue` and `
 The core value proposition over Component Party is live running demos. Component Party shows static code snippets across many frameworks; this project runs 2 frameworks with interactive demos and written explanations of the "why", not just the "what".
 
 **Must have (table stakes):**
+
 - Host app mounting both Vue and React side-by-side — the entire concept depends on this
 - Sidebar navigation driven by shared topic registry — 32 topics across 6 categories needs structure
 - URL routing with React Router + CustomEvent sync to Vue — bookmarkable topics
@@ -42,6 +44,7 @@ The core value proposition over Component Party is live running demos. Component
 - At least 5 Essentials topics implemented end-to-end — validates the pattern
 
 **Should have (competitive):**
+
 - Live interactive demos (counters, forms, toggles) — Component Party doesn't run code; this does
 - Search/filter across topics — becomes essential as topic count grows past 10
 - Progress tracking via localStorage — mark topics as understood, track learning
@@ -49,6 +52,7 @@ The core value proposition over Component Party is live running demos. Component
 - Responsive stacked layout for narrow screens — sidebar + vertical panels on laptop
 
 **Defer (v2+):**
+
 - Deep dive pages with diagrams (3 topics) — high effort, validate basics first
 - Scaling Up topics (routing, state management) — complex patterns, save for when fundamentals are solid
 - Dark/light theme toggle — default dark is fine for personal use; add later
@@ -59,6 +63,7 @@ The core value proposition over Component Party is live running demos. Component
 The system uses dual-root mounting: `#vue-root` and `#react-root` are peer DOM elements in `host/index.html`, each owned entirely by its framework. They never touch each other's DOM. Communication is unidirectional via `CustomEvent('route-change')` dispatched by React Router on `window` and received by Vue's `useRouteSync` composable. The `packages/shared` topic registry is the single source of truth — it drives sidebar navigation, component path resolution, and URL structure for both apps simultaneously. Topics are lazy-loaded via `import.meta.glob` for automatic code splitting.
 
 **Major components:**
+
 1. `packages/shared` — Topic registry (types, constants, topic list). Zero framework deps. Foundation for everything.
 2. `packages/host` — HTML shell with 2 root divs, Vite config (both plugins), boot script that imports both `main.ts` files
 3. `packages/react-app` — Right-side demos, React Router (URL owner), sidebar UI, dispatches `CustomEvent` on navigate
@@ -136,23 +141,25 @@ Based on research, the clear dependency graph suggests 4 phases:
 ### Research Flags
 
 Phases likely needing deeper research during planning:
+
 - **Phase 1:** Vite 8 + `@vitejs/plugin-vue@6` + `@vitejs/plugin-react@6` exact `include` pattern should be verified against actual plugin changelogs — training data is MEDIUM confidence on this specific version behavior
 - **Phase 2:** Shiki v4 API (`codeToHtml`, bundle selection) changed from v0.x; verify `shiki/bundle/web` entry point exists and `@shikijs/transformers` API matches documented examples
 - **Phase 4:** Deep dive diagram approach (SVG vs CSS vs library) needs a decision; research skipped this — pick a direction during phase planning
 
 Phases with standard patterns (skip research-phase):
+
 - **Phase 3 topic implementation:** Once Phase 2 pattern is established, remaining topics are mechanical. No research needed, just execution.
 - **Phase 3 search/filter:** Client-side array filter on topic registry — trivial implementation, well-understood pattern.
 - **Phase 3 progress tracking:** localStorage with topic IDs as keys — no research needed.
 
 ## Confidence Assessment
 
-| Area | Confidence | Notes |
-|------|------------|-------|
-| Stack | HIGH | All version numbers verified via npm registry on 2026-03-26. React Router v7 consolidation and TailwindCSS v4 CSS-first config are confirmed behaviors. |
-| Features | MEDIUM | Based on training data analysis of Component Party, TodoMVC, Vue/React docs. Web search unavailable — competitor analysis may be stale. Core feature set is driven by PROJECT_BRIEF.md (HIGH confidence). |
-| Architecture | MEDIUM-HIGH | Dual-root mount and CustomEvent bridge are standard Web APIs (HIGH). Vite multi-plugin coexistence is documented but version-specific behavior at Vite 8 is MEDIUM. `import.meta.glob` is stable Vite API (HIGH). |
-| Pitfalls | MEDIUM-HIGH | Vite plugin collision, DOM boundary, route race condition, Tailwind single-config, and TypeScript path pitfalls are all well-documented patterns from micro-frontend and multi-framework projects. No live verification of Vite 8 edge cases. |
+| Area         | Confidence  | Notes                                                                                                                                                                                                                                         |
+| ------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Stack        | HIGH        | All version numbers verified via npm registry on 2026-03-26. React Router v7 consolidation and TailwindCSS v4 CSS-first config are confirmed behaviors.                                                                                       |
+| Features     | MEDIUM      | Based on training data analysis of Component Party, TodoMVC, Vue/React docs. Web search unavailable — competitor analysis may be stale. Core feature set is driven by PROJECT_BRIEF.md (HIGH confidence).                                     |
+| Architecture | MEDIUM-HIGH | Dual-root mount and CustomEvent bridge are standard Web APIs (HIGH). Vite multi-plugin coexistence is documented but version-specific behavior at Vite 8 is MEDIUM. `import.meta.glob` is stable Vite API (HIGH).                             |
+| Pitfalls     | MEDIUM-HIGH | Vite plugin collision, DOM boundary, route race condition, Tailwind single-config, and TypeScript path pitfalls are all well-documented patterns from micro-frontend and multi-framework projects. No live verification of Vite 8 edge cases. |
 
 **Overall confidence:** MEDIUM-HIGH
 
@@ -166,6 +173,7 @@ Phases with standard patterns (skip research-phase):
 ## Sources
 
 ### Primary (HIGH confidence)
+
 - npm registry — All version numbers verified 2026-03-26 for: Vite 8, Vue 3.5, React 19, React Router 7, TailwindCSS 4, Shiki 4, TypeScript 6, all Vite plugins
 - PROJECT_BRIEF.md — Project scope, topic list, category structure, out-of-scope definitions
 - React Router v7 changelog — Confirmed `react-router-dom` merged into `react-router`
@@ -173,14 +181,17 @@ Phases with standard patterns (skip research-phase):
 - CustomEvent Web API (MDN) — Browser standard, cross-framework by design
 
 ### Secondary (MEDIUM confidence)
+
 - Vite documentation (training data) — Multi-plugin architecture, `import.meta.glob`, `?raw` imports
 - Component Party (component-party.dev, training data) — Competitor feature analysis, multi-framework code comparison patterns
 - Micro-frontend architecture patterns — Dual-root mount, DOM boundary discipline, event bridge
 
 ### Tertiary (LOW confidence)
+
 - Training data on Shiki v4 exact API — Needs validation; Shiki API changed significantly between major versions
 - Training data on Vite 8 + both plugins coexisting — Core pattern is solid, but exact `include` regex behavior at this version combination needs live validation
 
 ---
-*Research completed: 2026-03-26*
-*Ready for roadmap: yes*
+
+_Research completed: 2026-03-26_
+_Ready for roadmap: yes_

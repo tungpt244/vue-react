@@ -2,7 +2,23 @@
 phase: 03-core-curriculum
 plan: '03'
 subsystem: ui
-tags: [vue3, react, components, props, slots, context, async, defineModel, defineProps, defineEmits, createContext, useContext, React.lazy, Suspense]
+tags:
+  [
+    vue3,
+    react,
+    components,
+    props,
+    slots,
+    context,
+    async,
+    defineModel,
+    defineProps,
+    defineEmits,
+    createContext,
+    useContext,
+    React.lazy,
+    Suspense,
+  ]
 
 # Dependency graph
 requires:
@@ -23,10 +39,10 @@ affects: [03-04, 03-05, verifier]
 tech-stack:
   added: []
   patterns:
-    - "defineComponent() with render fn (h()) for inline child components in Vue SFC"
-    - "React.lazy + simulated Promise delay for async demo in single file"
-    - "createContext outside component for module-level ThemeContext"
-    - "provide() at <script setup> top level — auto-tied to component instance"
+    - 'defineComponent() with render fn (h()) for inline child components in Vue SFC'
+    - 'React.lazy + simulated Promise delay for async demo in single file'
+    - 'createContext outside component for module-level ThemeContext'
+    - 'provide() at <script setup> top level — auto-tied to component instance'
 
 key-files:
   created:
@@ -47,14 +63,14 @@ key-files:
   modified: []
 
 key-decisions:
-  - "ComponentVModel.vue uses modelValue + update:modelValue props pattern (defineModel compiler macro not usable in defineComponent inline render fn)"
-  - "FallthroughAttributes.vue spreads attrs manually onto button inside defineComponent — auto-inheritAttrs applies to root div, so manual spread needed for inner element"
-  - "AsyncComponents simulates delay with Promise + setTimeout — cannot do real dynamic import() in single-file demos"
+  - 'ComponentVModel.vue uses modelValue + update:modelValue props pattern (defineModel compiler macro not usable in defineComponent inline render fn)'
+  - 'FallthroughAttributes.vue spreads attrs manually onto button inside defineComponent — auto-inheritAttrs applies to root div, so manual spread needed for inner element'
+  - 'AsyncComponents simulates delay with Promise + setTimeout — cannot do real dynamic import() in single-file demos'
 
 patterns-established:
-  - "Components In-Depth folder: packages/*/src/topics/components/"
-  - "defineComponent() + h() for inline children in Vue SFCs (established in Phase 2 Lifecycle.vue, confirmed here)"
-  - "React inline child components defined as named function above default export"
+  - 'Components In-Depth folder: packages/*/src/topics/components/'
+  - 'defineComponent() + h() for inline children in Vue SFCs (established in Phase 2 Lifecycle.vue, confirmed here)'
+  - 'React inline child components defined as named function above default export'
 
 requirements-completed:
   - COMP-01
@@ -136,8 +152,9 @@ None — all 14 topics render live interactive demos with real state. No placeho
 - Plan 03-04 (Reusability topics) can proceed — same folder structure pattern
 
 ---
-*Phase: 03-core-curriculum*
-*Completed: 2026-03-31*
+
+_Phase: 03-core-curriculum_
+_Completed: 2026-03-31_
 
 ## Self-Check: PASSED
 
