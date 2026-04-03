@@ -103,6 +103,7 @@ export const topics = [
 ```
 
 Cả 2 app follow cùng folder convention:
+
 - Vue: `vue-app/src/topics/{category}/{TopicId}.vue`
 - React: `react-app/src/topics/{category}/{TopicId}.tsx`
 

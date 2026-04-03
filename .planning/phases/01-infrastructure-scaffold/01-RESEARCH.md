@@ -13,13 +13,16 @@ All core package versions have been verified against npm registry on 2026-03-26.
 **Primary recommendation:** Build in dependency order -- shared first, then host skeleton (Vite config + HTML), then React app shell (router + event dispatch), then Vue app shell (event listener + renderer). Validate HMR for both frameworks before writing any topic content.
 
 <user_constraints>
+
 ## User Constraints (from CONTEXT.md)
 
 ### Locked Decisions
+
 - **D-01:** Scoped packages: `@vibe/shared`, `@vibe/vue-app`, `@vibe/react-app`, `@vibe/host`
 - **D-02:** Prettier -- single quotes, no semicolons
 
 ### Claude's Discretion
+
 - Topic registry data structure (fields, nested vs flat)
 - Placeholder content cho topics chua implement
 - Dev workflow (single command vs multiple terminals)
@@ -28,21 +31,24 @@ All core package versions have been verified against npm registry on 2026-03-26.
 - ESLint config details
 
 ### Deferred Ideas (OUT OF SCOPE)
+
 None -- discussion stayed within phase scope
 </user_constraints>
 
 <phase_requirements>
+
 ## Phase Requirements
 
-| ID | Description | Research Support |
-|----|-------------|------------------|
-| INFRA-01 | Host app mount ca Vue 3 va React vao 2 root divs tren cung 1 page | Dual-Root Mount pattern (Architecture Pattern 1), `index.html` with `#vue-root` + `#react-root`, `main.ts` imports both apps |
-| INFRA-02 | Vite config xu ly ca Vue SFC (.vue) va React JSX (.tsx) trong cung 1 build | Vite multi-plugin config -- `vue()` + `react({ include: /\.(tsx\|jsx)$/ })` in same plugins array. Verified working pattern. |
-| INFRA-03 | React Router quan ly URL voi pattern `/:category/:topicId` | React Router v7 -- `createBrowserRouter` with dynamic segments, import from `react-router` (not `react-router-dom`) |
-| INFRA-04 | Vue app sync route qua CustomEvent tren window | CustomEvent Bridge pattern -- React dispatches `route-change`, Vue listens. Initial state fallback via `window.location.pathname`. |
-| INFRA-05 | Topic registry tu shared package la single source of truth cho ca 2 apps | `@vibe/shared` with types + registry, consumed via `workspace:*` protocol. Pure TS, no framework deps. |
-| INFRA-06 | pnpm monorepo workspace voi 4 packages | `pnpm-workspace.yaml` with `packages: ['packages/*']`, workspace protocol for cross-package deps |
-| INFRA-07 | TypeScript config cho ca monorepo voi correct jsx settings per package | `tsconfig.base.json` at root, per-package `tsconfig.json` extending it. Vue: `jsx: "preserve"`, React: `jsx: "react-jsx"`. |
+| ID       | Description                                                                | Research Support                                                                                                                   |
+| -------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| INFRA-01 | Host app mount ca Vue 3 va React vao 2 root divs tren cung 1 page          | Dual-Root Mount pattern (Architecture Pattern 1), `index.html` with `#vue-root` + `#react-root`, `main.ts` imports both apps       |
+| INFRA-02 | Vite config xu ly ca Vue SFC (.vue) va React JSX (.tsx) trong cung 1 build | Vite multi-plugin config -- `vue()` + `react({ include: /\.(tsx\|jsx)$/ })` in same plugins array. Verified working pattern.       |
+| INFRA-03 | React Router quan ly URL voi pattern `/:category/:topicId`                 | React Router v7 -- `createBrowserRouter` with dynamic segments, import from `react-router` (not `react-router-dom`)                |
+| INFRA-04 | Vue app sync route qua CustomEvent tren window                             | CustomEvent Bridge pattern -- React dispatches `route-change`, Vue listens. Initial state fallback via `window.location.pathname`. |
+| INFRA-05 | Topic registry tu shared package la single source of truth cho ca 2 apps   | `@vibe/shared` with types + registry, consumed via `workspace:*` protocol. Pure TS, no framework deps.                             |
+| INFRA-06 | pnpm monorepo workspace voi 4 packages                                     | `pnpm-workspace.yaml` with `packages: ['packages/*']`, workspace protocol for cross-package deps                                   |
+| INFRA-07 | TypeScript config cho ca monorepo voi correct jsx settings per package     | `tsconfig.base.json` at root, per-package `tsconfig.json` extending it. Vue: `jsx: "preserve"`, React: `jsx: "react-jsx"`.         |
+
 </phase_requirements>
 
 ## Project Constraints (from CLAUDE.md)
@@ -62,53 +68,55 @@ None -- discussion stayed within phase scope
 
 ### Core (verified against npm registry 2026-03-26)
 
-| Library | Version | Purpose | Why Standard |
-|---------|---------|---------|--------------|
-| vite | 8.0.3 | Build tool + dev server | Single server handles both Vue SFC and React JSX via plugins |
-| vue | 3.5.31 | Left-side framework demos | Composition API + `<script setup>` |
-| react | 19.2.4 | Right-side demos + host app | React 19 stable, host uses React for max learning exposure |
-| react-dom | 19.2.4 | React DOM renderer | Must match react major version |
-| typescript | 6.0.2 | Type safety across all packages | Supports both Vue SFC (via vue-tsc) and React TSX |
-| tailwindcss | 4.2.2 | Styling | CSS-first config, same utility classes for both frameworks |
-| react-router | 7.13.2 | URL routing (host app only) | v7 merged react-router-dom. Import from `react-router`. |
-| pnpm | 10.32.1 (installed) | Package manager + workspaces | Already installed on system |
+| Library      | Version             | Purpose                         | Why Standard                                                 |
+| ------------ | ------------------- | ------------------------------- | ------------------------------------------------------------ |
+| vite         | 8.0.3               | Build tool + dev server         | Single server handles both Vue SFC and React JSX via plugins |
+| vue          | 3.5.31              | Left-side framework demos       | Composition API + `<script setup>`                           |
+| react        | 19.2.4              | Right-side demos + host app     | React 19 stable, host uses React for max learning exposure   |
+| react-dom    | 19.2.4              | React DOM renderer              | Must match react major version                               |
+| typescript   | 6.0.2               | Type safety across all packages | Supports both Vue SFC (via vue-tsc) and React TSX            |
+| tailwindcss  | 4.2.2               | Styling                         | CSS-first config, same utility classes for both frameworks   |
+| react-router | 7.13.2              | URL routing (host app only)     | v7 merged react-router-dom. Import from `react-router`.      |
+| pnpm         | 10.32.1 (installed) | Package manager + workspaces    | Already installed on system                                  |
 
 ### Vite Plugins
 
-| Plugin | Version | Purpose |
-|--------|---------|---------|
-| @vitejs/plugin-vue | 6.0.5 | Vue SFC compilation (.vue files) |
-| @vitejs/plugin-react | 6.0.1 | React JSX/TSX compilation (Babel-based, Fast Refresh HMR) |
-| @tailwindcss/vite | 4.2.2 | TailwindCSS v4 Vite integration (replaces PostCSS) |
+| Plugin               | Version | Purpose                                                   |
+| -------------------- | ------- | --------------------------------------------------------- |
+| @vitejs/plugin-vue   | 6.0.5   | Vue SFC compilation (.vue files)                          |
+| @vitejs/plugin-react | 6.0.1   | React JSX/TSX compilation (Babel-based, Fast Refresh HMR) |
+| @tailwindcss/vite    | 4.2.2   | TailwindCSS v4 Vite integration (replaces PostCSS)        |
 
 ### Supporting (Phase 1 only)
 
-| Library | Version | Purpose | When to Use |
-|---------|---------|---------|-------------|
-| @vueuse/core | 14.2.1 | `useEventListener` for CustomEvent handling in Vue | Route sync composable |
-| clsx | 2.1.1 | Conditional CSS classes in React | Any className merging |
+| Library      | Version | Purpose                                            | When to Use           |
+| ------------ | ------- | -------------------------------------------------- | --------------------- |
+| @vueuse/core | 14.2.1  | `useEventListener` for CustomEvent handling in Vue | Route sync composable |
+| clsx         | 2.1.1   | Conditional CSS classes in React                   | Any className merging |
 
 ### Development Tools
 
-| Tool | Version | Purpose |
-|------|---------|---------|
-| vue-tsc | 3.2.6 | Vue SFC type checking (runs alongside tsc) |
-| prettier | ^3.x | Code formatting -- single quotes, no semicolons (D-02) |
+| Tool     | Version | Purpose                                                |
+| -------- | ------- | ------------------------------------------------------ |
+| vue-tsc  | 3.2.6   | Vue SFC type checking (runs alongside tsc)             |
+| prettier | ^3.x    | Code formatting -- single quotes, no semicolons (D-02) |
 
 ### Alternatives Considered
 
-| Instead of | Could Use | Tradeoff |
-|------------|-----------|----------|
+| Instead of                   | Could Use                      | Tradeoff                                                                                        |
+| ---------------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------- |
 | @vitejs/plugin-react (Babel) | @vitejs/plugin-react-swc (SWC) | SWC is faster but Babel has broader compatibility. For learning tool, build speed not critical. |
-| pnpm workspaces alone | Turborepo / Nx | Over-engineering for single-dev project. No CI/CD to optimize. |
+| pnpm workspaces alone        | Turborepo / Nx                 | Over-engineering for single-dev project. No CI/CD to optimize.                                  |
 
 **Installation (root):**
+
 ```bash
 pnpm init
 # pnpm-workspace.yaml created manually
 ```
 
 **Installation (per package -- see Architecture Patterns for details):**
+
 ```bash
 # host
 pnpm add vite @vitejs/plugin-vue @vitejs/plugin-react @tailwindcss/vite tailwindcss react react-dom react-router -D --filter @vibe/host
@@ -204,7 +212,7 @@ import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [
-    vue(),                              // MUST be before react()
+    vue(), // MUST be before react()
     react({ include: /\.(tsx|jsx)$/ }), // Restrict to React files only
     tailwindcss(),
   ],
@@ -242,14 +250,17 @@ import { useParams } from 'react-router'
 import { ROUTE_CHANGE_EVENT, type RouteChangeDetail } from '@vibe/shared'
 
 export function useRouteDispatch() {
-  const { category, topicId } = useParams<{ category: string; topicId: string }>()
+  const { category, topicId } = useParams<{
+    category: string
+    topicId: string
+  }>()
 
   useEffect(() => {
     if (category && topicId) {
       window.dispatchEvent(
         new CustomEvent<RouteChangeDetail>(ROUTE_CHANGE_EVENT, {
           detail: { category, topicId },
-        })
+        }),
       )
     }
   }, [category, topicId])
@@ -381,9 +392,9 @@ export function App() {
     "declarationMap": true,
     "paths": {
       "@vibe/shared": ["./packages/shared/src"],
-      "@vibe/shared/*": ["./packages/shared/src/*"]
-    }
-  }
+      "@vibe/shared/*": ["./packages/shared/src/*"],
+    },
+  },
 }
 ```
 
@@ -394,9 +405,9 @@ export function App() {
   "compilerOptions": {
     "composite": true,
     "rootDir": "src",
-    "outDir": "dist"
+    "outDir": "dist",
   },
-  "include": ["src"]
+  "include": ["src"],
 }
 ```
 
@@ -405,12 +416,12 @@ export function App() {
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "jsx": "preserve",          // Vue needs preserve
+    "jsx": "preserve", // Vue needs preserve
     "jsxImportSource": "vue",
-    "composite": true
+    "composite": true,
   },
   "include": ["src/**/*.ts", "src/**/*.vue"],
-  "references": [{ "path": "../shared" }]
+  "references": [{ "path": "../shared" }],
 }
 ```
 
@@ -419,11 +430,11 @@ export function App() {
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "jsx": "react-jsx",         // React needs react-jsx
-    "composite": true
+    "jsx": "react-jsx", // React needs react-jsx
+    "composite": true,
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "references": [{ "path": "../shared" }]
+  "references": [{ "path": "../shared" }],
 }
 ```
 
@@ -432,14 +443,14 @@ export function App() {
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "composite": true
+    "composite": true,
   },
   "include": ["src"],
   "references": [
     { "path": "../shared" },
     { "path": "../vue-app" },
-    { "path": "../react-app" }
-  ]
+    { "path": "../react-app" },
+  ],
 }
 ```
 
@@ -455,14 +466,14 @@ export function App() {
 
 ## Don't Hand-Roll
 
-| Problem | Don't Build | Use Instead | Why |
-|---------|-------------|-------------|-----|
-| Event listener lifecycle | Manual add/remove in Vue | `@vueuse/core` `useEventListener` | Auto-cleanup on unmount, handles edge cases |
-| CSS class merging (React) | Template literals | `clsx` | Handles falsy values, arrays, objects correctly |
-| Route param access | `window.location` parsing | `useParams` from `react-router` | Type-safe, reactive, handles encoding |
-| Dynamic imports | Manual `import()` calls | `import.meta.glob` | Vite handles code splitting, caching, HMR |
-| CSS build pipeline | PostCSS config | `@tailwindcss/vite` plugin | v4 native integration, faster than PostCSS |
-| Monorepo linking | npm link / file: protocol | pnpm `workspace:*` | Proper symlinks, version resolution, hoisting |
+| Problem                   | Don't Build               | Use Instead                       | Why                                             |
+| ------------------------- | ------------------------- | --------------------------------- | ----------------------------------------------- |
+| Event listener lifecycle  | Manual add/remove in Vue  | `@vueuse/core` `useEventListener` | Auto-cleanup on unmount, handles edge cases     |
+| CSS class merging (React) | Template literals         | `clsx`                            | Handles falsy values, arrays, objects correctly |
+| Route param access        | `window.location` parsing | `useParams` from `react-router`   | Type-safe, reactive, handles encoding           |
+| Dynamic imports           | Manual `import()` calls   | `import.meta.glob`                | Vite handles code splitting, caching, HMR       |
+| CSS build pipeline        | PostCSS config            | `@tailwindcss/vite` plugin        | v4 native integration, faster than PostCSS      |
+| Monorepo linking          | npm link / file: protocol | pnpm `workspace:*`                | Proper symlinks, version resolution, hoisting   |
 
 ## Common Pitfalls
 
@@ -516,18 +527,18 @@ export function App() {
 <!-- packages/host/index.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vue vs React Comparison Hub</title>
-</head>
-<body>
-  <div id="app-shell">
-    <div id="react-root"></div>
-    <div id="vue-root"></div>
-  </div>
-  <script type="module" src="/src/main.ts"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue vs React Comparison Hub</title>
+  </head>
+  <body>
+    <div id="app-shell">
+      <div id="react-root"></div>
+      <div id="vue-root"></div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
 ```
 
@@ -593,13 +604,13 @@ packages:
 
 ## State of the Art
 
-| Old Approach | Current Approach | When Changed | Impact |
-|--------------|------------------|--------------|--------|
-| `react-router-dom` separate package | `react-router` (merged in v7) | React Router v7 (2024) | Import everything from `react-router`, not `react-router-dom` |
-| `tailwind.config.js` (JavaScript) | `@import "tailwindcss"` + `@theme {}` (CSS-first) | TailwindCSS v4 (2025) | No config file needed. `@source` directive for content paths. |
-| PostCSS for TailwindCSS | `@tailwindcss/vite` plugin | TailwindCSS v4 (2025) | Direct Vite integration, faster than PostCSS pipeline |
-| TypeScript 5.x | TypeScript 6.0 | 2025 | Bundler moduleResolution is standard. No breaking changes for this use case. |
-| Vite 5/6 | Vite 8 | 2025-2026 | Plugin API stable. `@vitejs/plugin-vue@6` and `@vitejs/plugin-react@6` built for Vite 8. |
+| Old Approach                        | Current Approach                                  | When Changed           | Impact                                                                                   |
+| ----------------------------------- | ------------------------------------------------- | ---------------------- | ---------------------------------------------------------------------------------------- |
+| `react-router-dom` separate package | `react-router` (merged in v7)                     | React Router v7 (2024) | Import everything from `react-router`, not `react-router-dom`                            |
+| `tailwind.config.js` (JavaScript)   | `@import "tailwindcss"` + `@theme {}` (CSS-first) | TailwindCSS v4 (2025)  | No config file needed. `@source` directive for content paths.                            |
+| PostCSS for TailwindCSS             | `@tailwindcss/vite` plugin                        | TailwindCSS v4 (2025)  | Direct Vite integration, faster than PostCSS pipeline                                    |
+| TypeScript 5.x                      | TypeScript 6.0                                    | 2025                   | Bundler moduleResolution is standard. No breaking changes for this use case.             |
+| Vite 5/6                            | Vite 8                                            | 2025-2026              | Plugin API stable. `@vitejs/plugin-vue@6` and `@vitejs/plugin-react@6` built for Vite 8. |
 
 ## Open Questions
 
@@ -621,12 +632,12 @@ packages:
 
 ## Environment Availability
 
-| Dependency | Required By | Available | Version | Fallback |
-|------------|------------|-----------|---------|----------|
-| pnpm | Package management | Yes | 10.32.1 | -- |
-| Node.js | Runtime | Yes | 22.22.1 | -- |
-| git | Version control | Yes | 2.43.0 | -- |
-| TypeScript | Type checking | No (global) | -- | Install as devDep via pnpm |
+| Dependency | Required By        | Available   | Version | Fallback                   |
+| ---------- | ------------------ | ----------- | ------- | -------------------------- |
+| pnpm       | Package management | Yes         | 10.32.1 | --                         |
+| Node.js    | Runtime            | Yes         | 22.22.1 | --                         |
+| git        | Version control    | Yes         | 2.43.0  | --                         |
+| TypeScript | Type checking      | No (global) | --      | Install as devDep via pnpm |
 
 **Missing dependencies with no fallback:** None -- all prerequisites available.
 
@@ -636,24 +647,24 @@ packages:
 
 ### Test Framework
 
-| Property | Value |
-|----------|-------|
-| Framework | Manual validation (Phase 1 is infrastructure -- behavior verified by running dev server) |
-| Config file | none -- no test framework installed yet |
-| Quick run command | `pnpm dev` + manual browser verification |
-| Full suite command | `pnpm -r typecheck` (TypeScript validation across all packages) |
+| Property           | Value                                                                                    |
+| ------------------ | ---------------------------------------------------------------------------------------- |
+| Framework          | Manual validation (Phase 1 is infrastructure -- behavior verified by running dev server) |
+| Config file        | none -- no test framework installed yet                                                  |
+| Quick run command  | `pnpm dev` + manual browser verification                                                 |
+| Full suite command | `pnpm -r typecheck` (TypeScript validation across all packages)                          |
 
 ### Phase Requirements -> Test Map
 
-| Req ID | Behavior | Test Type | Automated Command | File Exists? |
-|--------|----------|-----------|-------------------|-------------|
-| INFRA-01 | Both #vue-root and #react-root render content | smoke | `pnpm dev` + verify both divs have content in browser | -- Wave 0 |
-| INFRA-02 | Vite processes .vue and .tsx without errors | smoke | `pnpm dev` (dev server starts without errors) | -- Wave 0 |
-| INFRA-03 | URL /:category/:topicId renders React component | smoke | Navigate to URL in browser, verify React side renders | -- Wave 0 |
-| INFRA-04 | Vue side syncs when URL changes | smoke | Navigate in browser, verify Vue side updates | -- Wave 0 |
-| INFRA-05 | Shared registry importable in both apps | typecheck | `pnpm -r typecheck` | -- Wave 0 |
-| INFRA-06 | All 4 packages resolve and link correctly | smoke | `pnpm install` succeeds + `pnpm dev` starts | -- Wave 0 |
-| INFRA-07 | TypeScript passes across all packages | typecheck | `pnpm -r typecheck` | -- Wave 0 |
+| Req ID   | Behavior                                        | Test Type | Automated Command                                     | File Exists? |
+| -------- | ----------------------------------------------- | --------- | ----------------------------------------------------- | ------------ |
+| INFRA-01 | Both #vue-root and #react-root render content   | smoke     | `pnpm dev` + verify both divs have content in browser | -- Wave 0    |
+| INFRA-02 | Vite processes .vue and .tsx without errors     | smoke     | `pnpm dev` (dev server starts without errors)         | -- Wave 0    |
+| INFRA-03 | URL /:category/:topicId renders React component | smoke     | Navigate to URL in browser, verify React side renders | -- Wave 0    |
+| INFRA-04 | Vue side syncs when URL changes                 | smoke     | Navigate in browser, verify Vue side updates          | -- Wave 0    |
+| INFRA-05 | Shared registry importable in both apps         | typecheck | `pnpm -r typecheck`                                   | -- Wave 0    |
+| INFRA-06 | All 4 packages resolve and link correctly       | smoke     | `pnpm install` succeeds + `pnpm dev` starts           | -- Wave 0    |
+| INFRA-07 | TypeScript passes across all packages           | typecheck | `pnpm -r typecheck`                                   | -- Wave 0    |
 
 ### Sampling Rate
 
@@ -667,11 +678,12 @@ packages:
 - [ ] `typecheck` script added to each package's `package.json`
 - [ ] Placeholder topic components exist for both Vue and React (needed to verify routing)
 
-*(No automated test framework needed for Phase 1 -- infrastructure validation is typecheck + dev server smoke test)*
+_(No automated test framework needed for Phase 1 -- infrastructure validation is typecheck + dev server smoke test)_
 
 ## Sources
 
 ### Primary (HIGH confidence)
+
 - npm registry -- all package versions verified via `npm view [package] version` on 2026-03-26
 - [React Router v7 docs](https://reactrouter.com/start/data/routing) -- `createBrowserRouter`, import from `react-router`
 - [React Router useParams API](https://reactrouter.com/api/hooks/useParams) -- dynamic segments
@@ -682,17 +694,20 @@ packages:
 - [pnpm workspaces docs](https://pnpm.io/workspaces) -- workspace protocol, pnpm-workspace.yaml
 
 ### Secondary (MEDIUM confidence)
+
 - [Vite Discussion #6381](https://github.com/vitejs/vite/discussions/6381) -- confirmed Vue + React plugins coexist in same project
 - [Vite Plugin API docs](https://vite.dev/guide/api-plugin) -- plugin ordering, transform hooks
 - `.planning/research/ARCHITECTURE.md` -- project-specific architecture patterns (internal doc)
 - `.planning/research/PITFALLS.md` -- project-specific pitfall analysis (internal doc)
 
 ### Tertiary (LOW confidence)
+
 - Training data (May 2025) -- multi-framework Vite HMR behavior, TypeScript project references exact syntax
 
 ## Metadata
 
 **Confidence breakdown:**
+
 - Standard stack: HIGH -- all versions verified against npm registry, APIs confirmed via official docs
 - Architecture: HIGH -- patterns well-documented, Vite dual-plugin confirmed
 - Pitfalls: MEDIUM-HIGH -- documented from established patterns, some edge cases may surface during implementation
@@ -702,5 +717,6 @@ packages:
 **Valid until:** 2026-04-26 (stable ecosystem, 30-day validity)
 
 ---
-*Phase: 01-infrastructure-scaffold*
-*Researched: 2026-03-26*
+
+_Phase: 01-infrastructure-scaffold_
+_Researched: 2026-03-26_

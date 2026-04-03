@@ -35,12 +35,12 @@
 
 ### Component Responsibilities
 
-| Component | Responsibility | Implementation |
-|-----------|----------------|----------------|
-| **Host (`packages/host`)** | Vite config, HTML shell with 2 root divs, boot script that imports both apps | `main.ts` imports vue-app/main + react-app/main, `index.html` has `#vue-root` + `#react-root` |
-| **React App (`packages/react-app`)** | Right-side demos, React Router (owns the URL), navigation sidebar, topic descriptions | `createRoot(#react-root).render(<App />)`, dispatches `CustomEvent` on route change |
-| **Vue App (`packages/vue-app`)** | Left-side demos, listens for route events, renders matching Vue component | `createApp(App).mount('#vue-root')`, `window.addEventListener('route-change', ...)` |
-| **Shared (`packages/shared`)** | Topic registry (single source of truth), TypeScript types, constants | Pure TS package, no framework dependencies, consumed by both apps |
+| Component                            | Responsibility                                                                        | Implementation                                                                                |
+| ------------------------------------ | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| **Host (`packages/host`)**           | Vite config, HTML shell with 2 root divs, boot script that imports both apps          | `main.ts` imports vue-app/main + react-app/main, `index.html` has `#vue-root` + `#react-root` |
+| **React App (`packages/react-app`)** | Right-side demos, React Router (owns the URL), navigation sidebar, topic descriptions | `createRoot(#react-root).render(<App />)`, dispatches `CustomEvent` on route change           |
+| **Vue App (`packages/vue-app`)**     | Left-side demos, listens for route events, renders matching Vue component             | `createApp(App).mount('#vue-root')`, `window.addEventListener('route-change', ...)`           |
+| **Shared (`packages/shared`)**       | Topic registry (single source of truth), TypeScript types, constants                  | Pure TS package, no framework dependencies, consumed by both apps                             |
 
 ## Recommended Project Structure
 
@@ -124,6 +124,7 @@ vibe/
 **Trade-offs:** Simple isolation (no framework conflicts), but requires explicit communication mechanism. No shared component tree means no shared context/state by default.
 
 **Example (host/src/main.ts):**
+
 ```typescript
 // Boot both apps independently
 import '@vibe/vue-app/main'
@@ -131,6 +132,7 @@ import '@vibe/react-app/main'
 ```
 
 **Example (host/index.html):**
+
 ```html
 <body>
   <div id="app-shell">
@@ -152,6 +154,7 @@ import '@vibe/react-app/main'
 **Trade-offs:** Very simple, no dependencies, follows browser standards. But: no type safety at the boundary unless you define event types in shared package, no guarantee listener is ready when event fires (race condition on boot).
 
 **Example (shared/src/types.ts):**
+
 ```typescript
 export interface RouteChangeDetail {
   category: string
@@ -162,6 +165,7 @@ export const ROUTE_CHANGE_EVENT = 'route-change'
 ```
 
 **Example (react-app, dispatch side):**
+
 ```typescript
 // hooks/useRouteDispatch.ts
 import { useEffect } from 'react'
@@ -169,14 +173,17 @@ import { useParams } from 'react-router-dom'
 import { ROUTE_CHANGE_EVENT, type RouteChangeDetail } from '@vibe/shared'
 
 export function useRouteDispatch() {
-  const { category, topicId } = useParams<{ category: string; topicId: string }>()
+  const { category, topicId } = useParams<{
+    category: string
+    topicId: string
+  }>()
 
   useEffect(() => {
     if (category && topicId) {
       window.dispatchEvent(
         new CustomEvent<RouteChangeDetail>(ROUTE_CHANGE_EVENT, {
           detail: { category, topicId },
-        })
+        }),
       )
     }
   }, [category, topicId])
@@ -184,6 +191,7 @@ export function useRouteDispatch() {
 ```
 
 **Example (vue-app, listener side):**
+
 ```typescript
 // composables/useRouteSync.ts
 import { ref, onMounted, onUnmounted } from 'vue'
@@ -199,8 +207,12 @@ export function useRouteSync() {
     topicId.value = detail.topicId
   }
 
-  onMounted(() => window.addEventListener(ROUTE_CHANGE_EVENT, handleRouteChange))
-  onUnmounted(() => window.removeEventListener(ROUTE_CHANGE_EVENT, handleRouteChange))
+  onMounted(() =>
+    window.addEventListener(ROUTE_CHANGE_EVENT, handleRouteChange),
+  )
+  onUnmounted(() =>
+    window.removeEventListener(ROUTE_CHANGE_EVENT, handleRouteChange),
+  )
 
   return { category, topicId }
 }
@@ -213,6 +225,7 @@ export function useRouteSync() {
 **Trade-offs:** Single source of truth for topics, easy to add new ones. But dynamic imports need careful handling for build-time code splitting and error states.
 
 **Example (react-app):**
+
 ```typescript
 // TopicRenderer.tsx
 import { lazy, Suspense } from 'react'
@@ -232,6 +245,7 @@ function TopicRenderer({ category, topicId }: { category: string; topicId: strin
 ```
 
 **Example (vue-app):**
+
 ```vue
 <!-- TopicRenderer.vue -->
 <script setup lang="ts">
@@ -263,6 +277,7 @@ const TopicComponent = computed(() => {
 **Trade-offs:** Works out of the box because Vite plugins operate on file extensions (`.vue` goes to Vue plugin, `.tsx/.jsx` goes to React plugin). No conflict. However, HMR for both frameworks must be independently wired.
 
 **Example (host/vite.config.ts):**
+
 ```typescript
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -349,14 +364,14 @@ shared (0 deps)
 
 **Recommended implementation order:**
 
-| Phase | Package | Why First |
-|-------|---------|-----------|
-| 1 | `shared` | Foundation. Types and registry must exist before either app can import them. |
-| 2 | `host` (skeleton) | Vite config + HTML shell + boot script. Needed to run anything in browser. |
-| 3 | `react-app` (shell) | React Router + sidebar + layout. This owns navigation, so it must exist to drive the app. |
-| 4 | `vue-app` (shell) | Event listener + dynamic renderer. Depends on React dispatching events. |
-| 5 | First topic (both apps) | One topic end-to-end proves the full pipeline works. |
-| 6+ | Remaining topics | Incremental. Each topic is independent of others. |
+| Phase | Package                 | Why First                                                                                 |
+| ----- | ----------------------- | ----------------------------------------------------------------------------------------- |
+| 1     | `shared`                | Foundation. Types and registry must exist before either app can import them.              |
+| 2     | `host` (skeleton)       | Vite config + HTML shell + boot script. Needed to run anything in browser.                |
+| 3     | `react-app` (shell)     | React Router + sidebar + layout. This owns navigation, so it must exist to drive the app. |
+| 4     | `vue-app` (shell)       | Event listener + dynamic renderer. Depends on React dispatching events.                   |
+| 5     | First topic (both apps) | One topic end-to-end proves the full pipeline works.                                      |
+| 6+    | Remaining topics        | Incremental. Each topic is independent of others.                                         |
 
 **Key insight:** `host` and both app shells should be built before any topic content. The infrastructure (routing, event bridge, dynamic loading) is the hard part. Individual topics are mechanical once the pipeline works.
 
@@ -396,32 +411,32 @@ shared (0 deps)
 
 ### Internal Boundaries
 
-| Boundary | Communication | Notes |
-|----------|---------------|-------|
-| React App <-> Vue App | `CustomEvent` on `window` | Unidirectional: React dispatches, Vue listens. Type-safe via shared `RouteChangeDetail` interface. |
-| Both Apps <-> Shared | Direct TypeScript import | Compile-time only. No runtime coupling. Shared package is pure data/types. |
-| Host <-> Both Apps | ES module import (boot) | Host imports each app's `main.ts`. After boot, host has no further role. Fire-and-forget. |
-| Both Apps <-> Browser URL | React Router only | Vue never reads/writes `window.location` directly. React Router is the single owner. |
+| Boundary                  | Communication             | Notes                                                                                              |
+| ------------------------- | ------------------------- | -------------------------------------------------------------------------------------------------- |
+| React App <-> Vue App     | `CustomEvent` on `window` | Unidirectional: React dispatches, Vue listens. Type-safe via shared `RouteChangeDetail` interface. |
+| Both Apps <-> Shared      | Direct TypeScript import  | Compile-time only. No runtime coupling. Shared package is pure data/types.                         |
+| Host <-> Both Apps        | ES module import (boot)   | Host imports each app's `main.ts`. After boot, host has no further role. Fire-and-forget.          |
+| Both Apps <-> Browser URL | React Router only         | Vue never reads/writes `window.location` directly. React Router is the single owner.               |
 
 ### Boot Synchronization
 
-| Concern | Solution |
-|---------|----------|
-| Vue misses initial route event | Vue reads `window.location` on mount as fallback |
-| React dispatches before Vue ready | Not a problem if Vue has URL fallback |
-| HMR for Vue | `@vitejs/plugin-vue` handles HMR for `.vue` files independently |
-| HMR for React | `@vitejs/plugin-react` handles HMR for `.tsx` files independently |
+| Concern                           | Solution                                                          |
+| --------------------------------- | ----------------------------------------------------------------- |
+| Vue misses initial route event    | Vue reads `window.location` on mount as fallback                  |
+| React dispatches before Vue ready | Not a problem if Vue has URL fallback                             |
+| HMR for Vue                       | `@vitejs/plugin-vue` handles HMR for `.vue` files independently   |
+| HMR for React                     | `@vitejs/plugin-react` handles HMR for `.tsx` files independently |
 
 ## Scaling Considerations
 
 This is a personal learning tool, not a production SaaS. Scaling means "can I add 30+ topics without the architecture breaking?"
 
-| Concern | At 5 topics | At 32 topics | At 50+ topics |
-|---------|-------------|--------------|---------------|
-| Bundle size | Negligible | Use `import.meta.glob` lazy loading. Each topic is a separate chunk. | Same pattern scales. Vite handles code splitting automatically. |
-| Sidebar navigation | Flat list | Grouped by category (6 categories). Collapsible sections. | Same. Categories keep it manageable. |
-| Build time | < 5s | < 15s | May want to consider Vite's manual chunk strategy if builds slow down. |
-| Developer experience | Easy to find files | Mirror folder structure keeps it navigable | Conventions matter. Naming discipline is key. |
+| Concern              | At 5 topics        | At 32 topics                                                         | At 50+ topics                                                          |
+| -------------------- | ------------------ | -------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Bundle size          | Negligible         | Use `import.meta.glob` lazy loading. Each topic is a separate chunk. | Same pattern scales. Vite handles code splitting automatically.        |
+| Sidebar navigation   | Flat list          | Grouped by category (6 categories). Collapsible sections.            | Same. Categories keep it manageable.                                   |
+| Build time           | < 5s               | < 15s                                                                | May want to consider Vite's manual chunk strategy if builds slow down. |
+| Developer experience | Easy to find files | Mirror folder structure keeps it navigable                           | Conventions matter. Naming discipline is key.                          |
 
 ### What Breaks First
 
@@ -438,5 +453,6 @@ This is a personal learning tool, not a production SaaS. Scaling means "can I ad
 - pnpm workspaces monorepo pattern is well-established (HIGH confidence)
 
 ---
-*Architecture research for: Vue vs React Comparison Hub*
-*Researched: 2026-03-26*
+
+_Architecture research for: Vue vs React Comparison Hub_
+_Researched: 2026-03-26_

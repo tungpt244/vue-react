@@ -11,11 +11,11 @@
 
 ## Package Naming
 
-| Option | Description | Selected |
-|--------|-------------|----------|
-| @vibe/shared (Recommended) | Scoped packages: @vibe/shared, @vibe/vue-app, @vibe/react-app, @vibe/host. Clean imports, no collision | ✓ |
-| Flat names | shared, vue-app, react-app, host. Simpler nhưng risk collision với npm packages | |
-| You decide | Em tự chọn | |
+| Option                     | Description                                                                                            | Selected |
+| -------------------------- | ------------------------------------------------------------------------------------------------------ | -------- |
+| @vibe/shared (Recommended) | Scoped packages: @vibe/shared, @vibe/vue-app, @vibe/react-app, @vibe/host. Clean imports, no collision | ✓        |
+| Flat names                 | shared, vue-app, react-app, host. Simpler nhưng risk collision với npm packages                        |          |
+| You decide                 | Em tự chọn                                                                                             |          |
 
 **User's choice:** @vibe/shared (Recommended)
 **Notes:** User also requested Prettier config: single quotes, no semicolons

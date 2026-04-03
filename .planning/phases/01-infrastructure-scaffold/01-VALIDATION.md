@@ -15,13 +15,13 @@ created: 2026-03-26
 
 ## Test Infrastructure
 
-| Property | Value |
-|----------|-------|
-| **Framework** | vitest |
-| **Config file** | none — Wave 0 installs |
-| **Quick run command** | `pnpm -r typecheck` |
+| Property               | Value                                                                                 |
+| ---------------------- | ------------------------------------------------------------------------------------- | ---------------------------- |
+| **Framework**          | vitest                                                                                |
+| **Config file**        | none — Wave 0 installs                                                                |
+| **Quick run command**  | `pnpm -r typecheck`                                                                   |
 | **Full suite command** | `pnpm -r typecheck && pnpm dev --host 2>&1 & sleep 5 && curl -s http://localhost:5173 | grep -q vue-root && kill %1` |
-| **Estimated runtime** | ~15 seconds |
+| **Estimated runtime**  | ~15 seconds                                                                           |
 
 ---
 
@@ -36,17 +36,17 @@ created: 2026-03-26
 
 ## Per-Task Verification Map
 
-| Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File Exists | Status |
-|---------|------|------|-------------|-----------|-------------------|-------------|--------|
-| 01-01-01 | 01 | 1 | INFRA-01 | integration | `pnpm -r typecheck` | ❌ W0 | ⬜ pending |
-| 01-01-02 | 01 | 1 | INFRA-02 | integration | `pnpm dev` | ❌ W0 | ⬜ pending |
-| 01-02-01 | 02 | 1 | INFRA-03 | integration | `pnpm -r typecheck` | ❌ W0 | ⬜ pending |
-| 01-02-02 | 02 | 1 | INFRA-04 | integration | `pnpm dev` | ❌ W0 | ⬜ pending |
-| 01-03-01 | 03 | 2 | INFRA-05 | manual | browser navigation test | ❌ | ⬜ pending |
-| 01-03-02 | 03 | 2 | INFRA-06 | integration | `pnpm -r typecheck` | ❌ W0 | ⬜ pending |
-| 01-03-03 | 03 | 2 | INFRA-07 | manual | HMR edit test | ❌ | ⬜ pending |
+| Task ID  | Plan | Wave | Requirement | Test Type   | Automated Command       | File Exists | Status     |
+| -------- | ---- | ---- | ----------- | ----------- | ----------------------- | ----------- | ---------- |
+| 01-01-01 | 01   | 1    | INFRA-01    | integration | `pnpm -r typecheck`     | ❌ W0       | ⬜ pending |
+| 01-01-02 | 01   | 1    | INFRA-02    | integration | `pnpm dev`              | ❌ W0       | ⬜ pending |
+| 01-02-01 | 02   | 1    | INFRA-03    | integration | `pnpm -r typecheck`     | ❌ W0       | ⬜ pending |
+| 01-02-02 | 02   | 1    | INFRA-04    | integration | `pnpm dev`              | ❌ W0       | ⬜ pending |
+| 01-03-01 | 03   | 2    | INFRA-05    | manual      | browser navigation test | ❌          | ⬜ pending |
+| 01-03-02 | 03   | 2    | INFRA-06    | integration | `pnpm -r typecheck`     | ❌ W0       | ⬜ pending |
+| 01-03-03 | 03   | 2    | INFRA-07    | manual      | HMR edit test           | ❌          | ⬜ pending |
 
-*Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
+_Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky_
 
 ---
 
@@ -62,11 +62,11 @@ created: 2026-03-26
 
 ## Manual-Only Verifications
 
-| Behavior | Requirement | Why Manual | Test Instructions |
-|----------|-------------|------------|-------------------|
-| HMR hot reload Vue side | INFRA-07 | Requires live browser + file edit | Edit .vue file, verify only Vue side updates |
-| HMR hot reload React side | INFRA-07 | Requires live browser + file edit | Edit .tsx file, verify only React side updates |
-| Browser URL navigation | INFRA-05 | Requires browser interaction | Navigate to /:category/:topicId, verify both sides render |
+| Behavior                  | Requirement | Why Manual                        | Test Instructions                                         |
+| ------------------------- | ----------- | --------------------------------- | --------------------------------------------------------- |
+| HMR hot reload Vue side   | INFRA-07    | Requires live browser + file edit | Edit .vue file, verify only Vue side updates              |
+| HMR hot reload React side | INFRA-07    | Requires live browser + file edit | Edit .tsx file, verify only React side updates            |
+| Browser URL navigation    | INFRA-05    | Requires browser interaction      | Navigate to /:category/:topicId, verify both sides render |
 
 ---
 

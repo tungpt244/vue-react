@@ -13,10 +13,12 @@ human approved at checkpoint 04-03
 ## Tests
 
 ### 1. Visual quality of SVG diagrams
+
 expected: Diagrams readable at panel width, arrow markers render correctly, text legible
 result: approved (user verified at checkpoint 04-03)
 
 ### 2. Sidebar runtime rendering of new categories
+
 expected: "Scaling Up" shows 4 topics, "Deep Dive" shows 3 topics, all clickable
 result: approved (user verified at checkpoint 04-03)
 

@@ -23,14 +23,14 @@ key_files:
     - packages/react-app/src/topics/deep-dive/RerenderOptimization.tsx
   modified: []
 decisions:
-  - "Pre-existing Slots.vue TS error is out-of-scope and unrelated to this plan"
-  - "Inline SVG with viewBox (no width/height attrs) for all diagrams — responsive by default"
-  - "Unique marker IDs: arrow-{topic}-{framework} pattern prevents DOM collisions"
-  - "ReactivityInDepth Vue demo uses watchEffect log panel to visualize Proxy tracking at runtime"
-  - "RerenderOptimization React demo uses two live children (no-memo vs memo) with render counters"
+  - 'Pre-existing Slots.vue TS error is out-of-scope and unrelated to this plan'
+  - 'Inline SVG with viewBox (no width/height attrs) for all diagrams — responsive by default'
+  - 'Unique marker IDs: arrow-{topic}-{framework} pattern prevents DOM collisions'
+  - 'ReactivityInDepth Vue demo uses watchEffect log panel to visualize Proxy tracking at runtime'
+  - 'RerenderOptimization React demo uses two live children (no-memo vs memo) with render counters'
 metrics:
-  duration: "7min"
-  completed: "2026-03-31T10:25:50Z"
+  duration: '7min'
+  completed: '2026-03-31T10:25:50Z'
   tasks: 2
   files: 6
 ---
@@ -41,28 +41,32 @@ metrics:
 
 ## Tasks Completed
 
-| Task | Name | Commit | Files |
-|------|------|--------|-------|
-| 1 | 3 Vue Deep Dive topics with diagrams | 3286b69 | RenderingMechanism.vue, ReactivityInDepth.vue, RerenderOptimization.vue |
-| 2 | 3 React Deep Dive topics with diagrams | 4bde9cb | RenderingMechanism.tsx, ReactivityInDepth.tsx, RerenderOptimization.tsx |
+| Task | Name                                   | Commit  | Files                                                                   |
+| ---- | -------------------------------------- | ------- | ----------------------------------------------------------------------- |
+| 1    | 3 Vue Deep Dive topics with diagrams   | 3286b69 | RenderingMechanism.vue, ReactivityInDepth.vue, RerenderOptimization.vue |
+| 2    | 3 React Deep Dive topics with diagrams | 4bde9cb | RenderingMechanism.tsx, ReactivityInDepth.tsx, RerenderOptimization.tsx |
 
 ## What Was Built
 
 ### RenderingMechanism (DEEP-01)
+
 - **Vue:** Counter demo with highlight when specific text node updates. Explains patch flags + static hoisting. Diagram: Template → Compiler → VNode Tree (patch flags) → DOM Diff (skip static) → Targeted Update.
 - **React:** Counter with render count showing entire component function re-executes. Diagram: setState() → Component fn() (entire fn re-executes) → New JSX Tree → Reconciler (diffs all nodes) → DOM.
 
 ### ReactivityInDepth (DEEP-02)
+
 - **Vue:** Live log panel showing `[tracked]` on property access and `[triggered]` on mutation via `reactive()` + `watchEffect`. Diagram: reactive({}) → Proxy → get:Track dep / set:Trigger effects → Re-render affected.
 - **React:** Live log panel showing "setState called → full re-render" on each setter call. Diagram: useState(init) → [value, setter] → setter(newVal) (explicit call) → Component re-render (full) → all children.
 
 ### RerenderOptimization (DEEP-03)
+
 - **Vue:** Parent + child where child has zero reactive dependencies on parent count. Child `onUpdated` counter stays at 0 proving auto-skip. Diagram: Parent → Child A (deps changed, re-render) + Child B (no deps → skip, auto-skipped by Vue reactivity).
 - **React:** Parent + two children — one without `React.memo` (re-renders every click), one with `React.memo` (stays at 1 render). Diagram includes decision diamond: memo? props same? YES → SKIP / NO → re-render loop.
 
 ## SVG Diagram Conventions Established
 
 All 6 diagrams follow:
+
 - `viewBox="0 0 W H"` without `width`/`height` attributes + `className/class="w-full h-auto"`
 - `aria-label` on every `<svg>` element
 - Unique marker IDs: `id="arrow-{topic}-{framework}"` (6 unique IDs, no collisions)
@@ -73,6 +77,7 @@ All 6 diagrams follow:
 None — plan executed exactly as written.
 
 The pre-existing TypeScript error in `Slots.vue` (line 17) was observed but is out-of-scope:
+
 - Error existed before this plan (confirmed via `git stash` test)
 - Not caused by any file in this plan
 - Logged to deferred-items tracking
@@ -84,6 +89,7 @@ None — all 6 files have working interactive demos with real reactive/state dat
 ## Self-Check: PASSED
 
 Files exist:
+
 - packages/vue-app/src/topics/deep-dive/RenderingMechanism.vue — FOUND
 - packages/vue-app/src/topics/deep-dive/ReactivityInDepth.vue — FOUND
 - packages/vue-app/src/topics/deep-dive/RerenderOptimization.vue — FOUND
@@ -92,6 +98,7 @@ Files exist:
 - packages/react-app/src/topics/deep-dive/RerenderOptimization.tsx — FOUND
 
 Commits exist:
+
 - 3286b69 — FOUND (Task 1: Vue topics)
 - 4bde9cb — FOUND (Task 2: React topics)
 

@@ -51,13 +51,13 @@ So sánh side-by-side chạy live giữa Vue 3 và React cho cùng một concept
 
 ## Key Decisions
 
-| Decision | Rationale | Outcome |
-|----------|-----------|---------|
-| Chỉ dùng React Router | Tránh conflict 2 router trên 1 URL | ✓ Phase 1 |
-| Vue sync qua CustomEvent | Lightweight, không cần shared state library | ✓ Phase 1 |
-| Monorepo 4 packages | Separation of concerns, shared types/registry | ✓ Phase 1 |
-| Host app mount cả 2 | Vite config xử lý cả Vue SFC + React JSX | ✓ Phase 1 |
-| Sidebar in React Layout | Sidebar controls navigation for both panels via React Router | ✓ Phase 2 |
+| Decision                  | Rationale                                                                  | Outcome   |
+| ------------------------- | -------------------------------------------------------------------------- | --------- |
+| Chỉ dùng React Router     | Tránh conflict 2 router trên 1 URL                                         | ✓ Phase 1 |
+| Vue sync qua CustomEvent  | Lightweight, không cần shared state library                                | ✓ Phase 1 |
+| Monorepo 4 packages       | Separation of concerns, shared types/registry                              | ✓ Phase 1 |
+| Host app mount cả 2       | Vite config xử lý cả Vue SFC + React JSX                                   | ✓ Phase 1 |
+| Sidebar in React Layout   | Sidebar controls navigation for both panels via React Router               | ✓ Phase 2 |
 | Inline demo + explanation | Each topic = single component with interactive demo + Key Differences text | ✓ Phase 2 |
 
 ## Evolution
@@ -65,6 +65,7 @@ So sánh side-by-side chạy live giữa Vue 3 và React cho cùng một concept
 This document evolves at phase transitions and milestone boundaries.
 
 **After each phase transition** (via `/gsd:transition`):
+
 1. Requirements invalidated? → Move to Out of Scope with reason
 2. Requirements validated? → Move to Validated with phase reference
 3. New requirements emerged? → Add to Active
@@ -72,10 +73,12 @@ This document evolves at phase transitions and milestone boundaries.
 5. "What This Is" still accurate? → Update if drifted
 
 **After each milestone** (via `/gsd:complete-milestone`):
+
 1. Full review of all sections
 2. Core Value check — still the right priority?
 3. Audit Out of Scope — reasons still valid?
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-31 after Phase 4 completion — 33 topics live (5 categories incl. Scaling Up + Deep Dive), SVG diagrams, full curriculum complete (v1.0)*
+
+_Last updated: 2026-03-31 after Phase 4 completion — 33 topics live (5 categories incl. Scaling Up + Deep Dive), SVG diagrams, full curriculum complete (v1.0)_

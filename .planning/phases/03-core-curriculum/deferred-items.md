@@ -3,6 +3,7 @@
 ## Pre-existing TypeScript Errors (Out of Scope)
 
 ### Slots.vue TS2769 — vue-tsc null assignability
+
 - **File:** `packages/vue-app/src/topics/components/Slots.vue` line 17
 - **Error:** `Type 'null' is not assignable to type 'RawChildren | RawSlots | undefined'`
 - **Discovered:** Plan 03-05 (Sidebar enhancement)

@@ -23,9 +23,9 @@ affects:
 tech-stack:
   added: []
   patterns:
-    - "CSS variable --sidebar-width on :root, mutated by Sidebar via document.documentElement.style"
-    - "Fixed-position sidebar spanning full viewport height, app-shell shifted via margin-left"
-    - "React Router useNavigate + useParams for active state detection in sidebar"
+    - 'CSS variable --sidebar-width on :root, mutated by Sidebar via document.documentElement.style'
+    - 'Fixed-position sidebar spanning full viewport height, app-shell shifted via margin-left'
+    - 'React Router useNavigate + useParams for active state detection in sidebar'
 
 key-files:
   created:
@@ -38,14 +38,14 @@ key-files:
     - packages/host/src/styles.css
 
 key-decisions:
-  - "Sidebar uses position:fixed so it spans both Vue and React panels visually (not just React panel)"
-  - "CSS variable --sidebar-width coordinates sidebar width with app-shell margin-left without React state"
-  - "packages/shared tsconfig overrides types to exclude vite/client (shared has no vite dependency)"
+  - 'Sidebar uses position:fixed so it spans both Vue and React panels visually (not just React panel)'
+  - 'CSS variable --sidebar-width coordinates sidebar width with app-shell margin-left without React state'
+  - 'packages/shared tsconfig overrides types to exclude vite/client (shared has no vite dependency)'
 
 patterns-established:
-  - "Sidebar: collapsed boolean state + useEffect to set CSS var on document root"
-  - "Topic navigation: navigate(/{category}/{slug}) via useNavigate from react-router"
-  - "Active topic detection: compare useParams() against topic.category + topic.slug"
+  - 'Sidebar: collapsed boolean state + useEffect to set CSS var on document root'
+  - 'Topic navigation: navigate(/{category}/{slug}) via useNavigate from react-router'
+  - 'Active topic detection: compare useParams() against topic.category + topic.slug'
 
 requirements-completed: [NAV-01, NAV-02, NAV-03]
 
@@ -101,6 +101,7 @@ Each task was committed atomically:
 ### Auto-fixed Issues
 
 **1. [Rule 3 - Blocking] Fixed packages/shared tsconfig vite/client type error**
+
 - **Found during:** Task 1 (typecheck verification)
 - **Issue:** `tsconfig.base.json` declares `"types": ["vite/client", "node"]` but `packages/shared` has no vite dependency, causing `TS2688: Cannot find type definition file for 'vite/client'`
 - **Fix:** Added `compilerOptions.types: ["node"]` override in `packages/shared/tsconfig.json` to exclude vite/client
@@ -109,6 +110,7 @@ Each task was committed atomically:
 - **Committed in:** 299edda (Task 1 commit)
 
 **2. [Rule 1 - Bug] Fixed Set<Category> type incompatibility in getAllCategories**
+
 - **Found during:** Task 1 (typecheck on shared package)
 - **Issue:** `new Set(topics.map(t => t.category))` creates `Set<Category>` but `.has(c)` receives `string`, causing TS2345
 - **Fix:** Explicitly typed Set as `Set<string>` to allow string comparison
@@ -137,5 +139,6 @@ None - no external service configuration required.
 - No blockers
 
 ---
-*Phase: 02-first-5-topics*
-*Completed: 2026-03-27*
+
+_Phase: 02-first-5-topics_
+_Completed: 2026-03-27_

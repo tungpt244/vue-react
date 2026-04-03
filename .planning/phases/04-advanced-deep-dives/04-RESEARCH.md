@@ -15,17 +15,19 @@ The layout architecture supports both streams without changes: TopicRenderer in 
 **Primary recommendation:** Split into 3 plans — (1) registry expansion + 4 Scaling Up topics, (2) 3 Deep Dive topic files with diagram sections, (3) final verification. Diagrams use inline SVG with Tailwind-styled labels — no new packages required.
 
 <phase_requirements>
+
 ## Phase Requirements
 
-| ID | Description | Research Support |
-|----|-------------|------------------|
-| SCAL-01 | Routing — Vue Router vs React Router | Vue Router 4 + React Router v7, both well-understood; demo shows basic setup diff |
-| SCAL-02 | State Management — Pinia vs Zustand/Redux Toolkit | Pinia (Vue standard), Zustand (React lightweight standard); simplified in-component demo possible |
-| SCAL-03 | Testing — Vitest + Vue Test Utils vs Vitest + React Testing Library | Code snippet topic (no live test runner in browser); show test code side-by-side |
-| SCAL-04 | TypeScript — defineProps\<T\>/defineEmits\<T\> vs React props type | Pure TypeScript patterns; code-display focused with small interactive demo |
-| DEEP-01 | Rendering Mechanism — Vue compiler optimized diff vs React full subtree diff + diagram | Inline SVG diagram of vdom diffing; demo shows update behavior |
-| DEEP-02 | Reactivity In-Depth — Proxy-based tracking vs immutable state comparison + diagram | Inline SVG diagram of Proxy tracking vs setter pattern |
-| DEEP-03 | Re-render & Optimization — Vue auto vs React manual (memo, useMemo, useCallback) + diagram | Inline SVG diagram; demo shows React.memo, useMemo, useCallback vs Vue's automatic optimization |
+| ID      | Description                                                                                | Research Support                                                                                  |
+| ------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| SCAL-01 | Routing — Vue Router vs React Router                                                       | Vue Router 4 + React Router v7, both well-understood; demo shows basic setup diff                 |
+| SCAL-02 | State Management — Pinia vs Zustand/Redux Toolkit                                          | Pinia (Vue standard), Zustand (React lightweight standard); simplified in-component demo possible |
+| SCAL-03 | Testing — Vitest + Vue Test Utils vs Vitest + React Testing Library                        | Code snippet topic (no live test runner in browser); show test code side-by-side                  |
+| SCAL-04 | TypeScript — defineProps\<T\>/defineEmits\<T\> vs React props type                         | Pure TypeScript patterns; code-display focused with small interactive demo                        |
+| DEEP-01 | Rendering Mechanism — Vue compiler optimized diff vs React full subtree diff + diagram     | Inline SVG diagram of vdom diffing; demo shows update behavior                                    |
+| DEEP-02 | Reactivity In-Depth — Proxy-based tracking vs immutable state comparison + diagram         | Inline SVG diagram of Proxy tracking vs setter pattern                                            |
+| DEEP-03 | Re-render & Optimization — Vue auto vs React manual (memo, useMemo, useCallback) + diagram | Inline SVG diagram; demo shows React.memo, useMemo, useCallback vs Vue's automatic optimization   |
+
 </phase_requirements>
 
 ---
@@ -34,21 +36,21 @@ The layout architecture supports both streams without changes: TopicRenderer in 
 
 ### Core (all already installed — no new dependencies needed for either stream)
 
-| Library | Version | Purpose | Why Standard |
-|---------|---------|---------|--------------|
-| Vue 3 | ^3.5.31 | Vue side topic files | Already installed |
-| React 19 | ^19.2.4 | React side topic files | Already installed |
-| TailwindCSS v4 | ^4.2.2 | All styling in topic files | Already installed — use utility classes for diagram layout |
-| lucide-react / lucide-vue-next | ^1.7.0 / ^1.0.0 | Icons in topic files | Already installed |
+| Library                        | Version         | Purpose                    | Why Standard                                               |
+| ------------------------------ | --------------- | -------------------------- | ---------------------------------------------------------- |
+| Vue 3                          | ^3.5.31         | Vue side topic files       | Already installed                                          |
+| React 19                       | ^19.2.4         | React side topic files     | Already installed                                          |
+| TailwindCSS v4                 | ^4.2.2          | All styling in topic files | Already installed — use utility classes for diagram layout |
+| lucide-react / lucide-vue-next | ^1.7.0 / ^1.0.0 | Icons in topic files       | Already installed                                          |
 
 ### No New Dependencies Required
 
-| Instead of | Could Use | Tradeoff |
-|------------|-----------|----------|
-| Inline SVG for diagrams | Mermaid.js | Mermaid requires runtime JS bundle (~500KB). Inline SVG = zero bundle cost, same visual result for simple flow diagrams |
-| Inline SVG for diagrams | D3.js | D3 is a data viz library — massive overkill for static educational diagrams |
-| Inline SVG for diagrams | React Flow / Vue Flow | Interactive graph libraries — again overkill for static diagrams |
-| CSS Tailwind boxes | Canvas API | Canvas is imperative and non-accessible; Tailwind HTML is simpler to maintain |
+| Instead of              | Could Use             | Tradeoff                                                                                                                |
+| ----------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Inline SVG for diagrams | Mermaid.js            | Mermaid requires runtime JS bundle (~500KB). Inline SVG = zero bundle cost, same visual result for simple flow diagrams |
+| Inline SVG for diagrams | D3.js                 | D3 is a data viz library — massive overkill for static educational diagrams                                             |
+| Inline SVG for diagrams | React Flow / Vue Flow | Interactive graph libraries — again overkill for static diagrams                                                        |
+| CSS Tailwind boxes      | Canvas API            | Canvas is imperative and non-accessible; Tailwind HTML is simpler to maintain                                           |
 
 **Confirmed: zero new packages for Phase 4.** The constraint to not add packages for this personal project holds.
 
@@ -88,8 +90,10 @@ export default function Routing() {
         {/* live demo content */}
       </div>
       <div className="mb-4">
-        <button onClick={() => setShowCode(!showCode)}
-          className="text-xs text-blue-600 hover:text-blue-800 font-medium">
+        <button
+          onClick={() => setShowCode(!showCode)}
+          className="text-xs text-blue-600 hover:text-blue-800 font-medium"
+        >
           {showCode ? '▼ Ẩn code' : '▶ Xem code'}
         </button>
         {showCode && (
@@ -127,9 +131,7 @@ export default function RenderingMechanism() {
         <h2 className="text-lg font-semibold mb-3">Rendering Mechanism</h2>
         {/* live demo */}
       </div>
-      <div className="mb-4">
-        {/* code toggle — standard */}
-      </div>
+      <div className="mb-4">{/* code toggle — standard */}</div>
       <div className="p-4 bg-slate-50 rounded mb-4">
         <h3 className="text-sm font-semibold mb-2">So sánh</h3>
         {/* comparison text */}
@@ -137,8 +139,14 @@ export default function RenderingMechanism() {
 
       {/* === DIAGRAM SECTION (new for deep-dive) === */}
       <div className="border border-slate-200 rounded-lg p-4">
-        <h3 className="text-sm font-semibold mb-4">Diagram: React Re-render Flow</h3>
-        <svg viewBox="0 0 400 200" className="w-full h-auto" aria-label="React re-render flow diagram">
+        <h3 className="text-sm font-semibold mb-4">
+          Diagram: React Re-render Flow
+        </h3>
+        <svg
+          viewBox="0 0 400 200"
+          className="w-full h-auto"
+          aria-label="React re-render flow diagram"
+        >
           {/* inline SVG diagram */}
         </svg>
       </div>
@@ -154,6 +162,7 @@ export default function RenderingMechanism() {
 **What:** Static SVG diagrams with `viewBox`, `<rect>`, `<text>`, `<path>` elements. Tailwind classes on the wrapping `<div>`.
 
 **Anatomy of a diagram node:**
+
 ```svg
 <svg viewBox="0 0 400 160" className="w-full h-auto max-w-md">
   <!-- Node box -->
@@ -204,14 +213,19 @@ Add to `packages/shared/src/topics.ts` — 7 new entries using existing Category
 ```
 
 **Category types already defined** in `packages/shared/src/types.ts`:
+
 ```typescript
 export type Category =
-  | 'essentials' | 'components' | 'reusability' | 'built-in'
-  | 'scaling-up'   // ← already there
-  | 'deep-dive'    // ← already there
+  | 'essentials'
+  | 'components'
+  | 'reusability'
+  | 'built-in'
+  | 'scaling-up' // ← already there
+  | 'deep-dive' // ← already there
 ```
 
 **CATEGORIES map already defined** in `packages/shared/src/constants.ts`:
+
 ```typescript
 'scaling-up': 'Scaling Up',
 'deep-dive': 'Deep Dive',
@@ -229,13 +243,13 @@ No changes needed to shared types or constants — just topic registry entries.
 
 ## Don't Hand-Roll
 
-| Problem | Don't Build | Use Instead | Why |
-|---------|-------------|-------------|-----|
-| Syntax-highlighted code in diagram labels | Custom highlight logic | Plain SVG `<text>` elements | Diagrams show flow/structure, not code — no highlighting needed |
-| Arrow markers in SVG | Custom CSS shapes | SVG `<marker>` + `<defs>` | Native SVG standard, renders correctly in all browsers |
-| Responsive SVG | Custom resize JS | SVG `viewBox` + `w-full h-auto` | viewBox makes SVG naturally responsive with CSS |
-| Pinia store in Vue demo | Full store setup | Simplified ref-based demo with Pinia-like API shown in code snippet | Can't install Pinia just for one demo; show the concept via code + explanation |
-| Zustand store in React demo | Full store setup | useState-based demo with Zustand code snippet | Same reason — no new packages |
+| Problem                                   | Don't Build            | Use Instead                                                         | Why                                                                            |
+| ----------------------------------------- | ---------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| Syntax-highlighted code in diagram labels | Custom highlight logic | Plain SVG `<text>` elements                                         | Diagrams show flow/structure, not code — no highlighting needed                |
+| Arrow markers in SVG                      | Custom CSS shapes      | SVG `<marker>` + `<defs>`                                           | Native SVG standard, renders correctly in all browsers                         |
+| Responsive SVG                            | Custom resize JS       | SVG `viewBox` + `w-full h-auto`                                     | viewBox makes SVG naturally responsive with CSS                                |
+| Pinia store in Vue demo                   | Full store setup       | Simplified ref-based demo with Pinia-like API shown in code snippet | Can't install Pinia just for one demo; show the concept via code + explanation |
+| Zustand store in React demo               | Full store setup       | useState-based demo with Zustand code snippet                       | Same reason — no new packages                                                  |
 
 **Key insight:** Scaling Up topics (Routing, State Mgmt, Testing) involve external libraries NOT installed in this project. The demo pattern must be "code snippet that shows what you would write + explanation" rather than a live running integration. This is consistent with how BTIN-01 (Transition) showed framer-motion code without actually running it.
 
@@ -281,6 +295,7 @@ No changes needed to shared types or constants — just topic registry entries.
 Verified patterns from existing codebase:
 
 ### Vue Topic File Structure (from existing built-in/Transition.vue pattern)
+
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue'
@@ -295,12 +310,16 @@ const DEMO_CODE = `// Vue code snippet`
       <!-- demo content -->
     </div>
     <div class="mb-4">
-      <button @click="showCode = !showCode"
-        class="text-xs text-blue-600 hover:text-blue-800 font-medium">
+      <button
+        @click="showCode = !showCode"
+        class="text-xs text-blue-600 hover:text-blue-800 font-medium"
+      >
         {{ showCode ? '▼ Ẩn code' : '▶ Xem code' }}
       </button>
-      <pre v-if="showCode"
-        class="mt-2 bg-slate-900 text-slate-100 text-xs p-4 rounded overflow-x-auto">
+      <pre
+        v-if="showCode"
+        class="mt-2 bg-slate-900 text-slate-100 text-xs p-4 rounded overflow-x-auto"
+      >
         <code>{{ DEMO_CODE }}</code>
       </pre>
     </div>
@@ -313,7 +332,11 @@ const DEMO_CODE = `// Vue code snippet`
     <!-- DEEP DIVE ONLY: diagram section -->
     <div class="border border-slate-200 rounded-lg p-4 mt-4">
       <h3 class="text-sm font-semibold mb-4">Diagram: Vue Proxy Tracking</h3>
-      <svg viewBox="0 0 360 140" class="w-full h-auto" aria-label="Vue Proxy tracking diagram">
+      <svg
+        viewBox="0 0 360 140"
+        class="w-full h-auto"
+        aria-label="Vue Proxy tracking diagram"
+      >
         <!-- diagram nodes and arrows -->
       </svg>
     </div>
@@ -322,6 +345,7 @@ const DEMO_CODE = `// Vue code snippet`
 ```
 
 ### PascalCase Filename Convention (from TopicRenderer slug-to-filename mapping)
+
 ```typescript
 // TopicRenderer converts slug to PascalCase filename:
 // 'state-management' → 'StateManagement'
@@ -334,10 +358,11 @@ const DEMO_CODE = `// Vue code snippet`
 Files must match exactly: `StateManagement.tsx`, `RerenderOptimization.vue`, etc.
 
 ### TopicRenderer glob pattern (already covers new folders)
+
 ```typescript
 // React (packages/react-app/src/components/TopicRenderer.tsx)
 const topicModules = import.meta.glob<{ default: React.ComponentType }>(
-  '../topics/**/*.tsx',   // ← ** covers scaling-up/ and deep-dive/ automatically
+  '../topics/**/*.tsx', // ← ** covers scaling-up/ and deep-dive/ automatically
 )
 
 // Vue (packages/vue-app/src/components/TopicRenderer.vue)
@@ -353,39 +378,46 @@ What each diagram should show (for planning content):
 ### DEEP-01: Rendering Mechanism
 
 **Vue side diagram:** "Vue Compiler Optimization" — template compiled to optimized VNode with static hoisting + patch flags. Only dynamic nodes get diffed.
+
 - Nodes: `Template` → `Compiler` → `VNode Tree (optimized)` → `DOM diff (targeted)`
 - Highlight: patch flags on dynamic nodes (skip static)
 
 **React side diagram:** "React Full Subtree Re-render" — on setState, entire subtree re-renders from that component down. React Fiber traverses all children.
+
 - Nodes: `setState()` → `Component re-renders` → `Children re-render` → `Reconciler (all nodes)`
 - Highlight: the full traversal vs Vue's targeted diff
 
 ### DEEP-02: Reactivity In-Depth
 
 **Vue side diagram:** "Proxy-based Tracking" — accessing a reactive property automatically registers the effect as a dependency. Mutating triggers re-run.
+
 - Nodes: `reactive({})` / `ref()` → `Proxy` → `Effect tracking (get)` → `Trigger (set)` → `Re-render`
 
 **React side diagram:** "Immutable State + Explicit Setter" — state is plain value, setter call queues a re-render. No automatic tracking.
+
 - Nodes: `useState()` → `[value, setter]` → `Manual setter call` → `Component re-render (full)`
 
 ### DEEP-03: Re-render & Optimization
 
 **Vue side diagram:** "Auto Optimization" — component only re-renders when its template's reactive dependencies change. memo/useMemo not needed.
+
 - Nodes: `Reactive dep changes` → `Only affected components re-render` → `Static children: SKIP`
 
 **React side diagram:** "Manual Optimization" — without memoization, all children re-render on parent state change.
+
 - Nodes: `Parent state change` → `React.memo?` (Y → skip, N → re-render) → `useMemo/useCallback` for expensive derivations
 
 ## State of the Art
 
-| Old Approach | Current Approach | When Changed | Impact |
-|--------------|------------------|--------------|--------|
-| Vue 2 Options API watchers | Vue 3 Composition API + Proxy reactivity | Vue 3.0 (2020) | Deep Dive diagrams show Vue 3 Proxy, not Vue 2 getter/setter |
-| React class components | React function components + hooks | React 16.8 (2019) | All React topics use hooks |
-| Pinia as Vue 4 RFC | Pinia as official Vue state library | 2021 | SCAL-02 uses Pinia as the Vue standard |
-| Vuex | Pinia | 2021 | Vuex is deprecated; never reference it |
+| Old Approach               | Current Approach                         | When Changed      | Impact                                                       |
+| -------------------------- | ---------------------------------------- | ----------------- | ------------------------------------------------------------ |
+| Vue 2 Options API watchers | Vue 3 Composition API + Proxy reactivity | Vue 3.0 (2020)    | Deep Dive diagrams show Vue 3 Proxy, not Vue 2 getter/setter |
+| React class components     | React function components + hooks        | React 16.8 (2019) | All React topics use hooks                                   |
+| Pinia as Vue 4 RFC         | Pinia as official Vue state library      | 2021              | SCAL-02 uses Pinia as the Vue standard                       |
+| Vuex                       | Pinia                                    | 2021              | Vuex is deprecated; never reference it                       |
 
 **Deprecated/outdated:**
+
 - Vuex: Replaced by Pinia as official Vue state management. Do not reference in SCAL-02.
 - `react-router-dom`: Merged into `react-router` v7. Import from `react-router` only.
 - Redux (without Redux Toolkit): RTK is the modern standard if Redux is shown at all. Prefer Zustand as simpler alternative.
@@ -418,6 +450,7 @@ Step 2.4: nyquist_validation is explicitly `false` in `.planning/config.json`. S
 ## Sources
 
 ### Primary (HIGH confidence)
+
 - `/home/tungpt244/workspace/vibe/packages/shared/src/types.ts` — Category type already includes `'scaling-up'` and `'deep-dive'`
 - `/home/tungpt244/workspace/vibe/packages/shared/src/constants.ts` — CATEGORIES map already has both new categories
 - `/home/tungpt244/workspace/vibe/packages/react-app/src/components/TopicRenderer.tsx` — `**/*.tsx` glob covers new folders automatically
@@ -426,16 +459,19 @@ Step 2.4: nyquist_validation is explicitly `false` in `.planning/config.json`. S
 - All 28 existing topic files — locked pattern for demo box + code toggle + explanation box
 
 ### Secondary (MEDIUM confidence)
+
 - MDN SVG documentation — SVG `viewBox`, `<marker>`, `<defs>` attributes for responsive inline diagrams
 - Vue 3 documentation — Compiler optimization (patch flags, static hoisting) for DEEP-01 diagram content
 - React documentation — Reconciler and fiber tree traversal for DEEP-01 React side diagram
 
 ### Tertiary (LOW confidence)
+
 - Training data (Aug 2025) — Pinia as official Vue state management standard, Zustand as React lightweight standard
 
 ## Metadata
 
 **Confidence breakdown:**
+
 - Standard stack: HIGH — all packages already installed; no new deps required
 - Architecture patterns: HIGH — new folders, glob auto-coverage, and registry expansion are all verified from existing code
 - Diagram approach: HIGH — inline SVG with viewBox is browser-native, no library needed; confirmed by MDN
